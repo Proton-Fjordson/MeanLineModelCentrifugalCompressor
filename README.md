@@ -15,6 +15,7 @@ The culprits are probably:
 * VanelessdiffuserLoss
 * VaneddiffuserLoss
 * VoluteLoss
+
 From what I also remember, stresses computation may be buggy.
 Last updated: 23/08/2024 (dd/mm/yyyy)
 
@@ -31,6 +32,7 @@ Last updated: 23/08/2024 (dd/mm/yyyy)
  * matplotlib
  * time
  * sys
+
 If refprop is not available, it's possible to make the code work by modifying the backend calls of Coolprop. 
 However, there's a bit of elbow grease due to the calls to get the isentropic expansion coefficient values here and there.
 This could be updated in a future version.
