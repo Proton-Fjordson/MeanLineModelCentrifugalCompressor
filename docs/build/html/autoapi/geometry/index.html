@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>geometry &#8212; Mean line model for centrifugal compressors or pumps 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    
+    <script src="../../_static/documentation_options.js?v=8dde47fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mechanics" href="../mechanics/index.html" />
+    <link rel="prev" title="physics" href="../physics/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../mechanics/index.html" title="mechanics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../physics/index.html" title="physics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">geometry</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-geometry">
+<span id="geometry"></span><h1>geometry<a class="headerlink" href="#module-geometry" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#geometry.impeller" title="geometry.impeller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">impeller</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#geometry.Inlet" title="geometry.Inlet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Inlet</span></code></a></p></td>
+<td><p>Class defining and holding all geometrical data for the inlet of a centrifugal machine</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#geometry.IGV" title="geometry.IGV"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IGV</span></code></a></p></td>
+<td><p>Class defining and holding all geometrical data for the Inlet Guide Vane (IGV) of a centrifugal machine</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#geometry.Impeller" title="geometry.Impeller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Impeller</span></code></a></p></td>
+<td><p>Class holding all the data to define an impeller geometry</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#geometry.VanelessDiffuser" title="geometry.VanelessDiffuser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VanelessDiffuser</span></code></a></p></td>
+<td><p>Class defining and holding all geometrical data for the vaneless diffuser of a centrifugal machine</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#geometry.VanedDiffuser" title="geometry.VanedDiffuser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VanedDiffuser</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#geometry.Volute" title="geometry.Volute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Volute</span></code></a></p></td>
+<td><p>Class defining and holding all geometrical data for the volute of a centrifugal machine</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#geometry.Validation" title="geometry.Validation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Validation</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.Inlet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">Inlet</span></span><a class="headerlink" href="#geometry.Inlet" title="Link to this definition">¶</a></dt>
+<dd><p>Class defining and holding all geometrical data for the inlet of a centrifugal machine
+Currently not in used and to be defined better. For now, copy the impeller inlet.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Inlet._hub_diameter">
+<span class="sig-name descname"><span class="pre">_hub_diameter</span></span><a class="headerlink" href="#geometry.Inlet._hub_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Hub (inner) diameter <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span> of the centrifugal machine’s impeller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Inlet._tip_diameter">
+<span class="sig-name descname"><span class="pre">_tip_diameter</span></span><a class="headerlink" href="#geometry.Inlet._tip_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Tip (inner) diameter <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> of the centrifugal machine’s impeller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Inlet._area">
+<span class="sig-name descname"><span class="pre">_area</span></span><a class="headerlink" href="#geometry.Inlet._area" title="Link to this definition">¶</a></dt>
+<dd><p>Inlet area for the fluid flow: <span class="math notranslate nohighlight">\(\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO Define correctly the class as an inlet and not a derived impeller (in case there’s an IGV) and use it in the code.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">_hub_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">_tip_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Inlet.compute_area">
+<span class="sig-name descname"><span class="pre">compute_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Inlet.compute_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the inlet area for the fluid flow as <span class="math notranslate nohighlight">\(\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)\)</span> and sets _area</p>
+<p>_tip_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> and _hub_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span> should be set by the user before calling compute_area()</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.IGV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">IGV</span></span><a class="headerlink" href="#geometry.IGV" title="Link to this definition">¶</a></dt>
+<dd><p>Class defining and holding all geometrical data for the Inlet Guide Vane (IGV) of a centrifugal machine
+Currently not in used and to be defined better. For now, copy the impeller inlet.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.IGV._hub_diameter">
+<span class="sig-name descname"><span class="pre">_hub_diameter</span></span><a class="headerlink" href="#geometry.IGV._hub_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Hub (inner) diameter <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span> of the centrifugal machine’s impeller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.IGV._tip_diameter">
+<span class="sig-name descname"><span class="pre">_tip_diameter</span></span><a class="headerlink" href="#geometry.IGV._tip_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Tip (inner) diameter <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> of the centrifugal machine’s impeller</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.IGV._area">
+<span class="sig-name descname"><span class="pre">_area</span></span><a class="headerlink" href="#geometry.IGV._area" title="Link to this definition">¶</a></dt>
+<dd><p>Inlet area for the fluid flow: <span class="math notranslate nohighlight">\(\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.IGV._position">
+<span class="sig-name descname"><span class="pre">_position</span></span><a class="headerlink" href="#geometry.IGV._position" title="Link to this definition">¶</a></dt>
+<dd><p>IGV angle in radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.IGV._mid_diameter">
+<span class="sig-name descname"><span class="pre">_mid_diameter</span></span><a class="headerlink" href="#geometry.IGV._mid_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Mid line diameter <span class="math notranslate nohighlight">\(D_{\mathrm{mid}}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO Define correctly the class as an inlet and not a derived impeller (in case there’s an IGV) and use it in the code.</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">_hub_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">_tip_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">_position</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id5" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">_mid_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.IGV.compute_mid_diameter">
+<span class="sig-name descname"><span class="pre">compute_mid_diameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.IGV.compute_mid_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the mid line diameter as <span class="math notranslate nohighlight">\(\sqrt{\frac{D_{\mathrm{hub}}^2 + D_{\mathrm{tip}}^2}{2}}\)</span> and sets _mid_diameter</p>
+<p>_tip_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> and _hub_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span> should be set by the user before calling compute_mid_diameter()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.IGV.compute_area">
+<span class="sig-name descname"><span class="pre">compute_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.IGV.compute_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the inlet area for the fluid flow as <span class="math notranslate nohighlight">\(\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)\)</span> and sets _area</p>
+<p>_tip_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> and _hub_diameter <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span> should be set by the user before calling compute_area()</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.Impeller">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">Impeller</span></span><a class="headerlink" href="#geometry.Impeller" title="Link to this definition">¶</a></dt>
+<dd><p>Class holding all the data to define an impeller geometry</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._inlet_diameters">
+<span class="sig-name descname"><span class="pre">_inlet_diameters</span></span><a class="headerlink" href="#geometry.Impeller._inlet_diameters" title="Link to this definition">¶</a></dt>
+<dd><p>inlet diameters of hub <span class="math notranslate nohighlight">\(D_{\mathrm{hub}}\)</span>, mid <span class="math notranslate nohighlight">\(D_{\mathrm{mid}}\)</span> and tip <span class="math notranslate nohighlight">\(D_{\mathrm{tip}}\)</span> line in this order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3x1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._inlet_blade_thickness">
+<span class="sig-name descname"><span class="pre">_inlet_blade_thickness</span></span><a class="headerlink" href="#geometry.Impeller._inlet_blade_thickness" title="Link to this definition">¶</a></dt>
+<dd><p>inlet blade thickness of hub, mid and tip line in this order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3 x 1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._inlet_blade_angle">
+<span class="sig-name descname"><span class="pre">_inlet_blade_angle</span></span><a class="headerlink" href="#geometry.Impeller._inlet_blade_angle" title="Link to this definition">¶</a></dt>
+<dd><p>inlet blade angle of hub, mid and tip line in this order in radians.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3 x 1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_diameter">
+<span class="sig-name descname"><span class="pre">_outlet_diameter</span></span><a class="headerlink" href="#geometry.Impeller._outlet_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>outlet diameter of the impeller, usually written <span class="math notranslate nohighlight">\(D_2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_blade_height">
+<span class="sig-name descname"><span class="pre">_outlet_blade_height</span></span><a class="headerlink" href="#geometry.Impeller._outlet_blade_height" title="Link to this definition">¶</a></dt>
+<dd><p>outlet blade height defining the impeller, usually written <span class="math notranslate nohighlight">\(b_2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_blade_thickness">
+<span class="sig-name descname"><span class="pre">_outlet_blade_thickness</span></span><a class="headerlink" href="#geometry.Impeller._outlet_blade_thickness" title="Link to this definition">¶</a></dt>
+<dd><p>outlet blade thickness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_average_blade_thickness">
+<span class="sig-name descname"><span class="pre">_outlet_average_blade_thickness</span></span><a class="headerlink" href="#geometry.Impeller._outlet_average_blade_thickness" title="Link to this definition">¶</a></dt>
+<dd><p>average thickness of the blades at the outlet of the impeller taking into account a taper ratio of the blade (thickness at hub and tip are different)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_blade_angle">
+<span class="sig-name descname"><span class="pre">_outlet_blade_angle</span></span><a class="headerlink" href="#geometry.Impeller._outlet_blade_angle" title="Link to this definition">¶</a></dt>
+<dd><p>outlet blade angle of the impeller in radians, usually written <span class="math notranslate nohighlight">\(\beta_2\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._axial_extension">
+<span class="sig-name descname"><span class="pre">_axial_extension</span></span><a class="headerlink" href="#geometry.Impeller._axial_extension" title="Link to this definition">¶</a></dt>
+<dd><p>axial extension (height) of the impeller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._blade_running_clearance">
+<span class="sig-name descname"><span class="pre">_blade_running_clearance</span></span><a class="headerlink" href="#geometry.Impeller._blade_running_clearance" title="Link to this definition">¶</a></dt>
+<dd><p>blade running clearance used for clearance loss, usually written <span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._number_blade_full">
+<span class="sig-name descname"><span class="pre">_number_blade_full</span></span><a class="headerlink" href="#geometry.Impeller._number_blade_full" title="Link to this definition">¶</a></dt>
+<dd><p>number of full blades. If there are splitters, full number of blades / 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._splitter_blade_length_fraction">
+<span class="sig-name descname"><span class="pre">_splitter_blade_length_fraction</span></span><a class="headerlink" href="#geometry.Impeller._splitter_blade_length_fraction" title="Link to this definition">¶</a></dt>
+<dd><p>splitter blade length fraction ie. length of splitter vs a full blade.</p>
+<p>Equals 0 or 1 if no splitter are used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._blade_length">
+<span class="sig-name descname"><span class="pre">_blade_length</span></span><a class="headerlink" href="#geometry.Impeller._blade_length" title="Link to this definition">¶</a></dt>
+<dd><p>length of a blade according to <a href="#id8"><span class="problematic" id="id9">:cite:t:`1970:Jansen`</span></a>. W. Jansen, Inst. Mech. Eng. Internal Aerodynamics, 1970.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._blade_length_meanline">
+<span class="sig-name descname"><span class="pre">_blade_length_meanline</span></span><a class="headerlink" href="#geometry.Impeller._blade_length_meanline" title="Link to this definition">¶</a></dt>
+<dd><p>length of a blade at the meanline computed by numerically integrating the geometrical definition of the blade.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to 0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._effective_number_blade">
+<span class="sig-name descname"><span class="pre">_effective_number_blade</span></span><a class="headerlink" href="#geometry.Impeller._effective_number_blade" title="Link to this definition">¶</a></dt>
+<dd><p>effective number of blades. Differs from <code class="docutils literal notranslate"><span class="pre">_full_number_blade_w_splitters</span></code> insofar as it’s not necessarily an integer.
+Used for the slip factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._full_number_blade_w_splitters">
+<span class="sig-name descname"><span class="pre">_full_number_blade_w_splitters</span></span><a class="headerlink" href="#geometry.Impeller._full_number_blade_w_splitters" title="Link to this definition">¶</a></dt>
+<dd><p>total number of blades including splitters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._hydraulic_diameter">
+<span class="sig-name descname"><span class="pre">_hydraulic_diameter</span></span><a class="headerlink" href="#geometry.Impeller._hydraulic_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>hydraulic diameter of the impeller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._inlet_area">
+<span class="sig-name descname"><span class="pre">_inlet_area</span></span><a class="headerlink" href="#geometry.Impeller._inlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>inlet area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._throat_pitch_blade">
+<span class="sig-name descname"><span class="pre">_throat_pitch_blade</span></span><a class="headerlink" href="#geometry.Impeller._throat_pitch_blade" title="Link to this definition">¶</a></dt>
+<dd><p>pitch of the impeller at the throat for the hub, mid, tip lines in that order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3x1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._throat_width">
+<span class="sig-name descname"><span class="pre">_throat_width</span></span><a class="headerlink" href="#geometry.Impeller._throat_width" title="Link to this definition">¶</a></dt>
+<dd><p>opening width of the throat for the hub, mid and tip lines in that order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3x1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._outlet_area">
+<span class="sig-name descname"><span class="pre">_outlet_area</span></span><a class="headerlink" href="#geometry.Impeller._outlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>outlet area</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._inlet_optimal_angle">
+<span class="sig-name descname"><span class="pre">_inlet_optimal_angle</span></span><a class="headerlink" href="#geometry.Impeller._inlet_optimal_angle" title="Link to this definition">¶</a></dt>
+<dd><p>optimal blade angle at inlet for the hub, mid and tip line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3x1 array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._parameter_angle">
+<span class="sig-name descname"><span class="pre">_parameter_angle</span></span><a class="headerlink" href="#geometry.Impeller._parameter_angle" title="Link to this definition">¶</a></dt>
+<dd><p>parameter used to define the blade shape using a cubic law.
+Must be between 0 and 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._Ra">
+<span class="sig-name descname"><span class="pre">_Ra</span></span><a class="headerlink" href="#geometry.Impeller._Ra" title="Link to this definition">¶</a></dt>
+<dd><p>Surface roughness of the impeller and its blades</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._taperratio">
+<span class="sig-name descname"><span class="pre">_taperratio</span></span><a class="headerlink" href="#geometry.Impeller._taperratio" title="Link to this definition">¶</a></dt>
+<dd><p>taper ratio of the thickness for the blades.</p>
+<p>Equals <span class="math notranslate nohighlight">\(t_{\mathrm{hub}}/t_{\mathrm{tip}}\)</span></p>
+<p>with <span class="math notranslate nohighlight">\(t_{\mathrm{tip}}\)</span> the thickness of the blade at the tip (<code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[-1]</span></code> for instance)</p>
+<p>and <span class="math notranslate nohighlight">\(t_{\mathrm{hub}}\)</span> the thickness of the blade at the hub (<code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[0]</span></code> for instance)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._tapertype">
+<span class="sig-name descname"><span class="pre">_tapertype</span></span><a class="headerlink" href="#geometry.Impeller._tapertype" title="Link to this definition">¶</a></dt>
+<dd><p>type of thickness evolution along the blade in the radial direction.</p>
+<p>parabolic or linear.</p>
+<p>When parabolic, the thickness <span class="math notranslate nohighlight">\(t\)</span> along the blade in the radial direction follows <span class="math notranslate nohighlight">\(t(r) = 1 + \left(t_{\mathrm{tip}}/t_{\mathrm{hub}} - 1\right)r^2\)</span></p>
+<p>When parabolic, the thickness <span class="math notranslate nohighlight">\(t\)</span> along the blade in the radial direction follows <span class="math notranslate nohighlight">\(t(r) = 1 + \left(t_{\mathrm{tip}}/t_{\mathrm{hub}} - 1\right)r\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">'parabolic'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._Xt">
+<span class="sig-name descname"><span class="pre">_Xt</span></span><a class="headerlink" href="#geometry.Impeller._Xt" title="Link to this definition">¶</a></dt>
+<dd><p>normalized radial distances in the radial/axial plane (meridional view) of the blade as an elliptic arc for different lines describing a blade.
+value is 0 for the hub and 1 for the tip of the blade.</p>
+<p>1st result of a <code class="docutils literal notranslate"><span class="pre">numpy.meshgrid</span></code> with the number of lines to compute (along the radial direction of the blade) and the number of points in the axial direction.
+shape is (number of lines to computes, number of points on a line)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._Theta">
+<span class="sig-name descname"><span class="pre">_Theta</span></span><a class="headerlink" href="#geometry.Impeller._Theta" title="Link to this definition">¶</a></dt>
+<dd><p>angles in radians to define the radial/axial plane (meridional view) of the blade as an elliptic arc for different lines describing a blade.
+value is 0 for the top of the impeller (inlet) and <span class="math notranslate nohighlight">\(\pi/2\)</span> for the outlet of the impeller.</p>
+<p>2nd result of a <code class="docutils literal notranslate"><span class="pre">numpy.meshgrid</span></code> with the number of lines to compute (along the radial direction of the blade) and the number of points in the axial direction.
+shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._r">
+<span class="sig-name descname"><span class="pre">_r</span></span><a class="headerlink" href="#geometry.Impeller._r" title="Link to this definition">¶</a></dt>
+<dd><p>radial coordinate in the meridional plane of the points to plot a blade from <code class="docutils literal notranslate"><span class="pre">_Xt</span></code> and <code class="docutils literal notranslate"><span class="pre">_Theta</span></code></p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._z">
+<span class="sig-name descname"><span class="pre">_z</span></span><a class="headerlink" href="#geometry.Impeller._z" title="Link to this definition">¶</a></dt>
+<dd><p>axial coordinate in the meridional plane of the points to plot a blade from <code class="docutils literal notranslate"><span class="pre">_Xt</span></code> and <code class="docutils literal notranslate"><span class="pre">_Theta</span></code></p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._mt">
+<span class="sig-name descname"><span class="pre">_mt</span></span><a class="headerlink" href="#geometry.Impeller._mt" title="Link to this definition">¶</a></dt>
+<dd><p>curvilinear distance along a blade using <code class="docutils literal notranslate"><span class="pre">_r</span></code> and <code class="docutils literal notranslate"><span class="pre">_z</span></code></p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._beta">
+<span class="sig-name descname"><span class="pre">_beta</span></span><a class="headerlink" href="#geometry.Impeller._beta" title="Link to this definition">¶</a></dt>
+<dd><p>blade angle in radians along the blade</p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._phi">
+<span class="sig-name descname"><span class="pre">_phi</span></span><a class="headerlink" href="#geometry.Impeller._phi" title="Link to this definition">¶</a></dt>
+<dd><p>polar angle in radians of the blade for a 3D blade in cylindrical coordinates</p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._mt_adim">
+<span class="sig-name descname"><span class="pre">_mt_adim</span></span><a class="headerlink" href="#geometry.Impeller._mt_adim" title="Link to this definition">¶</a></dt>
+<dd><p>normalized curvilinear distance along a blade, <code class="docutils literal notranslate"><span class="pre">_mt/_mt[:,</span> <span class="pre">-1]</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._phi_allblades">
+<span class="sig-name descname"><span class="pre">_phi_allblades</span></span><a class="headerlink" href="#geometry.Impeller._phi_allblades" title="Link to this definition">¶</a></dt>
+<dd><p>polar angle in radians of the blades for 3D blades in cylindrical coordinates (see _phi)</p>
+<p>shape is <code class="docutils literal notranslate"><span class="pre">(_full_number_blade_w_splitters,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">lines</span> <span class="pre">to</span> <span class="pre">computes,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">line)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">_inlet_diameters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id10" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">_inlet_blade_thickness</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id11" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">_inlet_blade_angle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">_outlet_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">_outlet_blade_height</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">_outlet_blade_thickness</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">_outlet_average_blade_thickness</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">_outlet_blade_angle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">_axial_extension</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">_blade_running_clearance</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">_number_blade_full</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">_splitter_blade_length_fraction</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">_blade_length</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">_blade_length_meanline</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">_effective_number_blade</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">_full_number_blade_w_splitters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">_hydraulic_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">_inlet_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">_throat_pitch_blade</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">_throat_width</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Impeller._throat_area">
+<span class="sig-name descname"><span class="pre">_throat_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.Impeller._throat_area" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id30">
+<span class="sig-name descname"><span class="pre">_outlet_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id31">
+<span class="sig-name descname"><span class="pre">_inlet_optimal_angle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id32">
+<span class="sig-name descname"><span class="pre">_parameter_angle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">_Ra</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3.2</span></em><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id34">
+<span class="sig-name descname"><span class="pre">_taperratio</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.5</span></em><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id35">
+<span class="sig-name descname"><span class="pre">_tapertype</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'parabolic'</span></em><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id36">
+<span class="sig-name descname"><span class="pre">_Xt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id37">
+<span class="sig-name descname"><span class="pre">_Theta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id37" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id38">
+<span class="sig-name descname"><span class="pre">_r</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id38" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id39">
+<span class="sig-name descname"><span class="pre">_z</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id39" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id40">
+<span class="sig-name descname"><span class="pre">_mt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id40" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id41">
+<span class="sig-name descname"><span class="pre">_beta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id41" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id42">
+<span class="sig-name descname"><span class="pre">_phi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id42" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id43">
+<span class="sig-name descname"><span class="pre">_mt_adim</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id43" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id44">
+<span class="sig-name descname"><span class="pre">_phi_allblades</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id44" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.update_geometry">
+<span class="sig-name descname"><span class="pre">update_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">set_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.update_geometry" title="Link to this definition">¶</a></dt>
+<dd><p>Computes impeller geometry data used for computation</p>
+<ol class="arabic simple">
+<li><p>sets the thickness of the blades</p></li>
+<li><p>computes the mid line diameter</p></li>
+<li><p>computes the optimal inlet blade angles</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">set_angle</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, sets the inlet blade angles to optimal values</p></li>
+<li><p>computes the blade angle at the mean line (mid) of the inlet</p></li>
+<li><p>computes the blade length from <a href="#id45"><span class="problematic" id="id46">:cite:t:`1970:Jansen`</span></a></p></li>
+<li><p>computes the effective number of blades and the full number of blades including splitters</p></li>
+<li><p>computes the hydraulic diameter from <a href="#id47"><span class="problematic" id="id48">:cite:t:`1970:Jansen`</span></a></p></li>
+<li><p>computes the inlet flow area</p></li>
+<li><p>computes the throat flow area</p></li>
+<li><p>computes the outlet flow area</p></li>
+<li><p>computes the geometrical data to 3D plot the hub, mid and tip lines with 200 points along the blade in the axial direction</p></li>
+<li><p>computes the blade length at mean line (mid) from the 3D data</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>set_angle</strong> (bool, defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>) – define if inlet blade angles are modified to use the optimal angles or not</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_mid_diameter">
+<span class="sig-name descname"><span class="pre">compute_mid_diameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_mid_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the mean (mid) line diameter and stores it it in the corresponding class attribute.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_inlet_diameters[1]</span></code> with <span class="math notranslate nohighlight">\(D_{\mathrm{mid}} = \sqrt{\frac{D_{\mathrm{tip}}^2 + D_{\mathrm{hub}}^2}{2}}\)</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_inlet_average_blade_angle">
+<span class="sig-name descname"><span class="pre">compute_inlet_average_blade_angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_inlet_average_blade_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the average inlet blade angle and stores it in the corresponding class attribute.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_inlet_blade_angle[1]</span></code> with the interpolation of the inlet blade angle at the mean (mid) line diameter</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_blade_length">
+<span class="sig-name descname"><span class="pre">compute_blade_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_blade_length" title="Link to this definition">¶</a></dt>
+<dd><p>Computes blade length of an impeller and stores it in the corresponding class attribute <code class="docutils literal notranslate"><span class="pre">_blade_length</span></code></p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_blade_length</span></code> <span class="math notranslate nohighlight">\(L_{\mathrm{b}}\)</span> with the blade length computed using <a href="#id49"><span class="problematic" id="id50">:cite:t:`1970:Jansen`</span></a>:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\mathrm{cos}\left(\beta_{\mathrm{average}}\right) = \frac{1}{2}\left(\mathrm{cos}\left(\beta_{1\ \mathrm{hub}}\right) + \mathrm{cos}\left(\beta_{1\ \mathrm{tip}}\right)\right)\)</span>
+<span class="math notranslate nohighlight">\(L_{\mathrm{b}} = \frac{\pi}{8} \left( D_2 - \frac{D_{\mathrm{tip}} + D_{\mathrm{hub}}}{2} - b_2 + 2 L_z \right) \frac{2}{\mathrm{cos}\left(\beta_{\mathrm{average}}\right) + \mathrm{cos}\left(\beta_2\right)}\)</span></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_number_blade">
+<span class="sig-name descname"><span class="pre">compute_number_blade</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_number_blade" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the different number of blades and stores them in the corresponding class attribute.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_full_number_blade_w_splitters</span></code> <span class="math notranslate nohighlight">\(N_{\mathrm{b}}\)</span> as <span class="math notranslate nohighlight">\(N_{\mathrm{b}} = 2N_{\mathrm{b\ full}}\)</span> if <code class="docutils literal notranslate"><span class="pre">_splitter_blade_length_fraction</span></code><span class="math notranslate nohighlight">\(\in \left[10^{-5} ; 1\right[\)</span> else <span class="math notranslate nohighlight">\(N_{\mathrm{b}} = N_{\mathrm{b\ full}}\)</span> where <span class="math notranslate nohighlight">\(N_{\mathrm{b\ full}}\)</span> is the number of full blades (ie. no splitter).</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_effective_number_blade</span></code> <span class="math notranslate nohighlight">\(N_{\mathrm{b\ effective}}\)</span> as <span class="math notranslate nohighlight">\(N_{\mathrm{b\ effective}} = N_{\mathrm{b\ full}}( 1 +\ \)</span> <code class="docutils literal notranslate"><span class="pre">_splitter_blade_length_fraction</span></code> <span class="math notranslate nohighlight">\()\)</span> if <code class="docutils literal notranslate"><span class="pre">_splitter_blade_length_fraction</span></code><span class="math notranslate nohighlight">\(\in \left[10^{-5} ; 1\right[\)</span> else <span class="math notranslate nohighlight">\(N_{\mathrm{b\ effective}} = N_{\mathrm{b\ full}}\)</span>  where <span class="math notranslate nohighlight">\(N_{\mathrm{b\ full}}\)</span> is the number of full blades (ie. no splitter).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_hydraulic_diameter">
+<span class="sig-name descname"><span class="pre">compute_hydraulic_diameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_hydraulic_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the hydraulic diameter and stores it in the corresponding class attribute <code class="docutils literal notranslate"><span class="pre">_hydraulic_diameter</span></code></p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_hydraulic_diameter</span></code> <span class="math notranslate nohighlight">\(D_{\mathrm{hyd}}\)</span> using <a href="#id51"><span class="problematic" id="id52">:cite:t:`1970:Jansen`</span></a>:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\mathrm{cos}\left(\beta_{\mathrm{average}}\right) = \frac{1}{2}\left(\mathrm{cos}\left(\beta_{1\ \mathrm{hub}}\right) + \mathrm{cos}\left(\beta_{1\ \mathrm{tip}}\right)\right)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{D_{\mathrm{hyd}}}{D_2} = \frac{\mathrm{cos}\left(\beta_2\right)}{\frac{N_\mathrm{b\ effective}}{\pi} + D_2\frac{\mathrm{cos}\left(\beta_2\right)}{b_2}} + \frac{\frac{1}{2} \left(\frac{D_{1\ \mathrm{tip}}}{D_2} + \frac{D_{1\ \mathrm{hub}}}{D_2} \right) \mathrm{cos}\left(\beta_{\mathrm{average}} \right)}{\frac{N_{\mathrm{b\ effective}}}{\pi} + \frac{D_{1\ \mathrm{tip}} + D_{1\ \mathrm{hub}}}{D_{1\ \mathrm{tip}} - D_{1\ \mathrm{hub}}} \mathrm{cos}\left(\beta_{\mathrm{average}}\right)}\)</span></p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_inlet_area">
+<span class="sig-name descname"><span class="pre">compute_inlet_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_inlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the inlet area and stores it in the corresponding class attribute <code class="docutils literal notranslate"><span class="pre">_inlet_area</span></code></p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_inlet_area</span></code> with <span class="math notranslate nohighlight">\(\frac{\pi}{4} \left( D_{1\ \mathrm{tip}}^2 - D_{1\ \mathrm{hub}}^2 \right)\)</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_pitch_blade">
+<span class="sig-name descname"><span class="pre">compute_pitch_blade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_pitch_blade" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the pitch of a blade at the inlet for a line along the blade situated at a diameter <code class="docutils literal notranslate"><span class="pre">D</span></code> and a thickness <code class="docutils literal notranslate"><span class="pre">t</span></code></p>
+<p>Computes and returns <span class="math notranslate nohighlight">\(\pi D/N_{\mathrm{b\ full}} - t_1\)</span> where <span class="math notranslate nohighlight">\(D\)</span> is the diameter where this is computed (hub, mid or tip) and <span class="math notranslate nohighlight">\(t_1\)</span> is the corresponding blade thickness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>D</strong> (<em>float</em>) – diameter of the line where the computation is done. hub, mid or tip typically.</p></li>
+<li><p><strong>t</strong> (<em>float</em>) – thickness of the blade at the diameter <code class="docutils literal notranslate"><span class="pre">D</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>s</strong> – max between 0 and the pitch of the blade at this position as <span class="math notranslate nohighlight">\(\pi D/N_{\mathrm{b\ full}} - t_1\)</span> where <span class="math notranslate nohighlight">\(D\)</span> is the diameter where this is computed (hub, mid or tip) and <span class="math notranslate nohighlight">\(t_1\)</span> is the corresponding blade thickness.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> – When the pitch is negative or zero, the fluid can’t pass through</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The pitch of the blade is the distance between 2 blades at the diameter (ie how far are the 2 points defining the blade at the diameter of interest) and not the smallest distance between 2 blades which defines the throat.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_throat_area">
+<span class="sig-name descname"><span class="pre">compute_throat_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_throat_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the throat area for hub, mid and tip position and stores them in the corresponding class attribute.</p>
+<ol class="arabic">
+<li><p>Updates <code class="docutils literal notranslate"><span class="pre">_throat_pitch_blade</span></code> using <a class="reference internal" href="#geometry.Impeller.compute_pitch_blade" title="geometry.Impeller.compute_pitch_blade"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_pitch_blade()</span></code></a></p></li>
+<li><p>Updates <code class="docutils literal notranslate"><span class="pre">_throat_width</span></code> as <span class="math notranslate nohighlight">\(o_i = s_i \mathrm{cos}\left( \beta_{1,\ i} \right)\)</span> where <span class="math notranslate nohighlight">\(o_i\)</span> is the throat width of line <span class="math notranslate nohighlight">\(i\)</span> (hub, mid or tip), <span class="math notranslate nohighlight">\(s_i\)</span> is the blade pitch of line <span class="math notranslate nohighlight">\(i\)</span> from <code class="docutils literal notranslate"><span class="pre">_throat_pitch_blade</span></code> and <span class="math notranslate nohighlight">\(\beta_{1,\ i}\)</span> is the inlet blade angle for the line <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><dl>
+<dt>Updates <code class="docutils literal notranslate"><span class="pre">_throat_area</span></code> using geometrical considerations and blockage due to diffusion according to <a href="#id53"><span class="problematic" id="id54">:cite:t:`2000:Aungier`</span></a></dt><dd><p>The geometrical passage area is given by <span class="math notranslate nohighlight">\(\frac{N_{\mathrm{b\ full}}}{4} \left( o_{\mathrm{hub}}\left( D_{\mathrm{mid}} - D_{\mathrm{hub}} \right) + o_{\mathrm{mid}}\left( D_{\mathrm{tip}} - D_{\mathrm{hub}} \right) + o_{\mathrm{tip}}\left( D_{\mathrm{tip}} - D_{\mathrm{mid}} \right) \right)\)</span></p>
+<p>The reduction is given by <span class="math notranslate nohighlight">\(AR = \frac{A_1 \mathrm{cos}\left( \beta_{1\ \mathrm{mid}} \right)}{A_{\mathrm{throat}}}\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(AR &lt; 10^{-10}\)</span> the throat area is not modified. Else, the throat area <span class="math notranslate nohighlight">\(A_{\mathrm{throat}}\)</span> is given by <span class="math notranslate nohighlight">\(A_{\mathrm{throat}} = A_{\mathrm{throat}} \mathrm{min}\left( \sqrt{AR} \ ;\ 1 - (AR - 1)^2 \right)\)</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_outlet_area">
+<span class="sig-name descname"><span class="pre">compute_outlet_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_outlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the outlet area and stores it in the corresponding class attribute <code class="docutils literal notranslate"><span class="pre">_outlet_area</span></code>.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_outlet_area</span></code> with <span class="math notranslate nohighlight">\(\left( \pi D_2 - N_{\mathrm{b}} t_2 \right) b_2\)</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_optimal_angle">
+<span class="sig-name descname"><span class="pre">compute_optimal_angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_optimal_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the optimal inlet angles for hub, tip and mid and stores them in the corresponding class attribute <code class="docutils literal notranslate"><span class="pre">_inlet_optimal_angle</span></code>.</p>
+<p>Updates <code class="docutils literal notranslate"><span class="pre">_inlet_optimal_angle</span></code> with <span class="math notranslate nohighlight">\(\beta_{1\ \mathrm{opti}\ i} = \mathrm{arctan}\left( \frac{\pi D_{1\ i}}{\pi D_{1\ i} - N_{\mathrm{b\ full}} t_{1\ i}} \mathrm{tan}\left( \beta_{1\ i} \right)\right)\)</span> with <span class="math notranslate nohighlight">\(i\)</span> standing for the line reference (hub, mid or tip)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Verification TODO according to S. Parisi, p19 where <span class="math notranslate nohighlight">\(\mathrm{tan}\left(\beta_{1\ \mathrm{opt}\ i}\right)/D_{1\ i} = (\omega/(2V_{1m})) = \mathrm{const.}\)</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.set_optimal_angle_overblade">
+<span class="sig-name descname"><span class="pre">set_optimal_angle_overblade</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.set_optimal_angle_overblade" title="Link to this definition">¶</a></dt>
+<dd><p>Sets <code class="docutils literal notranslate"><span class="pre">_inlet_blade_angle</span></code> using an optimal angle distribution derived from the rotation speed and meridional absolute velocity</p>
+<p>Sets the different blades angles with <span class="math notranslate nohighlight">\(\mathrm{tan}\left(\beta_{1\ \mathrm{opt}\ i}\right)/D_{1\ i} = (\omega/(2V_{1m})) = \mathrm{const.}\)</span> where <span class="math notranslate nohighlight">\(i\)</span> stands for the line considered (hub, mid)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inlet tip blade angle <code class="docutils literal notranslate"><span class="pre">_inlet_blade_angle[2]</span></code> is set using value from <code class="docutils literal notranslate"><span class="pre">_inlet_optimal_angle</span></code>. The latter should be computed with <a class="reference internal" href="#geometry.Impeller.compute_optimal_angle" title="geometry.Impeller.compute_optimal_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_optimal_angle()</span></code></a> by the user or another method before.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_fictitious_angle">
+<span class="sig-name descname"><span class="pre">compute_fictitious_angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_fictitious_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the fictitious angle used for the cubic law to generate the impeller geometry.</p>
+<p>Compute and returns <span class="math notranslate nohighlight">\(\beta_x = (1 - K)\left( \beta_{1\ \mathrm{hub}} + \beta_2 \right)/2\)</span> used for the cubic law where <span class="math notranslate nohighlight">\(K\)</span> is a parameter of the model to adjust blade geometry stored in <code class="docutils literal notranslate"><span class="pre">_parameter_angle</span></code>
+From <a href="#id55"><span class="problematic" id="id56">:cite:t:`2012:Parisi`</span></a> equation 2.64.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>beta</strong> – Fictitious angle used in the cubic law <span class="math notranslate nohighlight">\(\beta_x = (1 - K)\left( \beta_{1\ \mathrm{hub}} + \beta_2 \right)/2\)</span> from <a href="#id57"><span class="problematic" id="id58">:cite:t:`2012:Parisi`</span></a> equation 2.64.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_angle_parametersABC">
+<span class="sig-name descname"><span class="pre">compute_angle_parametersABC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_angle_parametersABC" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the polynomial parameters used for the cubic law to generate the impeller geometry.</p>
+<p>The following equations are used, with <span class="math notranslate nohighlight">\(\beta_x\)</span> the fictitious angle given by <a class="reference internal" href="#geometry.Impeller.compute_fictitious_angle" title="geometry.Impeller.compute_fictitious_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_fictitious_angle()</span></code></a>:</p>
+<p><span class="math notranslate nohighlight">\(A = -4 \beta_2 + 8 \beta_x - 4 \beta_{1\ \mathrm{hub}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(B = 11 \beta_2 - 16 \beta_x + 5 \beta_{1\ \mathrm{hub}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(C = -6 \beta_2 + 8 \beta_x - 2 \beta_{1\ \mathrm{hub}}\)</span></p>
+<p>From <a href="#id59"><span class="problematic" id="id60">:cite:t:`2012:Parisi`</span></a> equation 2.63.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A, B, C</strong> – polynomial parameters used in the cubic law</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_tx">
+<span class="sig-name descname"><span class="pre">compute_tx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_tx" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the normalized blade thickness for a point of the blade at normalized radial distance <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Depending on <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> returns:</p>
+<p><span class="math notranslate nohighlight">\(t(x) = 1 + (t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 ) x^2\)</span> if <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> is <code class="docutils literal notranslate"><span class="pre">parabolic</span></code> where <span class="math notranslate nohighlight">\(t_{\mathrm{hub}}/t_{\mathrm{tip}}\)</span> is stored in <code class="docutils literal notranslate"><span class="pre">_taperratio</span></code></p>
+<p><span class="math notranslate nohighlight">\(t(x) = 1 + (t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 ) x\)</span> if <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> is <code class="docutils literal notranslate"><span class="pre">linear</span></code> where <span class="math notranslate nohighlight">\(t_{\mathrm{hub}}/t_{\mathrm{tip}}\)</span> is stored in <code class="docutils literal notranslate"><span class="pre">_taperratio</span></code></p>
+<p>raises a <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> else.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – Normalized radial distance between 0 (tip) and 1 (hub) where the normalized blade thickness is computed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>t(x)</strong> – Normalized blade thickness at point x depending on <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – If <code class="docutils literal notranslate"><span class="pre">tapertype</span></code> is not <code class="docutils literal notranslate"><span class="pre">parabolic</span></code> or <code class="docutils literal notranslate"><span class="pre">linear</span></code>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">x</span></code> parameter goes from the tip (x = 0) to the hub (x = 1).</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.set_thicknesstaper">
+<span class="sig-name descname"><span class="pre">set_thicknesstaper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.set_thicknesstaper" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and stores the blade thicknesses in the corresponding class attributes</p>
+<ol class="arabic">
+<li><p>Updates the hub blade thickness in <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[0]</span></code> using the tip blade thickness stored in <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[2]</span></code> and <a class="reference internal" href="#geometry.Impeller.compute_tx" title="geometry.Impeller.compute_tx"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_tx()</span></code></a>.</p></li>
+<li><p>Updates the mid line (root mean square value) blade thickness <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[1]</span></code> using the tip blade thickness stored in <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness[2]</span></code> and <a class="reference internal" href="#geometry.Impeller.compute_tx" title="geometry.Impeller.compute_tx"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_tx()</span></code></a>.</p></li>
+<li><p>Updates the outlet average blade thickness <code class="docutils literal notranslate"><span class="pre">_outlet_average_blade_thickness</span></code> <span class="math notranslate nohighlight">\(\left&lt; t_2 \right&gt;\)</span> from the outlet tip blade thickness stored in <code class="docutils literal notranslate"><span class="pre">_outlet_blade_thickness</span></code> <span class="math notranslate nohighlight">\(t_2\)</span> and the <code class="docutils literal notranslate"><span class="pre">_taperratio</span></code> <span class="math notranslate nohighlight">\(t_{\mathrm{hub}}/t_{\mathrm{tip}}\)</span> with</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\left&lt; t_2 \right&gt; = \left( 1 + \frac{1}{2}\left( t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 \right) \right) t_2\)</span> if <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> is <code class="docutils literal notranslate"><span class="pre">parabolic</span></code></p>
+<p><span class="math notranslate nohighlight">\(\left&lt; t_2 \right&gt; = \left( 1 + \frac{1}{3}\left( t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 \right) \right) t_2\)</span> if <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code> is <code class="docutils literal notranslate"><span class="pre">linear</span></code></p>
+<p>else raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code></p>
+</div></blockquote>
+</li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – If <code class="docutils literal notranslate"><span class="pre">tapertype</span></code> is not <code class="docutils literal notranslate"><span class="pre">parabolic</span></code> or <code class="docutils literal notranslate"><span class="pre">linear</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_radial_coordinate">
+<span class="sig-name descname"><span class="pre">compute_radial_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_radial_coordinate" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the radial coordinate in the meridional plane of the points to plot a blade from <code class="docutils literal notranslate"><span class="pre">_Xt</span></code> and <code class="docutils literal notranslate"><span class="pre">_Theta</span></code></p>
+<p>Radial coordinate is given by <span class="math notranslate nohighlight">\(2r = D_2 - \left( D_2 - D_{1\ \mathrm{hub}} - x\left( D_{1\ \mathrm{tip}} - D_{1\ \mathrm{hub}} \right) \mathrm{cos} \left( \theta \right) \right)\)</span>
+with <span class="math notranslate nohighlight">\(x\)</span> from argument <code class="docutils literal notranslate"><span class="pre">xt</span></code> the position along the blade from hub (0) to tip (1) and <span class="math notranslate nohighlight">\(\theta\)</span> from argument theta the angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>theta</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>) in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>r</strong> – radial coordinates of the points of the blade</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_axial_coordinate">
+<span class="sig-name descname"><span class="pre">compute_axial_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_axial_coordinate" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the axial coordinate of for an impeller using its position along the blade.</p>
+<p>Axial coordinate is given by <span class="math notranslate nohighlight">\(z = (-L_z + (x - 0.5)b_2)\mathrm{sin}\left(\theta\right)\)</span>
+with <span class="math notranslate nohighlight">\(L_z\)</span> the axial extension of the blade stored in <code class="docutils literal notranslate"><span class="pre">_axial_extension</span></code>, <span class="math notranslate nohighlight">\(x\)</span> from argument xt the position along the blade from hub (0) to tip (1) and <span class="math notranslate nohighlight">\(\theta\)</span> from argument theta the angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>theta</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>) in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>z</strong> – axial coordinates of the points of the blade</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_curvilinear_abscissa">
+<span class="sig-name descname"><span class="pre">compute_curvilinear_abscissa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_curvilinear_abscissa" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the curvilinear abscissa along a blade similar to <code class="docutils literal notranslate"><span class="pre">_mt</span></code> but do not update it.</p>
+<p>The curvilinear abscissa is given by <span class="math notranslate nohighlight">\(m = \int \sqrt{\left( dr \right)^2 + \left( dz \right)^2}\)</span>
+with <span class="math notranslate nohighlight">\(dr\)</span> an infinitesimal element of the radial coordinate and <span class="math notranslate nohighlight">\(dz\)</span> an infinitesimal element of the axial coordinate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>theta</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>) in radians</p></li>
+<li><p><strong>r</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – radial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a>
+if None, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p><strong>z</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – axial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate" title="geometry.Impeller.compute_axial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_axial_coordinate()</span></code></a>
+if None, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mt, z, r</strong> – arrays giving the curvilinear abscissa along a blade, axial and radial coordinates given by <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a> and <a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate" title="geometry.Impeller.compute_axial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_axial_coordinate()</span></code></a> respectively</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of numpy arrays</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_curvilinear_abscissa_adim">
+<span class="sig-name descname"><span class="pre">compute_curvilinear_abscissa_adim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_curvilinear_abscissa_adim" title="Link to this definition">¶</a></dt>
+<dd><p>Scales and returns the normalized curvilinear abscissa along a blade so that it’s between 0 and 1, similar to <code class="docutils literal notranslate"><span class="pre">_mt_adim</span></code> but do not update it.</p>
+<p>The normalized curvilinear abscissa is given by <span class="math notranslate nohighlight">\(\tilde{m} = m/m(\theta = \pi/2)\)</span> for each line of the blade (x position).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – curvilinear abscissa along a blade given by the <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>mt_adim</strong> – normalized curvilinear abscissa</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_angle_blade">
+<span class="sig-name descname"><span class="pre">compute_angle_blade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_angle_blade" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the blade angles of the impeller blade, similar to <code class="docutils literal notranslate"><span class="pre">_beta</span></code> but do not update it</p>
+<p>Using <a class="reference internal" href="#geometry.Impeller.compute_angle_parametersABC" title="geometry.Impeller.compute_angle_parametersABC"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_angle_parametersABC()</span></code></a> to get the A, B and C polynomial parameters, the blade angle are given by:</p>
+<p><span class="math notranslate nohighlight">\(\beta_{\mathrm{hub}} = \beta_{1\ \mathrm{hub}} + A\tilde{m}(x = 0) + B\left(\tilde{m}(x = 0)\right)^2 + C\left(\tilde{m}(x = 0)\right)^3\)</span></p>
+<p><span class="math notranslate nohighlight">\(\beta_{\mathrm{tip}} = \beta_{1\ \mathrm{tip}} + \left( \beta_2 - \beta_{1\ \mathrm{tip}} \right)\left( 3\left(\tilde{m}(x = 1)\right)^2 - 2\left(\tilde{m}(x = 1)\right)^3\right)\)</span></p>
+<p>with 1 standing for inlet data, 2 standing for outlet data and <span class="math notranslate nohighlight">\(\tilde{m}\)</span> given by <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa_adim" title="geometry.Impeller.compute_curvilinear_abscissa_adim"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa_adim()</span></code></a> or computed manually with <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>theta</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>) in radians</p></li>
+<li><p><strong>r</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – radial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p><strong>z</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – axial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate" title="geometry.Impeller.compute_axial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_axial_coordinate()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+<li><p><strong>mt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – curvilinear abscissa of the blades given by <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, will be computed using <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>beta, mt, z, r</strong> – beta are the angles along the blade, the others are described in the Parameters section.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of numpy array of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.interpolate_angle">
+<span class="sig-name descname"><span class="pre">interpolate_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.interpolate_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates angle argument to interpolate between the two angles given by <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">0]</span></code> and <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">-1]</span></code>.</p>
+<p>The interpolation of angles is given by:
+<span class="math notranslate nohighlight">\(\alpha = \left( 2 \left( \alpha_{\mathrm{max}} - \alpha_{\mathrm{min}} \right) \% (2\pi) - \left( \alpha_{\mathrm{max}} - \alpha_{\mathrm{min}} \right) \right) x + \alpha_{\mathrm{min}}\)</span></p>
+<p>with <span class="math notranslate nohighlight">\(\alpha_{\mathrm{max}}\)</span> given by <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">-1]</span></code>, <span class="math notranslate nohighlight">\(\alpha_{\mathrm{min}}\)</span> given by <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">0]</span></code> and <span class="math notranslate nohighlight">\(x\)</span> given by <code class="docutils literal notranslate"><span class="pre">weight[:,</span> <span class="pre">i]</span></code> for the point <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>array</em><em> of </em><em>floats</em><em> of </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>m&gt;2</em><em>)</em>) – angles in radians to interpolate.
+The columns (m) <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">-1</span></code> are used as the two angles to interpolate from.
+Results are stored in columns <code class="docutils literal notranslate"><span class="pre">1:-1</span></code>.</p></li>
+<li><p><strong>weight</strong> (<em>array</em><em> of </em><em>floats</em><em> of </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>m&gt;2</em><em>)</em>) – should be the same shape as angle.
+Weight between 0 and 1 for the interpolation between <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">0]</span></code> (<code class="docutils literal notranslate"><span class="pre">weight</span> <span class="pre">=</span> <span class="pre">0</span></code>) and <code class="docutils literal notranslate"><span class="pre">angle[:,</span> <span class="pre">-1]</span></code> (<code class="docutils literal notranslate"><span class="pre">weight</span> <span class="pre">=</span> <span class="pre">1</span></code>).</p></li>
+<li><p><strong>eps</strong> (float, defaults to <code class="docutils literal notranslate"><span class="pre">1e-12</span></code>) – precision to find zeros.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_polar_angle">
+<span class="sig-name descname"><span class="pre">compute_polar_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjustthickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_polar_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the polar angle of an impeller blade, similar to <code class="docutils literal notranslate"><span class="pre">_phi</span></code> but do not update it</p>
+<p>The polar angle is given by:
+<span class="math notranslate nohighlight">\(\varphi(\tilde m) = \int \mathrm{tan}\left( \beta \right) \frac{dm}{r}\)</span> with:</p>
+<p><span class="math notranslate nohighlight">\(\tilde m\)</span> the normalized curvilinear abscissa (see <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa_adim" title="geometry.Impeller.compute_curvilinear_abscissa_adim"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa_adim()</span></code></a>),</p>
+<p><span class="math notranslate nohighlight">\(m\)</span> the curvilinear abscissa (see <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>),</p>
+<p><span class="math notranslate nohighlight">\(\beta\)</span> the blade angle (see <a class="reference internal" href="#geometry.Impeller.compute_angle_blade" title="geometry.Impeller.compute_angle_blade"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_angle_blade()</span></code></a>) and</p>
+<p><span class="math notranslate nohighlight">\(r\)</span> the radial coordinate (see <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a>).</p>
+<p>The polar angle is computed for the hub and tip line then interpolated for each other <code class="docutils literal notranslate"><span class="pre">xt</span></code> positions between hub and tip with <a class="reference internal" href="#geometry.Impeller.interpolate_angle" title="geometry.Impeller.interpolate_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">interpolate_angle()</span></code></a>.</p>
+<p>When using the <code class="docutils literal notranslate"><span class="pre">adjustthickness</span></code> parameter, the thickness currently do not uses the thickness distribution profile given by <code class="docutils literal notranslate"><span class="pre">_tapertype</span></code>.
+For the inlet, the thickness is linearly interpolated using <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness</span></code> for hub and tip only.
+For the outlet, the thickness is taken constant and equals to <code class="docutils literal notranslate"><span class="pre">_outlet_average_blade_thickness</span></code>.
+Additionally, only one one value is modified for the inlet and for the outlet insofar as only the values for <span class="math notranslate nohighlight">\(\theta = 0\)</span> and <span class="math notranslate nohighlight">\(\theta = \pi/2\)</span> are modified
+leading to clunky contours when the descretization in theta is good for a smoot plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>theta</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – angle description of the blade from inlet (0) to outlet (<span class="math notranslate nohighlight">\(\pi/2\)</span>) in radians</p></li>
+<li><p><strong>r</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – radial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p><strong>z</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – axial coordinates of the points of the blade given by <a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate" title="geometry.Impeller.compute_axial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_axial_coordinate()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">xt</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code> are used to compute <code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+<li><p><strong>mt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – curvilinear abscissa of the blades given by <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, will be computed using <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a></p></li>
+<li><p><strong>beta</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – angles along the blade given by <code class="xref py py-func docutils literal notranslate"><span class="pre">compute_angle_blade</span> <span class="pre">method()</span></code>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, will be computed using <code class="xref py py-func docutils literal notranslate"><span class="pre">compute_angle_blade</span> <span class="pre">method()</span></code></p></li>
+<li><p><strong>adjustthickness</strong> (bool, defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>) – bool to adjust or not the angles on the pressure side (outlet) and suction side (inlet) with the thicknesses of the blade <code class="docutils literal notranslate"><span class="pre">_outlet_average_blade_thickness</span></code> and <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness</span></code> respectively</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>phi, beta, mt, z, r</strong> – phi stores the polar angles of the blades, the others are described in the Parameters section.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of numpy arrays of floats</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO Improve the adjustment of the angle with the thickness computation and thickness profile. See the corresponding paragraph in the detailed description of this function.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_polar_angle_repet">
+<span class="sig-name descname"><span class="pre">compute_polar_angle_repet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_polar_angle_repet" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the polar angles of an impeller’s blade to plot all blades by doing a repetition of outputs from <a class="reference internal" href="#geometry.Impeller.compute_polar_angle" title="geometry.Impeller.compute_polar_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_polar_angle()</span></code></a> using <code class="docutils literal notranslate"><span class="pre">_full_number_blade_w_splitters</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phi</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – polar angle of a blade given by <a class="reference internal" href="#geometry.Impeller.compute_polar_angle" title="geometry.Impeller.compute_polar_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_polar_angle()</span></code></a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>phi_allblades</strong> – array containing the polar angles for each blade</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array of arrays of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.cut_splitters">
+<span class="sig-name descname"><span class="pre">cut_splitters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_allblades</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.cut_splitters" title="Link to this definition">¶</a></dt>
+<dd><p>Compute and updates the polar angles of splitters to 0 when splitters are used and there shouldn’t be a value (no blade present due to the splitter’s length)</p>
+<p>When splitters are not used (<code class="docutils literal notranslate"><span class="pre">_splitter_blade_length_fraction</span> <span class="pre">&gt;=</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">self._splitter_blade_length_fraction</span> <span class="pre">&lt;=</span> <span class="pre">1e-5</span></code>), does nothing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – x position along the blade from hub (0) to tip (1)</p></li>
+<li><p><strong>mt</strong> (numpy array of floats, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) – curvilinear abscissa of the blades given by <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>
+if <code class="docutils literal notranslate"><span class="pre">None</span></code>, will be computed using <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a></p></li>
+<li><p><strong>phi_allblades</strong> (<em>numpy array</em><em> of </em><em>floats</em>) – array containing the polar angles for each blade given by <a class="reference internal" href="#geometry.Impeller.compute_polar_angle_repet" title="geometry.Impeller.compute_polar_angle_repet"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_polar_angle_repet()</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO Improves the cutting process so that if only 2 lines are used (hub and tip), use self._blade_length to cut the blade</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compute_blades">
+<span class="sig-name descname"><span class="pre">compute_blades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_additional_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjustthickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compute_blades" title="Link to this definition">¶</a></dt>
+<dd><p>Wrapper function to computes all the geometrical data to define the blades and stores them in the corresponding class attributes (<code class="docutils literal notranslate"><span class="pre">_phi</span></code> etc.).</p>
+<p>Defines a numpy array holding each x position for (hub + tip + <code class="docutils literal notranslate"><span class="pre">nb_additional_lines</span></code>) lines and another numpy array for each <span class="math notranslate nohighlight">\(\theta\)</span> for each point where lines needs to be computed.
+These are used to define a numpy meshgrid.</p>
+<p>Successively do:
+1. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_r</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate" title="geometry.Impeller.compute_radial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_radial_coordinate()</span></code></a>.
+2. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_z</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate" title="geometry.Impeller.compute_axial_coordinate"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_axial_coordinate()</span></code></a>.
+3. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_mt</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>.
+4. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_beta</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_angle_blade" title="geometry.Impeller.compute_angle_blade"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_angle_blade()</span></code></a>.
+5. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_phi</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_polar_angle" title="geometry.Impeller.compute_polar_angle"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_polar_angle()</span></code></a>.
+6. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_mt_adim</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa_adim" title="geometry.Impeller.compute_curvilinear_abscissa_adim"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa_adim()</span></code></a>.
+8. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_phi_allblades</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa" title="geometry.Impeller.compute_curvilinear_abscissa"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_curvilinear_abscissa()</span></code></a>.
+9. Updates class attribute <code class="docutils literal notranslate"><span class="pre">_mt</span></code> with <a class="reference internal" href="#geometry.Impeller.compute_polar_angle_repet" title="geometry.Impeller.compute_polar_angle_repet"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_polar_angle_repet()</span></code></a>.
+10. Updates class atribute <code class="docutils literal notranslate"><span class="pre">_phi_allblades</span></code> with <a class="reference internal" href="#geometry.Impeller.cut_splitters" title="geometry.Impeller.cut_splitters"><code class="xref py py-func docutils literal notranslate"><span class="pre">cut_splitters()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_additional_lines</strong> (int, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>) – Number of lines to plot in addition to the hub and tip lines. When equalts to 0, the mid line (corresponding to the root mean square value) is still computed.</p></li>
+<li><p><strong>nb_theta</strong> (int, defaults to <code class="docutils literal notranslate"><span class="pre">200</span></code>) – Number points used to discretize a single line in terms of theta</p></li>
+<li><p><strong>adjustthickness</strong> (bool, defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>) – bool to adjust or not the angles on the pressure side (outlet) and suction side (inlet) with the thicknesses of the blade <code class="docutils literal notranslate"><span class="pre">_outlet_average_blade_thickness</span></code> and <code class="docutils literal notranslate"><span class="pre">_inlet_blade_thickness</span></code> respectively</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>_phi_allblades, _mt_adim, _phi, _beta, _mt, _z, _r, _Xt, _Theta, theta, xt</strong> – Refers to class attributes documentation for the details.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Impeller.compare_phi_find_param_angle">
+<span class="sig-name descname"><span class="pre">compare_phi_find_param_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Impeller.compare_phi_find_param_angle" title="Link to this definition">¶</a></dt>
+<dd><p>Updates <code class="docutils literal notranslate"><span class="pre">_parameter_angle</span></code> with <code class="docutils literal notranslate"><span class="pre">K[0]</span></code> and calls <a class="reference internal" href="#geometry.Impeller.compute_blades" title="geometry.Impeller.compute_blades"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_blades()</span></code></a> to re-compute the blade geometry</p>
+<p>This function is usually used to define a <code class="docutils literal notranslate"><span class="pre">_parameter_angle</span></code> so that the blade at the outlet is perfectly vertical
+using an optimization function such as <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>K</strong> (<em>array</em><em> of </em><em>float</em><em> of </em><em>size 1</em>) – array containing the new value of <code class="docutils literal notranslate"><span class="pre">_parameter_angle</span></code> in <code class="docutils literal notranslate"><span class="pre">K[0]</span></code>. Should be between 0 and 1.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>delta</strong> – absolute value of the difference of polar angles at the outlet for tip and hub lines: <span class="math notranslate nohighlight">\(\left| \varphi_{2\ \mathrm{tip}} - \varphi_{2\ \mathrm{hub}} \right|\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">VanelessDiffuser</span></span><a class="headerlink" href="#geometry.VanelessDiffuser" title="Link to this definition">¶</a></dt>
+<dd><p>Class defining and holding all geometrical data for the vaneless diffuser of a centrifugal machine</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser._outlet_diameter">
+<span class="sig-name descname"><span class="pre">_outlet_diameter</span></span><a class="headerlink" href="#geometry.VanelessDiffuser._outlet_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Outlet diameter of the vaneless diffuser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser._outlet_height">
+<span class="sig-name descname"><span class="pre">_outlet_height</span></span><a class="headerlink" href="#geometry.VanelessDiffuser._outlet_height" title="Link to this definition">¶</a></dt>
+<dd><p>Outlet height of the vaneless diffuser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser._outlet_area">
+<span class="sig-name descname"><span class="pre">_outlet_area</span></span><a class="headerlink" href="#geometry.VanelessDiffuser._outlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>Outlet area of the vaneless diffuser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser._outlet_diameter_old">
+<span class="sig-name descname"><span class="pre">_outlet_diameter_old</span></span><a class="headerlink" href="#geometry.VanelessDiffuser._outlet_diameter_old" title="Link to this definition">¶</a></dt>
+<dd><p>Previous outlet diameter of the vaneless diffuser when updated with <a class="reference internal" href="#geometry.VanelessDiffuser.update_outlet_diameter" title="geometry.VanelessDiffuser.update_outlet_diameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">update_outlet_diameter()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id61">
+<span class="sig-name descname"><span class="pre">_outlet_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id61" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id62">
+<span class="sig-name descname"><span class="pre">_outlet_height</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id62" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id63">
+<span class="sig-name descname"><span class="pre">_outlet_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id63" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id64">
+<span class="sig-name descname"><span class="pre">_outlet_diameter_old</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id64" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser.compute_area">
+<span class="sig-name descname"><span class="pre">compute_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanelessDiffuser.compute_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates the outlet area of the vaneless diffuser, stores it in <code class="docutils literal notranslate"><span class="pre">_outlet_area</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanelessDiffuser.update_outlet_diameter">
+<span class="sig-name descname"><span class="pre">update_outlet_diameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanelessDiffuser.update_outlet_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates the outlet diameter of the vaneless diffuser, stores it in <code class="docutils literal notranslate"><span class="pre">_outlet_diameter</span></code></p>
+<p>The current value of <code class="docutils literal notranslate"><span class="pre">_outlet_diameter</span></code> is stored in <code class="docutils literal notranslate"><span class="pre">_outlet_diameter_old</span></code>.</p>
+<p>The new value of <code class="docutils literal notranslate"><span class="pre">_outlet_diameter</span></code> is <code class="docutils literal notranslate"><span class="pre">_outlet_diameter</span> <span class="pre">+</span> <span class="pre">delta</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delta</strong> (<em>float</em>) – increase in outlet diameter <code class="docutils literal notranslate"><span class="pre">_outlet_diameter</span></code> to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">VanedDiffuser</span></span><a class="headerlink" href="#geometry.VanedDiffuser" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._outlet_diameter">
+<span class="sig-name descname"><span class="pre">_outlet_diameter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._outlet_diameter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._angle">
+<span class="sig-name descname"><span class="pre">_angle</span></span><a class="headerlink" href="#geometry.VanedDiffuser._angle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._blade_thickness">
+<span class="sig-name descname"><span class="pre">_blade_thickness</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._blade_thickness" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._number_blade">
+<span class="sig-name descname"><span class="pre">_number_blade</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._number_blade" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._pivot_position_chort">
+<span class="sig-name descname"><span class="pre">_pivot_position_chort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._pivot_position_chort" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._position_angle">
+<span class="sig-name descname"><span class="pre">_position_angle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._position_angle" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._parameters_plot">
+<span class="sig-name descname"><span class="pre">_parameters_plot</span></span><a class="headerlink" href="#geometry.VanedDiffuser._parameters_plot" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._throat_area">
+<span class="sig-name descname"><span class="pre">_throat_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._throat_area" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser._outlet_area">
+<span class="sig-name descname"><span class="pre">_outlet_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#geometry.VanedDiffuser._outlet_area" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_parameters_plot">
+<span class="sig-name descname"><span class="pre">compute_parameters_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_parameters_plot" title="Link to this definition">¶</a></dt>
+<dd><p>Computes a and b parameters used in the conformal mapping</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_psi">
+<span class="sig-name descname"><span class="pre">compute_psi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-09</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_psi" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_xy_plot">
+<span class="sig-name descname"><span class="pre">compute_xy_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_xy_plot" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_pivotpoint">
+<span class="sig-name descname"><span class="pre">compute_pivotpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_pivotpoint" title="Link to this definition">¶</a></dt>
+<dd><p>Rotation center is along the chord at a distance self._pivot_position_chort of the leading edge
+This is computed with a direction vector given by the points</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_xyblades">
+<span class="sig-name descname"><span class="pre">compute_xyblades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_xyblades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_xypivotpoints">
+<span class="sig-name descname"><span class="pre">compute_xypivotpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyblades</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_xypivotpoints" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_xyrotatedblades">
+<span class="sig-name descname"><span class="pre">compute_xyrotatedblades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyblades</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xypivotpoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbpoints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_xyrotatedblades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.plotblades">
+<span class="sig-name descname"><span class="pre">plotblades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.plotblades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_distancebtwblades">
+<span class="sig-name descname"><span class="pre">compute_distancebtwblades</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_distancebtwblades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.VanedDiffuser.compute_areas">
+<span class="sig-name descname"><span class="pre">compute_areas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.VanedDiffuser.compute_areas" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.Volute">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">Volute</span></span><a class="headerlink" href="#geometry.Volute" title="Link to this definition">¶</a></dt>
+<dd><p>Class defining and holding all geometrical data for the volute of a centrifugal machine</p>
+<p>The volute is supposed axi-symmetric with a flat bottom for half of the circle diameter</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Volute._D">
+<span class="sig-name descname"><span class="pre">_D</span></span><a class="headerlink" href="#geometry.Volute._D" title="Link to this definition">¶</a></dt>
+<dd><p>diameter of the circle defining the volute area</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry.Volute._area">
+<span class="sig-name descname"><span class="pre">_area</span></span><a class="headerlink" href="#geometry.Volute._area" title="Link to this definition">¶</a></dt>
+<dd><p>area of a cross-section of the volute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id65">
+<span class="sig-name descname"><span class="pre">_D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id65" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id66">
+<span class="sig-name descname"><span class="pre">_area</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id66" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Volute.compute_area_circularsegment">
+<span class="sig-name descname"><span class="pre">compute_area_circularsegment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Volute.compute_area_circularsegment" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the area of a circular segment (in the circle) for a line intersecting a circle at a height of <code class="docutils literal notranslate"><span class="pre">h</span></code> from the bottom of the circle.</p>
+<p>Maths explained in <a class="reference external" href="https://mathworld.wolfram.com/CircularSegment.html">Mathworld</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>h</strong> (<em>float</em>) – height of the line intersecting the circle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>A</strong> – area of the circle between the circular segment and the line at height <code class="docutils literal notranslate"><span class="pre">h</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Volute.compute_outlet_area">
+<span class="sig-name descname"><span class="pre">compute_outlet_area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffuser_outlet_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Volute.compute_outlet_area" title="Link to this definition">¶</a></dt>
+<dd><p>Computes, updates and returns the area of the volute <code class="docutils literal notranslate"><span class="pre">_area</span></code> including the small part that comes from the diffuser intersecting the circle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>diffuser_outlet_height</strong> (<em>float</em>) – diffuser’s outlet height ie. height of the line intersecting the circle defining the volute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Volute.solve_diameter">
+<span class="sig-name descname"><span class="pre">solve_diameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffuser_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffuser_outlet_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Volute.solve_diameter" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates the volute diameter <code class="docutils literal notranslate"><span class="pre">_D</span></code> and area <code class="docutils literal notranslate"><span class="pre">_area</span></code>.</p>
+<p>Using scipy.optimize.brentq on <a class="reference internal" href="#geometry.Volute.function_to_optimize" title="geometry.Volute.function_to_optimize"><code class="xref py py-func docutils literal notranslate"><span class="pre">function_to_optimize()</span></code></a>, the diameter <code class="docutils literal notranslate"><span class="pre">_D</span></code> is set.
+The area <code class="docutils literal notranslate"><span class="pre">_area</span></code> is then updated with the new diameter <code class="docutils literal notranslate"><span class="pre">_D</span></code> found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diffuser_area</strong> (<em>float</em>) – area of the diffuser studied.
+Usually <code class="docutils literal notranslate"><span class="pre">_area</span></code> but the function could be called with another one because the functions do not specifically depend on this instance.</p></li>
+<li><p><strong>diffuser_outlet_height</strong> (<em>float</em>) – height of the diffuser studied.
+Used as the lower bound for the brentq function. <code class="docutils literal notranslate"><span class="pre">1000</span> <span class="pre">diffuser_outlet_height</span></code> used as the higher bound of the brentq function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Volute.function_to_optimize">
+<span class="sig-name descname"><span class="pre">function_to_optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffuser_outlet_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Volute.function_to_optimize" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the volute diameter <code class="docutils literal notranslate"><span class="pre">_D</span></code> with input, updates the area <code class="docutils literal notranslate"><span class="pre">_area</span></code> and returns the difference of the new area with input <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – new value of volute diameter <code class="docutils literal notranslate"><span class="pre">_D</span></code>.</p></li>
+<li><p><strong>diffuser_outlet_height</strong> (<em>float</em>) – height of the diffuser studied.</p></li>
+<li><p><strong>obj</strong> (<em>float</em>) – Usually the previous volute area value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>diff</strong> – arithmetic difference of the new value of the area <code class="docutils literal notranslate"><span class="pre">_area</span></code> with the old value given as a parameter by <code class="docutils literal notranslate"><span class="pre">obj</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry.Volute.find_offset_diffuser">
+<span class="sig-name descname"><span class="pre">find_offset_diffuser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Volute.find_offset_diffuser" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the radial position of the intersection of the diffuser with the volute where the diffuser is of height <code class="docutils literal notranslate"><span class="pre">h</span></code> given as the parameter.</p>
+<p>The intersection of the diffuser with the volute is defined as a height.
+Therefore, when doing the intersection with a circle, the radial position of such intersection may be different than initially used in the code.
+This function computes the radial position of such intersection to update it in the code according to the geometric definition of the volute.
+This is then in turns used in <a class="reference internal" href="#geometry.VanelessDiffuser.update_outlet_diameter" title="geometry.VanelessDiffuser.update_outlet_diameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">update_outlet_diameter()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>h</strong> (<em>float</em>) – Height of the diffuser when it meets the volute</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>delta</strong> – returns the difference of the radial position of the point where the diffuser intersects the volute to be used in <a class="reference internal" href="#geometry.VanelessDiffuser.update_outlet_diameter" title="geometry.VanelessDiffuser.update_outlet_diameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">update_outlet_diameter()</span></code></a></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry.Validation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">Validation</span></span><a class="headerlink" href="#geometry.Validation" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="geometry.Validation.compare_geom_parisi">
+<span class="sig-name descname"><span class="pre">compare_geom_parisi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geometry.Validation.compare_geom_parisi" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="geometry.impeller">
+<span class="sig-prename descclassname"><span class="pre">geometry.</span></span><span class="sig-name descname"><span class="pre">impeller</span></span><a class="headerlink" href="#geometry.impeller" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">geometry</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#geometry.Inlet"><code class="docutils literal notranslate"><span class="pre">Inlet</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.Inlet._hub_diameter"><code class="docutils literal notranslate"><span class="pre">Inlet._hub_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Inlet._tip_diameter"><code class="docutils literal notranslate"><span class="pre">Inlet._tip_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Inlet._area"><code class="docutils literal notranslate"><span class="pre">Inlet._area</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Inlet._hub_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Inlet._tip_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Inlet._area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Inlet.compute_area"><code class="docutils literal notranslate"><span class="pre">Inlet.compute_area()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.IGV"><code class="docutils literal notranslate"><span class="pre">IGV</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.IGV._hub_diameter"><code class="docutils literal notranslate"><span class="pre">IGV._hub_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV._tip_diameter"><code class="docutils literal notranslate"><span class="pre">IGV._tip_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV._area"><code class="docutils literal notranslate"><span class="pre">IGV._area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV._position"><code class="docutils literal notranslate"><span class="pre">IGV._position</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV._mid_diameter"><code class="docutils literal notranslate"><span class="pre">IGV._mid_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">IGV._hub_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">IGV._tip_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">IGV._position</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">IGV._mid_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">IGV._area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV.compute_mid_diameter"><code class="docutils literal notranslate"><span class="pre">IGV.compute_mid_diameter()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.IGV.compute_area"><code class="docutils literal notranslate"><span class="pre">IGV.compute_area()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.Impeller"><code class="docutils literal notranslate"><span class="pre">Impeller</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.Impeller._inlet_diameters"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_diameters</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._inlet_blade_thickness"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._inlet_blade_angle"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_blade_angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_diameter"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_blade_height"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_height</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_blade_thickness"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_average_blade_thickness"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_average_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_blade_angle"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._axial_extension"><code class="docutils literal notranslate"><span class="pre">Impeller._axial_extension</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._blade_running_clearance"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_running_clearance</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._number_blade_full"><code class="docutils literal notranslate"><span class="pre">Impeller._number_blade_full</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._splitter_blade_length_fraction"><code class="docutils literal notranslate"><span class="pre">Impeller._splitter_blade_length_fraction</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._blade_length"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_length</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._blade_length_meanline"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_length_meanline</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._effective_number_blade"><code class="docutils literal notranslate"><span class="pre">Impeller._effective_number_blade</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._full_number_blade_w_splitters"><code class="docutils literal notranslate"><span class="pre">Impeller._full_number_blade_w_splitters</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._hydraulic_diameter"><code class="docutils literal notranslate"><span class="pre">Impeller._hydraulic_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._inlet_area"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._throat_pitch_blade"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_pitch_blade</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._throat_width"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_width</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._outlet_area"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._inlet_optimal_angle"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_optimal_angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._parameter_angle"><code class="docutils literal notranslate"><span class="pre">Impeller._parameter_angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._Ra"><code class="docutils literal notranslate"><span class="pre">Impeller._Ra</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._taperratio"><code class="docutils literal notranslate"><span class="pre">Impeller._taperratio</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._tapertype"><code class="docutils literal notranslate"><span class="pre">Impeller._tapertype</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._Xt"><code class="docutils literal notranslate"><span class="pre">Impeller._Xt</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._Theta"><code class="docutils literal notranslate"><span class="pre">Impeller._Theta</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._r"><code class="docutils literal notranslate"><span class="pre">Impeller._r</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._z"><code class="docutils literal notranslate"><span class="pre">Impeller._z</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._mt"><code class="docutils literal notranslate"><span class="pre">Impeller._mt</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._beta"><code class="docutils literal notranslate"><span class="pre">Impeller._beta</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._phi"><code class="docutils literal notranslate"><span class="pre">Impeller._phi</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._mt_adim"><code class="docutils literal notranslate"><span class="pre">Impeller._mt_adim</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._phi_allblades"><code class="docutils literal notranslate"><span class="pre">Impeller._phi_allblades</span></code></a></li>
+<li><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_diameters</span></code></a></li>
+<li><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_blade_angle</span></code></a></li>
+<li><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_height</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_average_blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_blade_angle</span></code></a></li>
+<li><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">Impeller._axial_extension</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_running_clearance</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">Impeller._number_blade_full</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">Impeller._splitter_blade_length_fraction</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_length</span></code></a></li>
+<li><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">Impeller._blade_length_meanline</span></code></a></li>
+<li><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">Impeller._effective_number_blade</span></code></a></li>
+<li><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">Impeller._full_number_blade_w_splitters</span></code></a></li>
+<li><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">Impeller._hydraulic_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_area</span></code></a></li>
+<li><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_pitch_blade</span></code></a></li>
+<li><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_width</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller._throat_area"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_area</span></code></a></li>
+<li><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_area</span></code></a></li>
+<li><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_optimal_angle</span></code></a></li>
+<li><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">Impeller._parameter_angle</span></code></a></li>
+<li><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">Impeller._Ra</span></code></a></li>
+<li><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">Impeller._taperratio</span></code></a></li>
+<li><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">Impeller._tapertype</span></code></a></li>
+<li><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">Impeller._Xt</span></code></a></li>
+<li><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">Impeller._Theta</span></code></a></li>
+<li><a class="reference internal" href="#id38"><code class="docutils literal notranslate"><span class="pre">Impeller._r</span></code></a></li>
+<li><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">Impeller._z</span></code></a></li>
+<li><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">Impeller._mt</span></code></a></li>
+<li><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">Impeller._beta</span></code></a></li>
+<li><a class="reference internal" href="#id42"><code class="docutils literal notranslate"><span class="pre">Impeller._phi</span></code></a></li>
+<li><a class="reference internal" href="#id43"><code class="docutils literal notranslate"><span class="pre">Impeller._mt_adim</span></code></a></li>
+<li><a class="reference internal" href="#id44"><code class="docutils literal notranslate"><span class="pre">Impeller._phi_allblades</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.update_geometry"><code class="docutils literal notranslate"><span class="pre">Impeller.update_geometry()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_mid_diameter"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_mid_diameter()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_inlet_average_blade_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_inlet_average_blade_angle()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_blade_length"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_blade_length()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_number_blade"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_number_blade()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_hydraulic_diameter"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_hydraulic_diameter()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_inlet_area"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_inlet_area()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_pitch_blade"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_pitch_blade()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_throat_area"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_throat_area()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_outlet_area"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_outlet_area()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_optimal_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_optimal_angle()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.set_optimal_angle_overblade"><code class="docutils literal notranslate"><span class="pre">Impeller.set_optimal_angle_overblade()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_fictitious_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_fictitious_angle()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_angle_parametersABC"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_angle_parametersABC()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_tx"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_tx()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.set_thicknesstaper"><code class="docutils literal notranslate"><span class="pre">Impeller.set_thicknesstaper()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_radial_coordinate"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_radial_coordinate()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_axial_coordinate"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_axial_coordinate()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_curvilinear_abscissa()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_curvilinear_abscissa_adim"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_curvilinear_abscissa_adim()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_angle_blade"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_angle_blade()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.interpolate_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.interpolate_angle()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_polar_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_polar_angle()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_polar_angle_repet"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_polar_angle_repet()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.cut_splitters"><code class="docutils literal notranslate"><span class="pre">Impeller.cut_splitters()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compute_blades"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_blades()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Impeller.compare_phi_find_param_angle"><code class="docutils literal notranslate"><span class="pre">Impeller.compare_phi_find_param_angle()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser._outlet_diameter"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser._outlet_height"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_height</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser._outlet_area"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser._outlet_diameter_old"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_diameter_old</span></code></a></li>
+<li><a class="reference internal" href="#id61"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_diameter</span></code></a></li>
+<li><a class="reference internal" href="#id62"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_height</span></code></a></li>
+<li><a class="reference internal" href="#id63"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_area</span></code></a></li>
+<li><a class="reference internal" href="#id64"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_diameter_old</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser.compute_area"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser.compute_area()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanelessDiffuser.update_outlet_diameter"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser.update_outlet_diameter()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._outlet_diameter"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._outlet_diameter</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._angle"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._blade_thickness"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._blade_thickness</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._number_blade"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._number_blade</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._pivot_position_chort"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._pivot_position_chort</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._position_angle"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._position_angle</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._parameters_plot"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._parameters_plot</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._throat_area"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._throat_area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser._outlet_area"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._outlet_area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_parameters_plot"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_parameters_plot()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_psi"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_psi()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_xy_plot"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_xy_plot()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_pivotpoint"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_pivotpoint()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_xyblades"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_xyblades()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_xypivotpoints"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_xypivotpoints()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_xyrotatedblades"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_xyrotatedblades()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.plotblades"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.plotblades()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_distancebtwblades"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_distancebtwblades()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.VanedDiffuser.compute_areas"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.compute_areas()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.Volute"><code class="docutils literal notranslate"><span class="pre">Volute</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.Volute._D"><code class="docutils literal notranslate"><span class="pre">Volute._D</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute._area"><code class="docutils literal notranslate"><span class="pre">Volute._area</span></code></a></li>
+<li><a class="reference internal" href="#id65"><code class="docutils literal notranslate"><span class="pre">Volute._D</span></code></a></li>
+<li><a class="reference internal" href="#id66"><code class="docutils literal notranslate"><span class="pre">Volute._area</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute.compute_area_circularsegment"><code class="docutils literal notranslate"><span class="pre">Volute.compute_area_circularsegment()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute.compute_outlet_area"><code class="docutils literal notranslate"><span class="pre">Volute.compute_outlet_area()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute.solve_diameter"><code class="docutils literal notranslate"><span class="pre">Volute.solve_diameter()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute.function_to_optimize"><code class="docutils literal notranslate"><span class="pre">Volute.function_to_optimize()</span></code></a></li>
+<li><a class="reference internal" href="#geometry.Volute.find_offset_diffuser"><code class="docutils literal notranslate"><span class="pre">Volute.find_offset_diffuser()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.Validation"><code class="docutils literal notranslate"><span class="pre">Validation</span></code></a><ul>
+<li><a class="reference internal" href="#geometry.Validation.compare_geom_parisi"><code class="docutils literal notranslate"><span class="pre">Validation.compare_geom_parisi()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#geometry.impeller"><code class="docutils literal notranslate"><span class="pre">impeller</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../physics/index.html"
+                          title="previous chapter">physics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../mechanics/index.html"
+                          title="next chapter">mechanics</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/geometry/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../mechanics/index.html" title="mechanics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../physics/index.html" title="physics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">geometry</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, R. Fleurisson.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,532 @@
+compressor
+==========
+
+.. py:module:: compressor
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   compressor.N
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   compressor.Compressor
+   compressor.Compressorpart
+   compressor.Volute
+   compressor.VanelessDiffuser
+   compressor.IGV
+   compressor.VanedDiffuser
+   compressor.Impeller
+
+
+Module Contents
+---------------
+
+.. py:class:: Compressor(parts=[], massflow=0, speed=0, gas=None, Tinit=20, Pinit=1)
+
+   .. py:attribute:: _g
+      :value: 9.80665
+
+
+      Class representing the compressor.
+
+      Class representing the compressor (speed, mass flow) and parts (inlet, inlet guide vane, impeller etc.)
+
+      .. attribute:: _parts
+
+         self explanatory
+
+         :type: list of Compressorpart
+
+      .. attribute:: _massflow
+
+         mass flow in kg/s
+
+         :type: float
+
+      .. attribute:: _speed
+
+         rotation speed in rad/s
+
+         :type: float
+
+      .. method:: __init__(parts=[], massflow=0, speed=0)
+
+         Creates a compressor with parts, massflow and speed
+
+      .. method:: return_speed_Hz
+
+         Return the rotation speed of the compressor in Hz
+
+      .. method:: return_speed_rpm
+
+         Return the rotation speed of the compressor in rpm (rotation per second)
+
+
+   .. py:attribute:: _parts
+
+
+   .. py:attribute:: _massflow
+
+
+   .. py:attribute:: _speed
+
+
+   .. py:attribute:: _gas
+
+
+   .. py:attribute:: len
+      :value: 8
+
+
+
+   .. py:attribute:: _T
+
+
+   .. py:attribute:: _P
+
+
+   .. py:attribute:: _Tisentropic
+
+
+   .. py:attribute:: _densities
+
+
+   .. py:attribute:: _enthalpy
+
+
+   .. py:attribute:: _enthalpy_isentropic
+
+
+   .. py:attribute:: _entropy
+
+
+   .. py:attribute:: _max_iteration
+      :value: 50
+
+
+
+   .. py:attribute:: _criterion_convergence
+      :value: 1e-10
+
+
+
+   .. py:attribute:: _compression_ratio
+      :value: 0
+
+
+
+   .. py:attribute:: _compression_ratio_total
+      :value: 0
+
+
+
+   .. py:attribute:: _dh_isentropic_impeller
+      :value: 0
+
+
+
+   .. py:attribute:: _dh_isentropic
+      :value: 0
+
+
+
+   .. py:attribute:: _dh_total
+      :value: 0
+
+
+
+   .. py:attribute:: _efficiency_impeller
+      :value: 0
+
+
+
+   .. py:attribute:: _efficiency_compressor
+      :value: 0
+
+
+
+   .. py:attribute:: _power
+      :value: 0
+
+
+
+   .. py:attribute:: _torque
+      :value: 0
+
+
+
+   .. py:attribute:: _Ns
+      :value: 0
+
+
+
+   .. py:attribute:: _Ds
+      :value: 0
+
+
+
+   .. py:attribute:: _save_txt_blade
+      :value: False
+
+
+
+   .. py:method:: return_speed_Hz()
+
+      Simple conversion of the rotation speed of the compressor _speed from rad/s to Hz
+
+
+
+   .. py:method:: return_speed_rpm()
+
+      Simple conversion of the rotation speed of the compressor _speed from rad/s to rpm (rotation per minute)
+
+
+
+   .. py:method:: compute_NsDs()
+
+
+   .. py:method:: compute_efficiencies(show=True, withoutvolute=False)
+
+
+   .. py:method:: initialize_thermodynamics()
+
+
+   .. py:method:: save_compressor(filename='./DUMP save/' + 'DUMP compressor' + str(time.time()) + '.txt')
+
+      Method to save all data allowing to re-do the computation and save the results
+
+
+
+   .. py:method:: plot_meridionalview(nb_additional_lines=1, show=False, hidedetails=False, force=False)
+
+
+   .. py:method:: plot_3Dimpeller_convergence(nb_additional_lines=1, show=False, force=False, ignoretext=False, adjustthickness=False)
+
+
+.. py:class:: Compressorpart(compressor=Compressor(), losses_models=[], geometry=None)
+
+   .. py:attribute:: _varmax
+
+
+   .. py:attribute:: _compressor
+
+
+   .. py:attribute:: _losses_models
+
+
+   .. py:attribute:: _geometry
+
+
+   .. py:method:: update_thermodynamics()
+
+
+.. py:class:: Volute(compressor=Compressor())
+
+   Bases: :py:obj:`Compressorpart`
+
+
+   .. py:attribute:: _name
+      :value: 'Volute'
+
+
+
+   .. py:attribute:: _outlet_velocity
+
+
+   .. py:attribute:: _h_convergence_volute
+      :value: []
+
+
+
+   .. py:attribute:: _partindex
+      :value: 7
+
+
+
+   .. py:attribute:: _isconverged
+      :value: [False, False]
+
+
+
+   .. py:method:: compute_outlet_velocity(V4u)
+
+
+   .. py:method:: solve()
+
+
+   .. py:method:: save_compressorpart(file)
+
+
+.. py:class:: VanelessDiffuser(compressor=Compressor())
+
+   Bases: :py:obj:`Compressorpart`
+
+
+   .. py:attribute:: _name
+      :value: 'Vaneless Diffuser'
+
+
+
+   .. py:attribute:: _outlet_velocity
+
+
+   .. py:attribute:: _h_convergence_vanelessdiffuser
+      :value: []
+
+
+
+   .. py:attribute:: _partindex
+      :value: 4
+
+
+
+   .. py:attribute:: _isconverged
+      :value: [False, False]
+
+
+
+   .. py:method:: compute_outlet_velocity_meridional()
+
+
+   .. py:method:: solve()
+
+
+   .. py:method:: save_compressorpart(file)
+
+
+.. py:class:: IGV(compressor=Compressor())
+
+   Bases: :py:obj:`Compressorpart`
+
+
+   .. py:attribute:: _name
+      :value: 'IGV'
+
+
+
+   .. py:attribute:: _partindex
+      :value: 1
+
+
+
+   .. py:method:: solve()
+
+
+   .. py:method:: save_compressorpart(file)
+
+
+.. py:class:: VanedDiffuser(compressor=Compressor())
+
+   Bases: :py:obj:`Compressorpart`
+
+
+   .. py:attribute:: _name
+      :value: 'VanedDiffuser'
+
+
+
+   .. py:attribute:: _partindex
+      :value: [5, 6]
+
+
+
+   .. py:method:: solve()
+
+
+   .. py:method:: save_compressorpart(file)
+
+
+.. py:class:: Impeller(compressor=Compressor(), materials=mechanics.Materials())
+
+   Bases: :py:obj:`Compressorpart`
+
+
+   .. py:attribute:: _name
+      :value: 'Impeller'
+
+
+
+   .. py:attribute:: _inlet_velocity
+
+
+   .. py:attribute:: _outlet_velocity
+
+
+   .. py:attribute:: _throat_velocity
+      :value: 0
+
+
+
+   .. py:attribute:: _Leul
+      :value: 0
+
+
+
+   .. py:attribute:: _R
+      :value: 0
+
+
+
+   .. py:attribute:: _tanalpha2
+      :value: 0
+
+
+
+   .. py:attribute:: _h_convergence_throat
+      :value: []
+
+
+
+   .. py:attribute:: _h_convergence_impeller
+      :value: []
+
+
+
+   .. py:attribute:: _isconverged_throat
+      :value: False
+
+
+
+   .. py:attribute:: _isconverged_impeller
+      :value: [False, False]
+
+
+
+   .. py:attribute:: _partindex
+      :value: [2, 3]
+
+
+
+   .. py:attribute:: _materials
+
+
+   .. py:attribute:: _MOSdisc
+      :value: 0
+
+
+
+   .. py:attribute:: _MOSblade
+      :value: 0
+
+
+
+   .. py:method:: compute_outlet_velocity_impeller()
+
+      Compute the velocities of the impeller
+
+      Compute the velocities of the impeller at inlet, outlet and throat using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)
+
+
+
+   .. py:method:: compute_inlet_velocity_impeller()
+
+      Compute the velocities of the impeller at inlet
+
+      Compute the velocities of the impeller at inlet using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)
+      No induced swirl considered
+
+
+
+   .. py:method:: compute_throat_velocity_impeller()
+
+      Compute the velocities of the impeller at inlet
+
+      Compute the velocities of the impeller at inlet using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)
+
+
+
+   .. py:method:: compute_velocity_massflow(density, zone='inlet')
+
+      Compute the radial component of the absolute velocity
+
+      Equation 2.2 of S. Parisi PhD thesis
+
+      :param massflow: mass flow of the impeller
+      :type massflow: float
+      :param density: density of the mixture or gas
+      :type density: float
+      :param zone: "inlet" or "outlet", zone where the velocity is computed, by default "inlet"
+      :type zone: str, optional
+
+      :raises NotImplementedError: When using with a not valid zone, will raise the exception
+
+
+
+   .. py:method:: compute_slip_factor()
+
+      Compute the slip factor of the impeller
+
+      Equation 2.6 to 2.8 of S. Parisi PhD thesis
+
+      :returns: Slip factor according to equation 2.6 to 2.8 of S. Parisi PhD thesis
+      :rtype: float
+
+
+
+   .. py:method:: compute_relative_velocity_outlet()
+
+      Compute the relative speed at the outlet of the impeller
+
+      Equations 2.4 to 2.9 of S. Parisi PhD thesis
+
+
+
+   .. py:method:: compute_eulerianwork()
+
+
+   .. py:method:: update_losses(show=False)
+
+      losses.IncidenceLoss(), #0
+      losses.ShockLoss(), #1
+      losses.DiffusionLoss(), #2
+      losses.ChokingLoss(), #3
+      losses.SupercriticalLoss(), #4
+      losses.BladeloadingLoss(), #5
+      losses.SkinfrictionLoss(), #6
+      losses.ClearanceLoss(), #7
+      losses.RecirculationLoss(), #8
+      losses.LeakageLoss(), #9
+      losses.DiscfrictionLoss() #10
+
+
+
+   .. py:method:: solve(show=False)
+
+
+   .. py:method:: solve_throat()
+
+
+   .. py:method:: solve_outlet(show=False)
+
+
+   .. py:method:: get_discstress()
+
+      Computes the disc stress
+
+      :returns: * *float* -- Disc stress
+                * *float* -- Margin of safety for the materials in comparison with the tensile yield stress
+
+
+
+   .. py:method:: get_bladestress()
+
+      
+
+
+
+   .. py:method:: save_compressorpart(file)
+
+
+   .. py:method:: save_impeller_geometry(nb_additional_lines=1, filename='./DUMP save/' + 'Impeller geometry' + str(time.time()) + '.txt', force=False, adjustthickness=False)
+
+
+.. py:data:: N
+

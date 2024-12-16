@@ -1,0 +1,1311 @@
+geometry
+========
+
+.. py:module:: geometry
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   geometry.impeller
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   geometry.Inlet
+   geometry.IGV
+   geometry.Impeller
+   geometry.VanelessDiffuser
+   geometry.VanedDiffuser
+   geometry.Volute
+   geometry.Validation
+
+
+Module Contents
+---------------
+
+.. py:class:: Inlet
+
+   Class defining and holding all geometrical data for the inlet of a centrifugal machine
+   Currently not in used and to be defined better. For now, copy the impeller inlet.
+
+   .. attribute:: _hub_diameter
+
+      Hub (inner) diameter :math:`D_{\mathrm{hub}}` of the centrifugal machine's impeller
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _tip_diameter
+
+      Tip (inner) diameter :math:`D_{\mathrm{tip}}` of the centrifugal machine's impeller
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _area
+
+      Inlet area for the fluid flow: :math:`\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)`
+
+      :type: float, defaults to ``0``
+
+   .. note:: TODO Define correctly the class as an inlet and not a derived impeller (in case there's an IGV) and use it in the code.
+
+
+   .. py:attribute:: _hub_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _tip_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _area
+      :value: 0
+
+
+
+   .. py:method:: compute_area()
+
+      Computes the inlet area for the fluid flow as :math:`\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)` and sets _area
+
+      _tip_diameter :math:`D_{\mathrm{tip}}` and _hub_diameter :math:`D_{\mathrm{hub}}` should be set by the user before calling compute_area()
+
+
+
+.. py:class:: IGV
+
+   Class defining and holding all geometrical data for the Inlet Guide Vane (IGV) of a centrifugal machine
+   Currently not in used and to be defined better. For now, copy the impeller inlet.
+
+   .. attribute:: _hub_diameter
+
+      Hub (inner) diameter :math:`D_{\mathrm{hub}}` of the centrifugal machine's impeller
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _tip_diameter
+
+      Tip (inner) diameter :math:`D_{\mathrm{tip}}` of the centrifugal machine's impeller
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _area
+
+      Inlet area for the fluid flow: :math:`\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)`
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _position
+
+      IGV angle in radians
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _mid_diameter
+
+      Mid line diameter :math:`D_{\mathrm{mid}}`
+
+      :type: float, defaults to ``0``
+
+   .. note:: TODO Define correctly the class as an inlet and not a derived impeller (in case there's an IGV) and use it in the code.
+
+
+   .. py:attribute:: _hub_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _tip_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _position
+      :value: 0
+
+
+
+   .. py:attribute:: _mid_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _area
+      :value: 0
+
+
+
+   .. py:method:: compute_mid_diameter()
+
+      Computes the mid line diameter as :math:`\sqrt{\frac{D_{\mathrm{hub}}^2 + D_{\mathrm{tip}}^2}{2}}` and sets _mid_diameter
+
+      _tip_diameter :math:`D_{\mathrm{tip}}` and _hub_diameter :math:`D_{\mathrm{hub}}` should be set by the user before calling compute_mid_diameter()
+
+
+
+   .. py:method:: compute_area()
+
+      Computes the inlet area for the fluid flow as :math:`\frac{\pi}{4} \left(D_{\mathrm{tip}}^2 - D_{\mathrm{hub}}^2\right)` and sets _area
+
+      _tip_diameter :math:`D_{\mathrm{tip}}` and _hub_diameter :math:`D_{\mathrm{hub}}` should be set by the user before calling compute_area()
+
+
+
+.. py:class:: Impeller
+
+   Class holding all the data to define an impeller geometry
+
+   .. attribute:: _inlet_diameters
+
+      inlet diameters of hub :math:`D_{\mathrm{hub}}`, mid :math:`D_{\mathrm{mid}}` and tip :math:`D_{\mathrm{tip}}` line in this order.
+
+      :type: 3x1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _inlet_blade_thickness
+
+      inlet blade thickness of hub, mid and tip line in this order.
+
+      :type: 3 x 1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _inlet_blade_angle
+
+      inlet blade angle of hub, mid and tip line in this order in radians.
+
+      :type: 3 x 1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _outlet_diameter
+
+      outlet diameter of the impeller, usually written :math:`D_2`.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_blade_height
+
+      outlet blade height defining the impeller, usually written :math:`b_2`.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_blade_thickness
+
+      outlet blade thickness.
+
+      :type: float, defaults to 0
+
+   .. attribute:: _outlet_average_blade_thickness
+
+      average thickness of the blades at the outlet of the impeller taking into account a taper ratio of the blade (thickness at hub and tip are different)
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_blade_angle
+
+      outlet blade angle of the impeller in radians, usually written :math:`\beta_2`.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _axial_extension
+
+      axial extension (height) of the impeller.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _blade_running_clearance
+
+      blade running clearance used for clearance loss, usually written :math:`\epsilon`.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _number_blade_full
+
+      number of full blades. If there are splitters, full number of blades / 2.
+
+      :type: int, defaults to ``0``
+
+   .. attribute:: _splitter_blade_length_fraction
+
+      splitter blade length fraction ie. length of splitter vs a full blade.
+
+      Equals 0 or 1 if no splitter are used.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _blade_length
+
+      length of a blade according to :cite:t:`1970:Jansen`. W. Jansen, Inst. Mech. Eng. Internal Aerodynamics, 1970.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _blade_length_meanline
+
+      length of a blade at the meanline computed by numerically integrating the geometrical definition of the blade.
+
+      :type: float, defaults to 0
+
+   .. attribute:: _effective_number_blade
+
+      effective number of blades. Differs from ``_full_number_blade_w_splitters`` insofar as it's not necessarily an integer.
+      Used for the slip factor.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _full_number_blade_w_splitters
+
+      total number of blades including splitters.
+
+      :type: int, defaults to ``0``
+
+   .. attribute:: _hydraulic_diameter
+
+      hydraulic diameter of the impeller.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _inlet_area
+
+      inlet area.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _throat_pitch_blade
+
+      pitch of the impeller at the throat for the hub, mid, tip lines in that order.
+
+      :type: 3x1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _throat_width
+
+      opening width of the throat for the hub, mid and tip lines in that order.
+
+      :type: 3x1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _outlet_area
+
+      outlet area
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _inlet_optimal_angle
+
+      optimal blade angle at inlet for the hub, mid and tip line.
+
+      :type: 3x1 array of floats, defaults to ``[0, 0, 0]``
+
+   .. attribute:: _parameter_angle
+
+      parameter used to define the blade shape using a cubic law.
+      Must be between 0 and 1.
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _Ra
+
+      Surface roughness of the impeller and its blades
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _taperratio
+
+      taper ratio of the thickness for the blades.
+
+      Equals :math:`t_{\mathrm{hub}}/t_{\mathrm{tip}}`
+
+      with :math:`t_{\mathrm{tip}}` the thickness of the blade at the tip (``_inlet_blade_thickness[-1]`` for instance)
+
+      and :math:`t_{\mathrm{hub}}` the thickness of the blade at the hub (``_inlet_blade_thickness[0]`` for instance)
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _tapertype
+
+      type of thickness evolution along the blade in the radial direction.
+
+      parabolic or linear.
+
+      When parabolic, the thickness :math:`t` along the blade in the radial direction follows :math:`t(r) = 1 + \left(t_{\mathrm{tip}}/t_{\mathrm{hub}} - 1\right)r^2`
+
+      When parabolic, the thickness :math:`t` along the blade in the radial direction follows :math:`t(r) = 1 + \left(t_{\mathrm{tip}}/t_{\mathrm{hub}} - 1\right)r`
+
+      :type: float, defaults to ``'parabolic'``
+
+   .. attribute:: _Xt
+
+      normalized radial distances in the radial/axial plane (meridional view) of the blade as an elliptic arc for different lines describing a blade.
+      value is 0 for the hub and 1 for the tip of the blade.
+
+      1st result of a ``numpy.meshgrid`` with the number of lines to compute (along the radial direction of the blade) and the number of points in the axial direction.
+      shape is (number of lines to computes, number of points on a line)
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _Theta
+
+      angles in radians to define the radial/axial plane (meridional view) of the blade as an elliptic arc for different lines describing a blade.
+      value is 0 for the top of the impeller (inlet) and :math:`\pi/2` for the outlet of the impeller.
+
+      2nd result of a ``numpy.meshgrid`` with the number of lines to compute (along the radial direction of the blade) and the number of points in the axial direction.
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _r
+
+      radial coordinate in the meridional plane of the points to plot a blade from ``_Xt`` and ``_Theta``
+
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _z
+
+      axial coordinate in the meridional plane of the points to plot a blade from ``_Xt`` and ``_Theta``
+
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _mt
+
+      curvilinear distance along a blade using ``_r`` and ``_z``
+
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _beta
+
+      blade angle in radians along the blade
+
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _phi
+
+      polar angle in radians of the blade for a 3D blade in cylindrical coordinates
+
+      shape is ``(number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _mt_adim
+
+      normalized curvilinear distance along a blade, ``_mt/_mt[:, -1]``
+
+      :type: array of floats, defaults to ``None``
+
+   .. attribute:: _phi_allblades
+
+      polar angle in radians of the blades for 3D blades in cylindrical coordinates (see _phi)
+
+      shape is ``(_full_number_blade_w_splitters, number of lines to computes, number of points on a line)``
+
+      :type: array of floats, defaults to ``None``
+
+
+   .. py:attribute:: _inlet_diameters
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _inlet_blade_thickness
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _inlet_blade_angle
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _outlet_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_blade_height
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_blade_thickness
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_average_blade_thickness
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_blade_angle
+      :value: 0
+
+
+
+   .. py:attribute:: _axial_extension
+      :value: 0
+
+
+
+   .. py:attribute:: _blade_running_clearance
+      :value: 0
+
+
+
+   .. py:attribute:: _number_blade_full
+      :value: 0
+
+
+
+   .. py:attribute:: _splitter_blade_length_fraction
+      :value: 0
+
+
+
+   .. py:attribute:: _blade_length
+      :value: 0
+
+
+
+   .. py:attribute:: _blade_length_meanline
+      :value: 0
+
+
+
+   .. py:attribute:: _effective_number_blade
+      :value: 0
+
+
+
+   .. py:attribute:: _full_number_blade_w_splitters
+      :value: 0
+
+
+
+   .. py:attribute:: _hydraulic_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _inlet_area
+      :value: 0
+
+
+
+   .. py:attribute:: _throat_pitch_blade
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _throat_width
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _throat_area
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_area
+      :value: 0
+
+
+
+   .. py:attribute:: _inlet_optimal_angle
+      :value: [0, 0, 0]
+
+
+
+   .. py:attribute:: _parameter_angle
+      :value: 0
+
+
+
+   .. py:attribute:: _Ra
+      :value: 3.2
+
+
+
+   .. py:attribute:: _taperratio
+      :value: 1.5
+
+
+
+   .. py:attribute:: _tapertype
+      :value: 'parabolic'
+
+
+
+   .. py:attribute:: _Xt
+      :value: None
+
+
+
+   .. py:attribute:: _Theta
+      :value: None
+
+
+
+   .. py:attribute:: _r
+      :value: None
+
+
+
+   .. py:attribute:: _z
+      :value: None
+
+
+
+   .. py:attribute:: _mt
+      :value: None
+
+
+
+   .. py:attribute:: _beta
+      :value: None
+
+
+
+   .. py:attribute:: _phi
+      :value: None
+
+
+
+   .. py:attribute:: _mt_adim
+      :value: None
+
+
+
+   .. py:attribute:: _phi_allblades
+      :value: None
+
+
+
+   .. py:method:: update_geometry(set_angle=False)
+
+      Computes impeller geometry data used for computation
+
+      1. sets the thickness of the blades
+      2. computes the mid line diameter
+      3. computes the optimal inlet blade angles
+      4. if ``set_angle`` is ``True``, sets the inlet blade angles to optimal values
+      5. computes the blade angle at the mean line (mid) of the inlet
+      6. computes the blade length from :cite:t:`1970:Jansen`
+      7. computes the effective number of blades and the full number of blades including splitters
+      8. computes the hydraulic diameter from :cite:t:`1970:Jansen`
+      9. computes the inlet flow area
+      10. computes the throat flow area
+      11. computes the outlet flow area
+      12. computes the geometrical data to 3D plot the hub, mid and tip lines with 200 points along the blade in the axial direction
+      13. computes the blade length at mean line (mid) from the 3D data
+
+      :param set_angle: define if inlet blade angles are modified to use the optimal angles or not
+      :type set_angle: bool, defaults to ``False``
+
+
+
+   .. py:method:: compute_mid_diameter()
+
+      Computes the mean (mid) line diameter and stores it it in the corresponding class attribute.
+
+      Updates ``_inlet_diameters[1]`` with :math:`D_{\mathrm{mid}} = \sqrt{\frac{D_{\mathrm{tip}}^2 + D_{\mathrm{hub}}^2}{2}}`
+
+
+
+   .. py:method:: compute_inlet_average_blade_angle()
+
+      Computes the average inlet blade angle and stores it in the corresponding class attribute.
+
+      Updates ``_inlet_blade_angle[1]`` with the interpolation of the inlet blade angle at the mean (mid) line diameter
+
+
+
+   .. py:method:: compute_blade_length()
+
+      Computes blade length of an impeller and stores it in the corresponding class attribute ``_blade_length``
+
+      Updates ``_blade_length`` :math:`L_{\mathrm{b}}` with the blade length computed using :cite:t:`1970:Jansen`:
+
+                  :math:`\mathrm{cos}\left(\beta_{\mathrm{average}}\right) = \frac{1}{2}\left(\mathrm{cos}\left(\beta_{1\ \mathrm{hub}}\right) + \mathrm{cos}\left(\beta_{1\ \mathrm{tip}}\right)\right)`
+                  :math:`L_{\mathrm{b}} = \frac{\pi}{8} \left( D_2 - \frac{D_{\mathrm{tip}} + D_{\mathrm{hub}}}{2} - b_2 + 2 L_z \right) \frac{2}{\mathrm{cos}\left(\beta_{\mathrm{average}}\right) + \mathrm{cos}\left(\beta_2\right)}`
+
+
+
+   .. py:method:: compute_number_blade()
+
+      Computes the different number of blades and stores them in the corresponding class attribute.
+
+      Updates ``_full_number_blade_w_splitters`` :math:`N_{\mathrm{b}}` as :math:`N_{\mathrm{b}} = 2N_{\mathrm{b\ full}}` if ``_splitter_blade_length_fraction``:math:`\in \left[10^{-5} ; 1\right[` else :math:`N_{\mathrm{b}} = N_{\mathrm{b\ full}}` where :math:`N_{\mathrm{b\ full}}` is the number of full blades (ie. no splitter).
+
+      Updates ``_effective_number_blade`` :math:`N_{\mathrm{b\ effective}}` as :math:`N_{\mathrm{b\ effective}} = N_{\mathrm{b\ full}}( 1 +\ ` ``_splitter_blade_length_fraction`` :math:`)` if ``_splitter_blade_length_fraction``:math:`\in \left[10^{-5} ; 1\right[` else :math:`N_{\mathrm{b\ effective}} = N_{\mathrm{b\ full}}`  where :math:`N_{\mathrm{b\ full}}` is the number of full blades (ie. no splitter).
+
+
+
+
+   .. py:method:: compute_hydraulic_diameter()
+
+      Computes the hydraulic diameter and stores it in the corresponding class attribute ``_hydraulic_diameter``
+
+      Updates ``_hydraulic_diameter`` :math:`D_{\mathrm{hyd}}` using :cite:t:`1970:Jansen`:
+
+                  :math:`\mathrm{cos}\left(\beta_{\mathrm{average}}\right) = \frac{1}{2}\left(\mathrm{cos}\left(\beta_{1\ \mathrm{hub}}\right) + \mathrm{cos}\left(\beta_{1\ \mathrm{tip}}\right)\right)`
+
+                  :math:`\frac{D_{\mathrm{hyd}}}{D_2} = \frac{\mathrm{cos}\left(\beta_2\right)}{\frac{N_\mathrm{b\ effective}}{\pi} + D_2\frac{\mathrm{cos}\left(\beta_2\right)}{b_2}} + \frac{\frac{1}{2} \left(\frac{D_{1\ \mathrm{tip}}}{D_2} + \frac{D_{1\ \mathrm{hub}}}{D_2} \right) \mathrm{cos}\left(\beta_{\mathrm{average}} \right)}{\frac{N_{\mathrm{b\ effective}}}{\pi} + \frac{D_{1\ \mathrm{tip}} + D_{1\ \mathrm{hub}}}{D_{1\ \mathrm{tip}} - D_{1\ \mathrm{hub}}} \mathrm{cos}\left(\beta_{\mathrm{average}}\right)}`
+
+
+
+   .. py:method:: compute_inlet_area()
+
+      Computes the inlet area and stores it in the corresponding class attribute ``_inlet_area``
+
+      Updates ``_inlet_area`` with :math:`\frac{\pi}{4} \left( D_{1\ \mathrm{tip}}^2 - D_{1\ \mathrm{hub}}^2 \right)`
+
+
+
+   .. py:method:: compute_pitch_blade(D, t)
+
+      Computes and returns the pitch of a blade at the inlet for a line along the blade situated at a diameter ``D`` and a thickness ``t``
+
+      Computes and returns :math:`\pi D/N_{\mathrm{b\ full}} - t_1` where :math:`D` is the diameter where this is computed (hub, mid or tip) and :math:`t_1` is the corresponding blade thickness.
+
+      :param D: diameter of the line where the computation is done. hub, mid or tip typically.
+      :type D: float
+      :param t: thickness of the blade at the diameter ``D``
+      :type t: float
+
+      :returns: **s** -- max between 0 and the pitch of the blade at this position as :math:`\pi D/N_{\mathrm{b\ full}} - t_1` where :math:`D` is the diameter where this is computed (hub, mid or tip) and :math:`t_1` is the corresponding blade thickness.
+      :rtype: float
+
+      :raises RuntimeError: When the pitch is negative or zero, the fluid can't pass through
+
+      .. note:: The pitch of the blade is the distance between 2 blades at the diameter (ie how far are the 2 points defining the blade at the diameter of interest) and not the smallest distance between 2 blades which defines the throat.
+
+
+
+   .. py:method:: compute_throat_area()
+
+      Computes the throat area for hub, mid and tip position and stores them in the corresponding class attribute.
+
+      1. Updates ``_throat_pitch_blade`` using :func:`~geometry.Impeller.compute_pitch_blade`
+      2. Updates ``_throat_width`` as :math:`o_i = s_i \mathrm{cos}\left( \beta_{1,\ i} \right)` where :math:`o_i` is the throat width of line :math:`i` (hub, mid or tip), :math:`s_i` is the blade pitch of line :math:`i` from ``_throat_pitch_blade`` and :math:`\beta_{1,\ i}` is the inlet blade angle for the line :math:`i`
+      3. Updates ``_throat_area`` using geometrical considerations and blockage due to diffusion according to :cite:t:`2000:Aungier`
+          The geometrical passage area is given by :math:`\frac{N_{\mathrm{b\ full}}}{4} \left( o_{\mathrm{hub}}\left( D_{\mathrm{mid}} - D_{\mathrm{hub}} \right) + o_{\mathrm{mid}}\left( D_{\mathrm{tip}} - D_{\mathrm{hub}} \right) + o_{\mathrm{tip}}\left( D_{\mathrm{tip}} - D_{\mathrm{mid}} \right) \right)`
+
+          The reduction is given by :math:`AR = \frac{A_1 \mathrm{cos}\left( \beta_{1\ \mathrm{mid}} \right)}{A_{\mathrm{throat}}}`
+
+          If :math:`AR < 10^{-10}` the throat area is not modified. Else, the throat area :math:`A_{\mathrm{throat}}` is given by :math:`A_{\mathrm{throat}} = A_{\mathrm{throat}} \mathrm{min}\left( \sqrt{AR} \ ;\ 1 - (AR - 1)^2 \right)`
+
+
+
+   .. py:method:: compute_outlet_area()
+
+      Computes the outlet area and stores it in the corresponding class attribute ``_outlet_area``.
+
+      Updates ``_outlet_area`` with :math:`\left( \pi D_2 - N_{\mathrm{b}} t_2 \right) b_2`
+
+
+
+   .. py:method:: compute_optimal_angle()
+
+      Computes the optimal inlet angles for hub, tip and mid and stores them in the corresponding class attribute ``_inlet_optimal_angle``.
+
+      Updates ``_inlet_optimal_angle`` with :math:`\beta_{1\ \mathrm{opti}\ i} = \mathrm{arctan}\left( \frac{\pi D_{1\ i}}{\pi D_{1\ i} - N_{\mathrm{b\ full}} t_{1\ i}} \mathrm{tan}\left( \beta_{1\ i} \right)\right)` with :math:`i` standing for the line reference (hub, mid or tip)
+
+      .. note:: Verification TODO according to S. Parisi, p19 where :math:`\mathrm{tan}\left(\beta_{1\ \mathrm{opt}\ i}\right)/D_{1\ i} = (\omega/(2V_{1m})) = \mathrm{const.}`
+
+
+
+   .. py:method:: set_optimal_angle_overblade()
+
+      Sets ``_inlet_blade_angle`` using an optimal angle distribution derived from the rotation speed and meridional absolute velocity
+
+      Sets the different blades angles with :math:`\mathrm{tan}\left(\beta_{1\ \mathrm{opt}\ i}\right)/D_{1\ i} = (\omega/(2V_{1m})) = \mathrm{const.}` where :math:`i` stands for the line considered (hub, mid)
+
+      .. note:: Inlet tip blade angle ``_inlet_blade_angle[2]`` is set using value from ``_inlet_optimal_angle``. The latter should be computed with :func:`~geometry.Impeller.compute_optimal_angle` by the user or another method before.
+
+
+
+   .. py:method:: compute_fictitious_angle()
+
+      Computes and returns the fictitious angle used for the cubic law to generate the impeller geometry.
+
+      Compute and returns :math:`\beta_x = (1 - K)\left( \beta_{1\ \mathrm{hub}} + \beta_2 \right)/2` used for the cubic law where :math:`K` is a parameter of the model to adjust blade geometry stored in ``_parameter_angle``
+      From :cite:t:`2012:Parisi` equation 2.64.
+
+      :returns: **beta** -- Fictitious angle used in the cubic law :math:`\beta_x = (1 - K)\left( \beta_{1\ \mathrm{hub}} + \beta_2 \right)/2` from :cite:t:`2012:Parisi` equation 2.64.
+      :rtype: float
+
+
+
+   .. py:method:: compute_angle_parametersABC()
+
+      Computes and returns the polynomial parameters used for the cubic law to generate the impeller geometry.
+
+      The following equations are used, with :math:`\beta_x` the fictitious angle given by :func:`~geometry.Impeller.compute_fictitious_angle`:
+
+      :math:`A = -4 \beta_2 + 8 \beta_x - 4 \beta_{1\ \mathrm{hub}}`
+
+      :math:`B = 11 \beta_2 - 16 \beta_x + 5 \beta_{1\ \mathrm{hub}}`
+
+      :math:`C = -6 \beta_2 + 8 \beta_x - 2 \beta_{1\ \mathrm{hub}}`
+
+      From :cite:t:`2012:Parisi` equation 2.63.
+
+      :returns: **A, B, C** -- polynomial parameters used in the cubic law
+      :rtype: tuple of floats
+
+
+
+   .. py:method:: compute_tx(x)
+
+      Computes and returns the normalized blade thickness for a point of the blade at normalized radial distance ``x``.
+
+      Depending on ``_tapertype`` returns:
+
+      :math:`t(x) = 1 + (t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 ) x^2` if ``_tapertype`` is ``parabolic`` where :math:`t_{\mathrm{hub}}/t_{\mathrm{tip}}` is stored in ``_taperratio``
+
+      :math:`t(x) = 1 + (t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 ) x` if ``_tapertype`` is ``linear`` where :math:`t_{\mathrm{hub}}/t_{\mathrm{tip}}` is stored in ``_taperratio``
+
+      raises a ``NotImplementedError`` else.
+
+      :param x: Normalized radial distance between 0 (tip) and 1 (hub) where the normalized blade thickness is computed
+      :type x: float
+
+      :returns: **t(x)** -- Normalized blade thickness at point x depending on ``_tapertype`` value
+      :rtype: float
+
+      :raises NotImplementedError: If ``tapertype`` is not ``parabolic`` or ``linear``.
+
+      .. note:: The ``x`` parameter goes from the tip (x = 0) to the hub (x = 1).
+
+
+
+   .. py:method:: set_thicknesstaper()
+
+      Computes and stores the blade thicknesses in the corresponding class attributes
+
+      1. Updates the hub blade thickness in ``_inlet_blade_thickness[0]`` using the tip blade thickness stored in ``_inlet_blade_thickness[2]`` and :func:`~geometry.Impeller.compute_tx`.
+      2. Updates the mid line (root mean square value) blade thickness ``_inlet_blade_thickness[1]`` using the tip blade thickness stored in ``_inlet_blade_thickness[2]`` and :func:`~geometry.Impeller.compute_tx`.
+      3. Updates the outlet average blade thickness ``_outlet_average_blade_thickness`` :math:`\left< t_2 \right>` from the outlet tip blade thickness stored in ``_outlet_blade_thickness`` :math:`t_2` and the ``_taperratio`` :math:`t_{\mathrm{hub}}/t_{\mathrm{tip}}` with
+
+          :math:`\left< t_2 \right> = \left( 1 + \frac{1}{2}\left( t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 \right) \right) t_2` if ``_tapertype`` is ``parabolic``
+
+          :math:`\left< t_2 \right> = \left( 1 + \frac{1}{3}\left( t_{\mathrm{hub}}/t_{\mathrm{tip}} - 1 \right) \right) t_2` if ``_tapertype`` is ``linear``
+
+          else raises ``NotImplementedError``
+
+      :raises NotImplementedError: If ``tapertype`` is not ``parabolic`` or ``linear``.
+
+
+
+   .. py:method:: compute_radial_coordinate(xt, theta)
+
+      Computes and returns the radial coordinate in the meridional plane of the points to plot a blade from ``_Xt`` and ``_Theta``
+
+      Radial coordinate is given by :math:`2r = D_2 - \left( D_2 - D_{1\ \mathrm{hub}} - x\left( D_{1\ \mathrm{tip}} - D_{1\ \mathrm{hub}} \right) \mathrm{cos} \left( \theta \right) \right)`
+      with :math:`x` from argument ``xt`` the position along the blade from hub (0) to tip (1) and :math:`\theta` from argument theta the angle description of the blade from inlet (0) to outlet (:math:`\pi/2`)
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats
+      :param theta: angle description of the blade from inlet (0) to outlet (:math:`\pi/2`) in radians
+      :type theta: numpy array of floats
+
+      :returns: **r** -- radial coordinates of the points of the blade
+      :rtype: numpy array of floats
+
+
+
+   .. py:method:: compute_axial_coordinate(xt, theta)
+
+      Computes and returns the axial coordinate of for an impeller using its position along the blade.
+
+      Axial coordinate is given by :math:`z = (-L_z + (x - 0.5)b_2)\mathrm{sin}\left(\theta\right)`
+      with :math:`L_z` the axial extension of the blade stored in ``_axial_extension``, :math:`x` from argument xt the position along the blade from hub (0) to tip (1) and :math:`\theta` from argument theta the angle description of the blade from inlet (0) to outlet (:math:`\pi/2`)
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats
+      :param theta: angle description of the blade from inlet (0) to outlet (:math:`\pi/2`) in radians
+      :type theta: numpy array of floats
+
+      :returns: **z** -- axial coordinates of the points of the blade
+      :rtype: numpy array of floats
+
+
+
+   .. py:method:: compute_curvilinear_abscissa(xt=None, theta=None, r=None, z=None)
+
+      Computes and returns the curvilinear abscissa along a blade similar to ``_mt`` but do not update it.
+
+      The curvilinear abscissa is given by :math:`m = \int \sqrt{\left( dr \right)^2 + \left( dz \right)^2}`
+      with :math:`dr` an infinitesimal element of the radial coordinate and :math:`dz` an infinitesimal element of the axial coordinate
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats, defaults to ``None``
+      :param theta: angle description of the blade from inlet (0) to outlet (:math:`\pi/2`) in radians
+      :type theta: numpy array of floats, defaults to ``None``
+      :param r: radial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_radial_coordinate`
+                if None, ``xt`` and ``theta`` are used to compute ``r``
+      :type r: numpy array of floats, defaults to ``None``
+      :param z: axial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_axial_coordinate`
+                if None, ``xt`` and ``theta`` are used to compute ``z``
+      :type z: numpy array of floats, defaults to ``None``
+
+      :returns: **mt, z, r** -- arrays giving the curvilinear abscissa along a blade, axial and radial coordinates given by :func:`~geometry.Impeller.compute_radial_coordinate` and :func:`~geometry.Impeller.compute_axial_coordinate` respectively
+      :rtype: tuple of numpy arrays
+
+
+
+   .. py:method:: compute_curvilinear_abscissa_adim(m)
+
+      Scales and returns the normalized curvilinear abscissa along a blade so that it's between 0 and 1, similar to ``_mt_adim`` but do not update it.
+
+      The normalized curvilinear abscissa is given by :math:`\tilde{m} = m/m(\theta = \pi/2)` for each line of the blade (x position).
+
+      :param m: curvilinear abscissa along a blade given by the :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+      :type m: numpy array of floats
+
+      :returns: **mt_adim** -- normalized curvilinear abscissa
+      :rtype: numpy array of floats
+
+
+
+   .. py:method:: compute_angle_blade(xt=None, theta=None, r=None, z=None, mt=None)
+
+      Computes and returns the blade angles of the impeller blade, similar to ``_beta`` but do not update it
+
+      Using :func:`~geometry.Impeller.compute_angle_parametersABC` to get the A, B and C polynomial parameters, the blade angle are given by:
+
+      :math:`\beta_{\mathrm{hub}} = \beta_{1\ \mathrm{hub}} + A\tilde{m}(x = 0) + B\left(\tilde{m}(x = 0)\right)^2 + C\left(\tilde{m}(x = 0)\right)^3`
+
+      :math:`\beta_{\mathrm{tip}} = \beta_{1\ \mathrm{tip}} + \left( \beta_2 - \beta_{1\ \mathrm{tip}} \right)\left( 3\left(\tilde{m}(x = 1)\right)^2 - 2\left(\tilde{m}(x = 1)\right)^3\right)`
+
+      with 1 standing for inlet data, 2 standing for outlet data and :math:`\tilde{m}` given by :func:`~geometry.Impeller.compute_curvilinear_abscissa_adim` or computed manually with :func:`~geometry.Impeller.compute_curvilinear_abscissa`.
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats, defaults to ``None``
+      :param theta: angle description of the blade from inlet (0) to outlet (:math:`\pi/2`) in radians
+      :type theta: numpy array of floats, defaults to ``None``
+      :param r: radial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_radial_coordinate`
+                if ``None``, ``xt`` and ``theta`` are used to compute ``r``
+      :type r: numpy array of floats, defaults to ``None``
+      :param z: axial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_axial_coordinate`
+                if ``None``, ``xt`` and ``theta`` are used to compute ``z``
+      :type z: numpy array of floats, defaults to ``None``
+      :param mt: curvilinear abscissa of the blades given by :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+                 if ``None``, will be computed using :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+      :type mt: numpy array of floats, defaults to ``None``
+
+      :returns: **beta, mt, z, r** -- beta are the angles along the blade, the others are described in the Parameters section.
+      :rtype: tuple of numpy array of floats
+
+
+
+   .. py:method:: interpolate_angle(angle, weight, eps=1e-12)
+
+      Computes and updates angle argument to interpolate between the two angles given by ``angle[:, 0]`` and ``angle[:, -1]``.
+
+      The interpolation of angles is given by:
+      :math:`\alpha = \left( 2 \left( \alpha_{\mathrm{max}} - \alpha_{\mathrm{min}} \right) \% (2\pi) - \left( \alpha_{\mathrm{max}} - \alpha_{\mathrm{min}} \right) \right) x + \alpha_{\mathrm{min}}`
+
+      with :math:`\alpha_{\mathrm{max}}` given by ``angle[:, -1]``, :math:`\alpha_{\mathrm{min}}` given by ``angle[:, 0]`` and :math:`x` given by ``weight[:, i]`` for the point :math:`i`.
+
+      :param angle: angles in radians to interpolate.
+                    The columns (m) ``0`` and ``-1`` are used as the two angles to interpolate from.
+                    Results are stored in columns ``1:-1``.
+      :type angle: array of floats of shape (n, m>2)
+      :param weight: should be the same shape as angle.
+                     Weight between 0 and 1 for the interpolation between ``angle[:, 0]`` (``weight = 0``) and ``angle[:, -1]`` (``weight = 1``).
+      :type weight: array of floats of shape (n, m>2)
+      :param eps: precision to find zeros.
+      :type eps: float, defaults to ``1e-12``
+
+
+
+   .. py:method:: compute_polar_angle(xt=None, theta=None, r=None, z=None, mt=None, beta=None, adjustthickness=False)
+
+      Computes and returns the polar angle of an impeller blade, similar to ``_phi`` but do not update it
+
+      The polar angle is given by:
+      :math:`\varphi(\tilde m) = \int \mathrm{tan}\left( \beta \right) \frac{dm}{r}` with:
+
+      :math:`\tilde m` the normalized curvilinear abscissa (see :func:`~geometry.Impeller.compute_curvilinear_abscissa_adim`),
+
+      :math:`m` the curvilinear abscissa (see :func:`~geometry.Impeller.compute_curvilinear_abscissa`),
+
+      :math:`\beta` the blade angle (see :func:`~geometry.Impeller.compute_angle_blade`) and
+
+      :math:`r` the radial coordinate (see :func:`~geometry.Impeller.compute_radial_coordinate`).
+
+      The polar angle is computed for the hub and tip line then interpolated for each other ``xt`` positions between hub and tip with :func:`~geometry.Impeller.interpolate_angle`.
+
+      When using the ``adjustthickness`` parameter, the thickness currently do not uses the thickness distribution profile given by ``_tapertype``.
+      For the inlet, the thickness is linearly interpolated using ``xt`` and ``_inlet_blade_thickness`` for hub and tip only.
+      For the outlet, the thickness is taken constant and equals to ``_outlet_average_blade_thickness``.
+      Additionally, only one one value is modified for the inlet and for the outlet insofar as only the values for :math:`\theta = 0` and :math:`\theta = \pi/2` are modified
+      leading to clunky contours when the descretization in theta is good for a smoot plot.
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats, defaults to ``None``
+      :param theta: angle description of the blade from inlet (0) to outlet (:math:`\pi/2`) in radians
+      :type theta: numpy array of floats, defaults to ``None``
+      :param r: radial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_radial_coordinate`
+                if ``None``, ``xt`` and ``theta`` are used to compute ``r``
+      :type r: numpy array of floats, defaults to ``None``
+      :param z: axial coordinates of the points of the blade given by :func:`~geometry.Impeller.compute_axial_coordinate`
+                if ``None``, ``xt`` and ``theta`` are used to compute ``z``
+      :type z: numpy array of floats, defaults to ``None``
+      :param mt: curvilinear abscissa of the blades given by :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+                 if ``None``, will be computed using :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+      :type mt: numpy array of floats, defaults to ``None``
+      :param beta: angles along the blade given by :func:`~geometry.Impeller.compute_angle_blade method`
+                   if ``None``, will be computed using :func:`~geometry.Impeller.compute_angle_blade method`
+      :type beta: numpy array of floats, defaults to ``None``
+      :param adjustthickness: bool to adjust or not the angles on the pressure side (outlet) and suction side (inlet) with the thicknesses of the blade ``_outlet_average_blade_thickness`` and ``_inlet_blade_thickness`` respectively
+      :type adjustthickness: bool, defaults to ``False``
+
+      :returns: **phi, beta, mt, z, r** -- phi stores the polar angles of the blades, the others are described in the Parameters section.
+      :rtype: tuple of numpy arrays of floats
+
+      .. note:: TODO Improve the adjustment of the angle with the thickness computation and thickness profile. See the corresponding paragraph in the detailed description of this function.
+
+
+
+   .. py:method:: compute_polar_angle_repet(phi)
+
+      Computes and returns the polar angles of an impeller's blade to plot all blades by doing a repetition of outputs from :func:`~geometry.Impeller.compute_polar_angle` using ``_full_number_blade_w_splitters``.
+
+      :param phi: polar angle of a blade given by :func:`~geometry.Impeller.compute_polar_angle`
+      :type phi: numpy array of floats
+
+      :returns: **phi_allblades** -- array containing the polar angles for each blade
+      :rtype: numpy array of arrays of floats
+
+
+
+   .. py:method:: cut_splitters(xt, mt, phi_allblades)
+
+      Compute and updates the polar angles of splitters to 0 when splitters are used and there shouldn't be a value (no blade present due to the splitter's length)
+
+      When splitters are not used (``_splitter_blade_length_fraction >= 1`` or ``self._splitter_blade_length_fraction <= 1e-5``), does nothing.
+
+      :param xt: x position along the blade from hub (0) to tip (1)
+      :type xt: numpy array of floats, defaults to ``None``
+      :param mt: curvilinear abscissa of the blades given by :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+                 if ``None``, will be computed using :func:`~geometry.Impeller.compute_curvilinear_abscissa`
+      :type mt: numpy array of floats, defaults to ``None``
+      :param phi_allblades: array containing the polar angles for each blade given by :func:`~geometry.Impeller.compute_polar_angle_repet`
+      :type phi_allblades: numpy array of floats
+
+      .. note:: TODO Improves the cutting process so that if only 2 lines are used (hub and tip), use self._blade_length to cut the blade
+
+
+
+   .. py:method:: compute_blades(nb_additional_lines=0, nb_theta=200, adjustthickness=False)
+
+      Wrapper function to computes all the geometrical data to define the blades and stores them in the corresponding class attributes (``_phi`` etc.).
+
+      Defines a numpy array holding each x position for (hub + tip + ``nb_additional_lines``) lines and another numpy array for each :math:`\theta` for each point where lines needs to be computed.
+      These are used to define a numpy meshgrid.
+
+      Successively do:
+      1. Updates class attribute ``_r`` with :func:`~geometry.Impeller.compute_radial_coordinate`.
+      2. Updates class attribute ``_z`` with :func:`~geometry.Impeller.compute_axial_coordinate`.
+      3. Updates class attribute ``_mt`` with :func:`~geometry.Impeller.compute_curvilinear_abscissa`.
+      4. Updates class attribute ``_beta`` with :func:`~geometry.Impeller.compute_angle_blade`.
+      5. Updates class attribute ``_phi`` with :func:`~geometry.Impeller.compute_polar_angle`.
+      6. Updates class attribute ``_mt_adim`` with :func:`~geometry.Impeller.compute_curvilinear_abscissa_adim`.
+      8. Updates class attribute ``_phi_allblades`` with :func:`~geometry.Impeller.compute_curvilinear_abscissa`.
+      9. Updates class attribute ``_mt`` with :func:`~geometry.Impeller.compute_polar_angle_repet`.
+      10. Updates class atribute ``_phi_allblades`` with :func:`~geometry.Impeller.cut_splitters`.
+
+      :param nb_additional_lines: Number of lines to plot in addition to the hub and tip lines. When equalts to 0, the mid line (corresponding to the root mean square value) is still computed.
+      :type nb_additional_lines: int, defaults to ``0``
+      :param nb_theta: Number points used to discretize a single line in terms of theta
+      :type nb_theta: int, defaults to ``200``
+      :param adjustthickness: bool to adjust or not the angles on the pressure side (outlet) and suction side (inlet) with the thicknesses of the blade ``_outlet_average_blade_thickness`` and ``_inlet_blade_thickness`` respectively
+      :type adjustthickness: bool, defaults to ``False``
+
+      :returns: **_phi_allblades, _mt_adim, _phi, _beta, _mt, _z, _r, _Xt, _Theta, theta, xt** -- Refers to class attributes documentation for the details.
+      :rtype: tuple of numpy array
+
+
+
+   .. py:method:: compare_phi_find_param_angle(K)
+
+      Updates ``_parameter_angle`` with ``K[0]`` and calls :func:`~geometry.Impeller.compute_blades` to re-compute the blade geometry
+
+      This function is usually used to define a ``_parameter_angle`` so that the blade at the outlet is perfectly vertical
+      using an optimization function such as ``scipy.optimize.minimize``.
+
+      :param K: array containing the new value of ``_parameter_angle`` in ``K[0]``. Should be between 0 and 1.
+      :type K: array of float of size 1
+
+      :returns: **delta** -- absolute value of the difference of polar angles at the outlet for tip and hub lines: :math:`\left| \varphi_{2\ \mathrm{tip}} - \varphi_{2\ \mathrm{hub}} \right|`
+      :rtype: float
+
+
+
+.. py:class:: VanelessDiffuser
+
+   Class defining and holding all geometrical data for the vaneless diffuser of a centrifugal machine
+
+   .. attribute:: _outlet_diameter
+
+      Outlet diameter of the vaneless diffuser
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_height
+
+      Outlet height of the vaneless diffuser
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_area
+
+      Outlet area of the vaneless diffuser
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _outlet_diameter_old
+
+      Previous outlet diameter of the vaneless diffuser when updated with :func:`~geometry.VanelessDiffuser.update_outlet_diameter`
+
+      :type: float, defaults to ``0``
+
+
+   .. py:attribute:: _outlet_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_height
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_area
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_diameter_old
+      :value: 0
+
+
+
+   .. py:method:: compute_area()
+
+      Computes and updates the outlet area of the vaneless diffuser, stores it in ``_outlet_area``
+
+
+
+
+   .. py:method:: update_outlet_diameter(delta)
+
+      Computes and updates the outlet diameter of the vaneless diffuser, stores it in ``_outlet_diameter``
+
+      The current value of ``_outlet_diameter`` is stored in ``_outlet_diameter_old``.
+
+      The new value of ``_outlet_diameter`` is ``_outlet_diameter + delta``.
+
+      :param delta: increase in outlet diameter ``_outlet_diameter`` to add.
+      :type delta: float
+
+
+
+.. py:class:: VanedDiffuser
+
+   .. py:attribute:: _outlet_diameter
+      :value: 0
+
+
+
+   .. py:attribute:: _angle
+
+
+   .. py:attribute:: _blade_thickness
+      :value: 0
+
+
+
+   .. py:attribute:: _number_blade
+      :value: 0
+
+
+
+   .. py:attribute:: _pivot_position_chort
+      :value: 0
+
+
+
+   .. py:attribute:: _position_angle
+      :value: 0
+
+
+
+   .. py:attribute:: _parameters_plot
+
+
+   .. py:attribute:: _throat_area
+      :value: 0
+
+
+
+   .. py:attribute:: _outlet_area
+      :value: 0
+
+
+
+   .. py:method:: compute_parameters_plot(D3=0)
+
+      Computes a and b parameters used in the conformal mapping
+
+
+
+   .. py:method:: compute_psi(r=1e-09, c=0)
+
+
+   .. py:method:: compute_xy_plot(D3=0, nbpoints=2, c=0)
+
+
+   .. py:method:: compute_pivotpoint(xy)
+
+      Rotation center is along the chord at a distance self._pivot_position_chort of the leading edge
+      This is computed with a direction vector given by the points
+
+
+
+   .. py:method:: compute_xyblades(D3=0, nbpoints=2)
+
+
+   .. py:method:: compute_xypivotpoints(xyblades)
+
+
+   .. py:method:: compute_xyrotatedblades(xyblades, xypivotpoints, nbpoints)
+
+
+   .. py:method:: plotblades(D3=0, nbpoints=2, show=True)
+
+
+   .. py:method:: compute_distancebtwblades(D3)
+
+
+   .. py:method:: compute_areas(D3, b3)
+
+
+.. py:class:: Volute
+
+   Class defining and holding all geometrical data for the volute of a centrifugal machine
+
+   The volute is supposed axi-symmetric with a flat bottom for half of the circle diameter
+
+   .. attribute:: _D
+
+      diameter of the circle defining the volute area
+
+      :type: float, defaults to ``0``
+
+   .. attribute:: _area
+
+      area of a cross-section of the volute
+
+      :type: float, defaults to ``0``
+
+
+   .. py:attribute:: _D
+      :value: 0
+
+
+
+   .. py:attribute:: _area
+      :value: 0
+
+
+
+   .. py:method:: compute_area_circularsegment(h)
+
+      Computes and returns the area of a circular segment (in the circle) for a line intersecting a circle at a height of ``h`` from the bottom of the circle.
+
+      Maths explained in `Mathworld <https://mathworld.wolfram.com/CircularSegment.html>`_
+
+      :param h: height of the line intersecting the circle
+      :type h: float
+
+      :returns: **A** -- area of the circle between the circular segment and the line at height ``h``.
+      :rtype: float
+
+
+
+   .. py:method:: compute_outlet_area(diffuser_outlet_height)
+
+      Computes, updates and returns the area of the volute ``_area`` including the small part that comes from the diffuser intersecting the circle
+
+      :param diffuser_outlet_height: diffuser's outlet height ie. height of the line intersecting the circle defining the volute.
+      :type diffuser_outlet_height: float
+
+
+
+   .. py:method:: solve_diameter(diffuser_area, diffuser_outlet_height)
+
+      Computes and updates the volute diameter ``_D`` and area ``_area``.
+
+      Using scipy.optimize.brentq on :func:`~geometry.Volute.function_to_optimize`, the diameter ``_D`` is set.
+      The area ``_area`` is then updated with the new diameter ``_D`` found.
+
+      :param diffuser_area: area of the diffuser studied.
+                            Usually ``_area`` but the function could be called with another one because the functions do not specifically depend on this instance.
+      :type diffuser_area: float
+      :param diffuser_outlet_height: height of the diffuser studied.
+                                     Used as the lower bound for the brentq function. ``1000 diffuser_outlet_height`` used as the higher bound of the brentq function.
+      :type diffuser_outlet_height: float
+
+
+
+   .. py:method:: function_to_optimize(x, diffuser_outlet_height, obj)
+
+      Sets the volute diameter ``_D`` with input, updates the area ``_area`` and returns the difference of the new area with input ``obj``
+
+      :param x: new value of volute diameter ``_D``.
+      :type x: float
+      :param diffuser_outlet_height: height of the diffuser studied.
+      :type diffuser_outlet_height: float
+      :param obj: Usually the previous volute area value.
+      :type obj: float
+
+      :returns: **diff** -- arithmetic difference of the new value of the area ``_area`` with the old value given as a parameter by ``obj``.
+      :rtype: float
+
+
+
+   .. py:method:: find_offset_diffuser(h)
+
+      Computes and returns the radial position of the intersection of the diffuser with the volute where the diffuser is of height ``h`` given as the parameter.
+
+      The intersection of the diffuser with the volute is defined as a height.
+      Therefore, when doing the intersection with a circle, the radial position of such intersection may be different than initially used in the code.
+      This function computes the radial position of such intersection to update it in the code according to the geometric definition of the volute.
+      This is then in turns used in :func:`~geometry.VanelessDiffuser.update_outlet_diameter`.
+
+      :param h: Height of the diffuser when it meets the volute
+      :type h: float
+
+      :returns: **delta** -- returns the difference of the radial position of the point where the diffuser intersects the volute to be used in :func:`~geometry.VanelessDiffuser.update_outlet_diameter`
+      :rtype: float
+
+
+
+.. py:class:: Validation
+
+   .. py:method:: compare_geom_parisi(show=False, save=False)
+
+
+.. py:data:: impeller
+

@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>losses &#8212; Mean line model for centrifugal compressors or pumps 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    
+    <script src="../../_static/documentation_options.js?v=8dde47fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="physics" href="../physics/index.html" />
+    <link rel="prev" title="Tests" href="../Tests/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../physics/index.html" title="physics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../Tests/index.html" title="Tests"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">losses</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-losses">
+<span id="losses"></span><h1>losses<a class="headerlink" href="#module-losses" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.sf" title="losses.sf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sf</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.IGVLoss" title="losses.IGVLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IGVLoss</span></code></a></p></td>
+<td><p>Container of the Inlet Guide Vane (IGV) loss</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.IncidenceLoss" title="losses.IncidenceLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IncidenceLoss</span></code></a></p></td>
+<td><p>Container of the Incidence loss for an impeller</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.ShockLoss" title="losses.ShockLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShockLoss</span></code></a></p></td>
+<td><p>Container of the Shock loss for an impeller</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.DiffusionLoss" title="losses.DiffusionLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiffusionLoss</span></code></a></p></td>
+<td><p>Container of the Diffusion loss for an impeller</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.ChokingLoss" title="losses.ChokingLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChokingLoss</span></code></a></p></td>
+<td><p>Container of the Choking loss for an impeller</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.SupercriticalLoss" title="losses.SupercriticalLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SupercriticalLoss</span></code></a></p></td>
+<td><p>Container of the Supercritical loss for an impeller</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.BladeloadingLoss" title="losses.BladeloadingLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BladeloadingLoss</span></code></a></p></td>
+<td><p>Compute the blade loading loss in the impeller section due to the growth of a boundary layer in an adverse velocity gradient</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.SkinfrictionLoss" title="losses.SkinfrictionLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SkinfrictionLoss</span></code></a></p></td>
+<td><p>Compute the skin friction loss component</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.ClearanceLoss" title="losses.ClearanceLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClearanceLoss</span></code></a></p></td>
+<td><p>Compute the clearance loss due to the clearance in front of the impeller</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.RecirculationLoss" title="losses.RecirculationLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RecirculationLoss</span></code></a></p></td>
+<td><p>Compute the recirculation loss that models the backflow from the vaneless diffuser to the impeller</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.LeakageLoss" title="losses.LeakageLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LeakageLoss</span></code></a></p></td>
+<td><p>Compute the leakage loss for open or closed impellers</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.DiscfrictionLoss" title="losses.DiscfrictionLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiscfrictionLoss</span></code></a></p></td>
+<td><p>Computes the disc friction loss that models the friction at the back-face of the impeller</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.MixingLoss" title="losses.MixingLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MixingLoss</span></code></a></p></td>
+<td><p>Computes the mixing loss when the flow in the impeller separates</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.VanelessdiffuserLoss" title="losses.VanelessdiffuserLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VanelessdiffuserLoss</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#losses.VaneddiffuserLoss" title="losses.VaneddiffuserLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VaneddiffuserLoss</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#losses.VoluteLoss" title="losses.VoluteLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VoluteLoss</span></code></a></p></td>
+<td><p>Computes the mixing loss when the flow in the impeller separates</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.IGVLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">IGVLoss</span></span><a class="headerlink" href="#losses.IGVLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Inlet Guide Vane (IGV) loss</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IGVLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><a class="headerlink" href="#losses.IGVLoss._type" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'outside'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IGVLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#losses.IGVLoss._name" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'IGV'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To implement as needed, no IGV used yet</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outside'</span></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'IGV'</span></em><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.IncidenceLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">IncidenceLoss</span></span><a class="headerlink" href="#losses.IncidenceLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Incidence loss for an impeller</p>
+<p>The incidence loss is due to the adjustement of the flow direction at the inlet of the impeller (<a href="#id2"><span class="problematic" id="id3">:cite:t:`2012:Parisi`</span></a>).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IncidenceLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><a class="headerlink" href="#losses.IncidenceLoss._type" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'internal'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IncidenceLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#losses.IncidenceLoss._name" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'Incidence'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IncidenceLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><a class="headerlink" href="#losses.IncidenceLoss._value" title="Link to this definition">¶</a></dt>
+<dd><p>computed massic enthalpy loss value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.IncidenceLoss._finc">
+<span class="sig-name descname"><span class="pre">_finc</span></span><a class="headerlink" href="#losses.IncidenceLoss._finc" title="Link to this definition">¶</a></dt>
+<dd><p>fraction of the velocity component perpendical to the optimal flow direction, main parameter of the model</p>
+<p>usually between 0.5 and 0.7 (<a href="#id4"><span class="problematic" id="id5">:cite:t:`2012:Parisi`</span></a>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0.6</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#id6" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Incidence'</span></em><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">_finc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.6</span></em><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.IncidenceLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet_velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_blade_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_optimal_angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.IncidenceLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and updates the incidence loss value <code class="docutils literal notranslate"><span class="pre">_value</span></code></p>
+<p>The incidence loss is computed as explained in <a href="#id10"><span class="problematic" id="id11">:cite:t:`2012:Parisi`</span></a> and <a href="#id12"><span class="problematic" id="id13">:cite:t:`2000:Aungier`</span></a>.
+First the non optimal component of the speed <span class="math notranslate nohighlight">\(W_{\mathrm{nonopt}\ i}\)</span> is computed for the hub, mid and tip positions given by the subscript <span class="math notranslate nohighlight">\(i\)</span> by :
+<span class="math notranslate nohighlight">\(W_{\mathrm{nonopt}\ i} = W_{1\ i} \mathrm{sin}\left| \beta_{1\ i} - \beta_{1\ \mathrm{opti}\ i} \right|\)</span>
+where <span class="math notranslate nohighlight">\(\beta_{1\ \mathrm{opti}\ i}\)</span> is the inlet optimal blade angle and <span class="math notranslate nohighlight">\(\beta_{1\ i}\)</span> is the actual inlet blade angle.</p>
+<p>Then the enthalpy loss is computed as <span class="math notranslate nohighlight">\(\Delta h_i = \frac{1}{2} f_{\mathrm{inc}} W_{\mathrm{nonopt}\ i}^2\)</span>
+with <span class="math notranslate nohighlight">\(f_{\mathrm{inc}}\)</span> the incidence parameter given by the class attribute <code class="docutils literal notranslate"><span class="pre">_finc</span></code>.
+Finally, the total enthalpy loss is given by <span class="math notranslate nohighlight">\(\frac{\Delta h_{\mathrm{hub}} + 10\Delta h_{\mathrm{mid}} + \Delta h_{\mathrm{tip}}}{12}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inlet_velocity</strong> (<em>3 x 3 x 2 array</em><em> of </em><em>float</em>) – V, W, U velocities for hub, mid and tip</p></li>
+<li><p><strong>inlet_blade_angle</strong> (<em>3 x 1 array</em><em> of </em><em>float</em>) – hub, mid and tip blade angles at the inlet</p></li>
+<li><p><strong>inlet_optimal_angle</strong> (<em>3 x 1 array</em><em> of </em><em>float</em>) – hub, mid and tip optimal blade angles at the inlet</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>_value</strong> – computed massic enthalpy loss value</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.ShockLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">ShockLoss</span></span><a class="headerlink" href="#losses.ShockLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Shock loss for an impeller</p>
+<p>Shock loss is considered when the inlet relative speed is sonic and shock-waves develop at the inlet.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ShockLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><a class="headerlink" href="#losses.ShockLoss._type" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'internal'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ShockLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#losses.ShockLoss._name" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'Shock'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ShockLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><a class="headerlink" href="#losses.ShockLoss._value" title="Link to this definition">¶</a></dt>
+<dd><p>computed massic enthalpy loss value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Shock'</span></em><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.ShockLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kpv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_speedofsound</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dhdT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.ShockLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the loss caused by a shockwave in the impeller section</p>
+<p>The shock loss is based on <a href="#id17"><span class="problematic" id="id18">:cite:t:`2012:Parisi`</span></a> assumptions ie.:</p>
+<ol class="arabic simple">
+<li><p>Normal shock-wave</p></li>
+<li><p>Compressibility factor, heat capacity and isentropic exponent are constant across the shock-wave.</p></li>
+</ol>
+<p>The total temperature in the shock <span class="math notranslate nohighlight">\(T_{t1\ \mathrm{sh}}\)</span> is computed as a function of
+the inlet total temperature <span class="math notranslate nohighlight">\(T_{t1}\)</span>,
+the inlet Mach number <span class="math notranslate nohighlight">\(M_{w1}\)</span> and
+the isentropic expansion coefficient <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\frac{T_{t1\ \mathrm{sh}}}{T_{t1}} = \frac{(k + 1)M_{w1}^2}{(k-1)M_{w1}^2 + 2} \left( \frac{k + 1}{2kM_{w1}^2 - (k - 1)} \right)^{\frac{1}{k}}\)</span></p>
+<p>Then the enthalpy loss is given by <span class="math notranslate nohighlight">\(\Delta h = \left( \frac{\partial h}{\partial T} \right)_{P\ 1} \left( T_{t1} - T_{t1\ \mathrm{sh}} \right)\)</span></p>
+<p>Similarly as <a class="reference internal" href="#losses.IncidenceLoss.compute_loss" title="losses.IncidenceLoss.compute_loss"><code class="xref py py-func docutils literal notranslate"><span class="pre">compute_loss()</span></code></a>, this computation is done at hub, mid and tip line then averaged:
+<span class="math notranslate nohighlight">\(\frac{\Delta h_{\mathrm{hub}} + 10\Delta h_{\mathrm{mid}} + \Delta h_{\mathrm{tip}}}{12}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>kpv</strong> (<em>array</em><em> of </em><em>floats</em><em> of </em><em>length 3</em>) – Isentropic expansion coefficient (Cp/Cv) values for [hub, mid, tip] line at the inlet of the impeller</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>_value</strong> – Massic enthalpy loss from shockwave</p>
+<p>0 if all the inlet relative Mach number are less than 1</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.DiffusionLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">DiffusionLoss</span></span><a class="headerlink" href="#losses.DiffusionLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Diffusion loss for an impeller</p>
+<p>Diffusion loss is a loss occuring between the inlet and the throat due to a slowdown of the fluid.
+Stall is also considered when the diffusion loss is excessive.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiffusionLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><a class="headerlink" href="#losses.DiffusionLoss._type" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'internal'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiffusionLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#losses.DiffusionLoss._name" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'Diffusion'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiffusionLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><a class="headerlink" href="#losses.DiffusionLoss._value" title="Link to this definition">¶</a></dt>
+<dd><p>computed massic enthalpy loss value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiffusionLoss._difforstall">
+<span class="sig-name descname"><span class="pre">_difforstall</span></span><a class="headerlink" href="#losses.DiffusionLoss._difforstall" title="Link to this definition">¶</a></dt>
+<dd><p>string indicating if diffusion, stall or incidence is prevalent</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Diffusion'</span></em><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">_difforstall</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.DiffusionLoss.compute_diffusion_loss_component">
+<span class="sig-name descname"><span class="pre">compute_diffusion_loss_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">impeller_inlet_velocity_W1mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throat_velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incidenceloss_param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.DiffusionLoss.compute_diffusion_loss_component" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the diffusion loss component for the diffusion loss</p>
+<p>The diffusion loss is given by <a href="#id23"><span class="problematic" id="id24">:cite:t:`2000:Aungier`</span></a> as: <span class="math notranslate nohighlight">\(\Delta h_{\mathrm{diff}} = \mathrm{max}\left( 0.5 f_{\mathrm{inc}}\ ;\ 0.4 \right) \left( W_{1\ \mathrm{mid}} - W_{\mathrm{throat}} \right)^2\)</span>
+where <span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}\)</span> is the relative velocity of the fluid at the mean line of the inlet of the impeller,
+<span class="math notranslate nohighlight">\(W_{\mathrm{throat}}\)</span> the relative velocity at the throat of the impeller.
+The <span class="math notranslate nohighlight">\(\mathrm{max}\)</span> is added since some authors consider the incidence factor while some others consider a factor of <code class="docutils literal notranslate"><span class="pre">0.4</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impeller_inlet_velocity_W1mid</strong> (<em>float</em>) – Norm of impeller’s relative velocity at the mean line of the inlet</p></li>
+<li><p><strong>throat_velocity</strong> (<em>float</em>) – Relative velocity in the throat section given by the continuity equation at the throat assuming that the flow is perpendicular to the throat area</p></li>
+<li><p><strong>incidenceloss_param</strong> (<em>float</em>) – See <code class="docutils literal notranslate"><span class="pre">IncidenceLoss._finc</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dh_diff</strong> – computed massic enthalpy loss for the diffusion component</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.DiffusionLoss.compute_stall_loss_component">
+<span class="sig-name descname"><span class="pre">compute_stall_loss_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">impeller_inlet_velocity_W1tip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throat_velocity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.DiffusionLoss.compute_stall_loss_component" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the stall loss component of the diffusion loss model</p>
+<p>The stall loss is given by <a href="#id25"><span class="problematic" id="id26">:cite:t:`2000:Aungier`</span></a> as: <span class="math notranslate nohighlight">\(\Delta h_{\mathrm{stall}} = 0.5 \left( W_{1\ \mathrm{mid}} - 1.75 W_{\mathrm{throat}} \right)^2\)</span>
+if <span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}} &gt; 1.75 W_{\mathrm{throat}}\)</span>
+where <span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}\)</span> is the relative velocity of the fluid at the mean line of the inlet of the impeller,
+<span class="math notranslate nohighlight">\(W_{\mathrm{throat}}\)</span> the relative velocity at the throat of the impeller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impeller_inlet_velocity_W1tip</strong> (<em>float</em>) – Norm of impeller’s relative velocity at the tip line of the inlet</p></li>
+<li><p><strong>throat_velocity</strong> (<em>float</em>) – Relative velocity in the throat section given by the continuity equation at the throat assuming that the flow is perpendicular to the throat area</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dh_stall</strong> – computed massic enthalpy loss for the stall component</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.DiffusionLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">impeller_inlet_velocity_W1mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_velocity_W1tip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">throat_velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incidenceloss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">incidenceloss_param</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.DiffusionLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and returns the diffusion loss of the impeller ; stall is also considered. The value is stored in <code class="docutils literal notranslate"><span class="pre">_value</span></code>.</p>
+<p>Diffusion, stall and incidence are considered. Only the part above the incidence loss from <a class="reference internal" href="#losses.IncidenceLoss" title="losses.IncidenceLoss"><code class="xref py py-func docutils literal notranslate"><span class="pre">IncidenceLoss()</span></code></a> is considered.
+Effectively, this means that the enthalpy loss is computed as
+<span class="math notranslate nohighlight">\(\mathrm{max}\left( h_{\mathrm{diff}}\ ;\ h_{\mathrm{stall}}\ ;\ h_{\mathrm{inc}} \right) - h_{\mathrm{inc}}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impeller_inlet_velocity_W1mid</strong> (<em>float</em>) – Impeller’s relative velocity (norm) at the mean line of the inlet</p></li>
+<li><p><strong>impeller_inlet_velocity_W1tip</strong> (<em>float</em>) – Impeller’s relative velocity (norm) at the tip line of the inlet</p></li>
+<li><p><strong>throat_velocity</strong> (<em>float</em>) – Relative velocity in the throat section given by the continuity equation at the throat assuming that the flow is perpendicular to the throat area</p></li>
+<li><p><strong>incidenceloss</strong> (<em>float</em>) – Incidence loss, usuallu computed by <code class="xref py py-func docutils literal notranslate"><span class="pre">compute_incidence_loss()</span></code></p></li>
+<li><p><strong>incidenceloss_param</strong> (<em>float</em>) – Incidence loss parameter from <a class="reference internal" href="#id8" title="losses.IncidenceLoss._finc"><code class="xref py py-func docutils literal notranslate"><span class="pre">_finc()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>_value</strong> – massic enthalpy loss</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.ChokingLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">ChokingLoss</span></span><a class="headerlink" href="#losses.ChokingLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Choking loss for an impeller</p>
+<blockquote>
+<div><p>Choking loss is a loss occuring when the fluid approaches sonic conditions near the throat.
+The computation is done following the formula of <a href="#id27"><span class="problematic" id="id28">:cite:t:`1995:Aungier`</span></a>:</p>
+<p><span class="math notranslate nohighlight">\(\Delta h = 0.5 W_{1\ \mathrm{mid}}^2 \left(0.05 x + x^7 \right)\)</span></p>
+</div></blockquote>
+<dl>
+<dt>with</dt><dd><p><span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}^2\)</span> the impeller inlet relative velocity for the mean line and
+<span class="math notranslate nohighlight">\(x = 10 \left( 1.1 - A_{\mathrm{throat}}/A^* \right)\)</span></p>
+<dl>
+<dt>_type<span class="classifier">string, defaults to <code class="docutils literal notranslate"><span class="pre">'internal'</span></code></span></dt><dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+</dd>
+<dt>_name<span class="classifier">string, defaults to <code class="docutils literal notranslate"><span class="pre">'Choking'</span></code></span></dt><dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+</dd>
+<dt>_value<span class="classifier">float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></span></dt><dd><p>computed massic enthalpy loss value</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ChokingLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#losses.ChokingLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ChokingLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Choking'</span></em><a class="headerlink" href="#losses.ChokingLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ChokingLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.ChokingLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.ChokingLoss.compute_ratioarea">
+<span class="sig-name descname"><span class="pre">compute_ratioarea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mach</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.ChokingLoss.compute_ratioarea" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the ratio of sonic area over the area for the throat and returns it</p>
+<p>The ratio of sonic area over the area is given by <a href="#id29"><span class="problematic" id="id30">:cite:t:`1961:Dixon`</span></a> equation 80:
+<span class="math notranslate nohighlight">\(\frac{A^*}{A_{\mathrm{throat}}} = \left( \left( \frac{k + 1}{2} \right)^{\frac{k + 1}{2(k - 1)}} Ma \left( 1 + \frac{k - 1}{2} Ma^2 \right) \right)^{- \frac{k + 1}{2(k - 1)}}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mach</strong> (<em>float</em>) – Mach number at the mid line of the throat of the impeller</p></li>
+<li><p><strong>kpv</strong> (<em>float</em>) – Isentropic expansion coefficient at the throat of the impeller mid line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>a*/a</strong> – A*/Athroat ratio of sonic area over the area according to <a href="#id31"><span class="problematic" id="id32">:cite:t:`1961:Dixon`</span></a> equation 80.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.ChokingLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mach</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w1mid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.ChokingLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the choking loss, stores it in <code class="docutils literal notranslate"><span class="pre">_value</span></code> and returns it</p>
+<blockquote>
+<div><p>The computation is done following the formula of <a href="#id33"><span class="problematic" id="id34">:cite:t:`1995:Aungier`</span></a>:</p>
+<p><span class="math notranslate nohighlight">\(\Delta h = 0.5 W_{1\ \mathrm{mid}}^2 \left(0.05 x + x^7 \right)\)</span></p>
+</div></blockquote>
+<dl>
+<dt>with</dt><dd><p><span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}^2\)</span> the impeller inlet relative velocity for the mean line and
+<span class="math notranslate nohighlight">\(x = 10 \left( 1.1 - A_{\mathrm{throat}}/A^* \right)\)</span></p>
+<dl class="simple">
+<dt>mach<span class="classifier">float</span></dt><dd><p>Mach number at the mid line of the throat of the impeller</p>
+</dd>
+<dt>kpv<span class="classifier">float</span></dt><dd><p>Isentropic expansion coefficient at the throat of the impeller mid line</p>
+</dd>
+<dt>w1mid<span class="classifier">float</span></dt><dd><p>Norm relative velocity at the mid line of the inlet of the compressor</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>dh<span class="classifier">float</span></dt><dd><p>massic enthalpy loss</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">SupercriticalLoss</span></span><a class="headerlink" href="#losses.SupercriticalLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Container of the Supercritical loss for an impeller</p>
+<p>Supercritical loss is a loss corresponding to additional shocks inside the blade passage due to the local acceleration on the suction side.
+The supercritical loss is computed from <a href="#id35"><span class="problematic" id="id36">:cite:t:`2012:Parisi`</span></a> and <a href="#id37"><span class="problematic" id="id38">:cite:t:`1995:Aungier`</span></a>.
+First the maximal relative speed is computed as: <span class="math notranslate nohighlight">\(W_\mathrm{max} = \left( W_{1\ \mathrm{mid}} + W_2 + \Delta W \right)/2\)</span>
+with <span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}\)</span> the impeller’s inlet relative velocity for the mid line,
+<span class="math notranslate nohighlight">\(W_2\)</span> the impeller’s outlet relative velocity and the optimal speed distribution leading to
+<span class="math notranslate nohighlight">\(\Delta W = \frac{2 \pi D_2 L_\mathrm{eul}}{N_{\mathrm{b\ eff}} L_\mathrm{b} U_2}\)</span>.
+Using usual nomenclature, <span class="math notranslate nohighlight">\(D_2\)</span> is the impeller’s outlet diameter,
+<span class="math notranslate nohighlight">\(L_\mathrm{eul}\)</span> the impeller’s Eulerian work,
+<span class="math notranslate nohighlight">\(N_{\mathrm{b\ eff}\)</span> the number of effective blades (includes splitters effects),
+<span class="math notranslate nohighlight">\(L_\mathrm{b}\)</span> the blade length and <span class="math notranslate nohighlight">\(U_2\)</span> the impeller’s outlet tangential speed.</p>
+<p>The critical mach number is then computed with
+<span class="math notranslate nohighlight">\(M_{\mathrm{crit}} = M_{\mathrm{W}\ 1\ \mathrm{mid}} W^*/W_\mathrm{max}\)</span>
+where <span class="math notranslate nohighlight">\(W^*\)</span> is the speed of sound for the throat and
+<span class="math notranslate nohighlight">\(M_{\mathrm{W}\ 1\ \mathrm{mid}}\)</span> the impeller’s inlet Mach number for the relative speed
+at the mid line.</p>
+<p>Finally, the enthalpy loss is computed with:
+<span class="math notranslate nohighlight">\(\Delta h = f_\mathrm{sup} \frac{W_\mathrm{max}^2}{2}\left( M_{\mathrm{W}\ 1\ \mathrm{mid}} - M_\mathrm{crit}\right)\)</span></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><a class="headerlink" href="#losses.SupercriticalLoss._type" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the type of loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'internal'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#losses.SupercriticalLoss._name" title="Link to this definition">¶</a></dt>
+<dd><p>Class attribute and not instance attribute. Define the name of the loss</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string, defaults to <code class="docutils literal notranslate"><span class="pre">'Supercritical'</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><a class="headerlink" href="#losses.SupercriticalLoss._value" title="Link to this definition">¶</a></dt>
+<dd><p>computed massic enthalpy loss value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._fsup">
+<span class="sig-name descname"><span class="pre">_fsup</span></span><a class="headerlink" href="#losses.SupercriticalLoss._fsup" title="Link to this definition">¶</a></dt>
+<dd><p>Experimental coefficient</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0.4</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._wmax">
+<span class="sig-name descname"><span class="pre">_wmax</span></span><a class="headerlink" href="#losses.SupercriticalLoss._wmax" title="Link to this definition">¶</a></dt>
+<dd><p>Maximum speed point considering an optimal velocity distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._Mcr">
+<span class="sig-name descname"><span class="pre">_Mcr</span></span><a class="headerlink" href="#losses.SupercriticalLoss._Mcr" title="Link to this definition">¶</a></dt>
+<dd><p>Critical Mach value at the inlet condition causing sonic conditions for the maximum velocity point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss._mach">
+<span class="sig-name descname"><span class="pre">_mach</span></span><a class="headerlink" href="#losses.SupercriticalLoss._mach" title="Link to this definition">¶</a></dt>
+<dd><p>Mach number for the inlet relative speed at the mean line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id39">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#id39" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id40">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Supercritical'</span></em><a class="headerlink" href="#id40" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id41">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id41" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id42">
+<span class="sig-name descname"><span class="pre">_fsup</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.4</span></em><a class="headerlink" href="#id42" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id43">
+<span class="sig-name descname"><span class="pre">_wmax</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id43" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id44">
+<span class="sig-name descname"><span class="pre">_Mcr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id44" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id45">
+<span class="sig-name descname"><span class="pre">_mach</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#id45" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss.compute_max_velocity">
+<span class="sig-name descname"><span class="pre">compute_max_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eulerian_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_number_blade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SupercriticalLoss.compute_max_velocity" title="Link to this definition">¶</a></dt>
+<dd><p>Computes and stores the max velocity <code class="docutils literal notranslate"><span class="pre">_wmax</span></code> to be used for the supercritical loss computation</p>
+<p>From <a href="#id46"><span class="problematic" id="id47">:cite:t:`2012:Parisi`</span></a>:
+<span class="math notranslate nohighlight">\(W_\mathrm{max} = \left( W_{1\ \mathrm{mid}} + W_2 + \Delta W \right)/2\)</span>
+with <span class="math notranslate nohighlight">\(W_{1\ \mathrm{mid}}\)</span> the impeller’s inlet relative velocity for the mid line,
+<span class="math notranslate nohighlight">\(W_2\)</span> the impeller’s outlet relative velocity and the optimal speed distribution leading to
+<span class="math notranslate nohighlight">\(\Delta W = \frac{2 \pi D_2 L_\mathrm{eul}}{N_{\mathrm{b\ eff}} L_\mathrm{b} U_2}\)</span>.
+Using usual nomenclature, <span class="math notranslate nohighlight">\(D_2\)</span> is the impeller’s outlet diameter,
+<span class="math notranslate nohighlight">\(L_\mathrm{eul}\)</span> the impeller’s Eulerian work,
+<span class="math notranslate nohighlight">\(N_{\mathrm{b\ eff}\)</span> the number of effective blades (includes splitters effects),
+<span class="math notranslate nohighlight">\(L_\mathrm{b}\)</span> the blade length and <span class="math notranslate nohighlight">\(U_2\)</span> the impeller’s outlet tangential speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Impeller’s outlet diameter <span class="math notranslate nohighlight">\(D_2\)</span></p></li>
+<li><p><strong>eulerian_work</strong> (<em>float</em>) – Eulerian work of the impeller <span class="math notranslate nohighlight">\(L_\mathrm{eul}\)</span></p></li>
+<li><p><strong>effective_number_blade</strong> (<em>float</em>) – Number of effective blades according <span class="math notranslate nohighlight">\(N_{\mathrm{b\ eff}\)</span></p></li>
+<li><p><strong>blade_length</strong> (<em>float</em>) – Length of the blade <span class="math notranslate nohighlight">\(L_\mathrm{b}\)</span></p></li>
+<li><p><strong>inlet_velocities</strong> (<em>3x2x2 array</em><em> of </em><em>float</em>) – velocities V, W, U for hub, mid and tip line with radial and tangential coordinates</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>3x3x2 array</em><em> of </em><em>floats</em>) – Velocities V, W, U for hub, mid and tip line.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SupercriticalLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eulerian_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_number_blade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mach_number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speedsound_throat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SupercriticalLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the supercritical loss, stores it in <code class="docutils literal notranslate"><span class="pre">_value</span></code> and returns <code class="docutils literal notranslate"><span class="pre">_value</span></code></p>
+<p>From <a href="#id48"><span class="problematic" id="id49">:cite:t:`1995:Aungier`</span></a> and <a href="#id50"><span class="problematic" id="id51">:cite:t:`2012:Parisi`</span></a>:
+the critical mach number is computed with
+<span class="math notranslate nohighlight">\(M_{\mathrm{crit}} = M_{\mathrm{W}\ 1\ \mathrm{mid}} W^*/W_\mathrm{max}\)</span>
+where <span class="math notranslate nohighlight">\(W^*\)</span> is the speed of sound for the throat and
+<span class="math notranslate nohighlight">\(M_{\mathrm{W}\ 1\ \mathrm{mid}}\)</span> the impeller’s inlet Mach number for the relative speed (parameter also stored in <code class="docutils literal notranslate"><span class="pre">_mach</span></code>)
+at the mid line. The result is stored in <code class="docutils literal notranslate"><span class="pre">_Mcr</span></code></p>
+<p>Finally, the enthalpy loss is computed with:
+<span class="math notranslate nohighlight">\(\Delta h = f_\mathrm{sup} \frac{W_\mathrm{max}^2}{2}\left( M_{\mathrm{W}\ 1\ \mathrm{mid}} - M_\mathrm{crit}\right)\)</span>
+and stored in <code class="docutils literal notranslate"><span class="pre">_value</span></code> before being returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Impeller’s outlet diameter <span class="math notranslate nohighlight">\(D_2\)</span></p></li>
+<li><p><strong>eulerian_work</strong> (<em>float</em>) – Eulerian work of the impeller <span class="math notranslate nohighlight">\(L_\mathrm{eul}\)</span></p></li>
+<li><p><strong>effective_number_blade</strong> (<em>float</em>) – Number of effective blades according <span class="math notranslate nohighlight">\(N_{\mathrm{b\ eff}\)</span></p></li>
+<li><p><strong>blade_length</strong> (<em>float</em>) – Length of the blade <span class="math notranslate nohighlight">\(L_\mathrm{b}\)</span></p></li>
+<li><p><strong>inlet_velocities</strong> (<em>3x2x2 array</em><em> of </em><em>float</em>) – velocities V, W, U for hub, mid and tip line with radial and tangential coordinates</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>3x3x2 array</em><em> of </em><em>floats</em>) – Velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>mach_number</strong> (<em>float</em>) – Mach number at inlet mid line of the impeller <span class="math notranslate nohighlight">\(M_{\mathrm{W}\ 1\ \mathrm{mid}}\)</span></p></li>
+<li><p><strong>speedsound_throat</strong> (<em>float</em>) – Speed of sound at the throat <span class="math notranslate nohighlight">\(W^*\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dh</strong> – massic enthalpy loss</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">BladeloadingLoss</span></span><a class="headerlink" href="#losses.BladeloadingLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the blade loading loss in the impeller section due to the growth of a boundary layer in an adverse velocity gradient</p>
+<p>Equations 2.85, 2.86 and 2.87 of S. Parisi PhD thesis.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#losses.BladeloadingLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Blade</span> <span class="pre">loading'</span></em><a class="headerlink" href="#losses.BladeloadingLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.BladeloadingLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss._d">
+<span class="sig-name descname"><span class="pre">_d</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.BladeloadingLoss._d" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss._equation">
+<span class="sig-name descname"><span class="pre">_equation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#losses.BladeloadingLoss._equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss.compute_diffusion_Coppage">
+<span class="sig-name descname"><span class="pre">compute_diffusion_Coppage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">impeller_outlet_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eulerian_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_efficient_blades</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_tangential_speed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.BladeloadingLoss.compute_diffusion_Coppage" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the diffusion factor for the loss model according to Coppage</p>
+<p>Equation 2.86 of S. Parisi PhD thesis. Best for low specific speed with no splitter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impeller_outlet_speed</strong> (<em>float</em>) – Relative speed (norm ; W) at the outlet of the impeller.</p></li>
+<li><p><strong>impeller_inlet_tip_speed</strong> (<em>float</em>) – Relative speed (norm ; W) at the tip line of the impeller.</p></li>
+<li><p><strong>eulerian_work</strong> (<em>float</em>) – Eulerian work of the impeller. Equation 2.12 of S. Parisi PhD thesis.</p></li>
+<li><p><strong>number_efficient_blades</strong> (<em>float</em>) – Number of efficient blades of the impeller. Equation 2.9 of S. Parisi PhD thesis.</p></li>
+<li><p><strong>impeller_outlet_diameter</strong> (<em>float</em>) – Diameter of the outlet of the impeller.</p></li>
+<li><p><strong>impeller_inlet_tip_diameter</strong> (<em>float</em>) – Diameter of the impeller at the inlet for the tip line.</p></li>
+<li><p><strong>impeller_outlet_tangential_speed</strong> (<em>float</em>) – U2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficient of diffusion from Coppage model. Equation 2.86 of S. Parisi PhD thesis.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss.compute_diffusion_Whitfield">
+<span class="sig-name descname"><span class="pre">compute_diffusion_Whitfield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">impeller_outlet_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eulerian_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_efficient_blades</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_hub_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_tangential_speed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.BladeloadingLoss.compute_diffusion_Whitfield" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the diffusion factor for the loss model according to Whitfield.</p>
+<p>Equation 2.87 of S. Parisi PhD thesis. Best for high specific speed with splitters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>impeller_outlet_speed</strong> (<em>float</em>) – Relative speed (norm ; W) at the outlet of the impeller.</p></li>
+<li><p><strong>impeller_inlet_tip_speed</strong> (<em>float</em>) – Relative speed (norm ; W) at the tip line of the impeller.</p></li>
+<li><p><strong>eulerian_work</strong> (<em>float</em>) – Eulerian work of the impeller. Equation 2.12 of S. Parisi PhD thesis.</p></li>
+<li><p><strong>number_efficient_blades</strong> (<em>float</em>) – Number of efficient blades of the impeller. Equation 2.9 of S. Parisi PhD thesis.</p></li>
+<li><p><strong>impeller_outlet_diameter</strong> (<em>float</em>) – Diameter of the outlet of the impeller.</p></li>
+<li><p><strong>impeller_inlet_tip_diameter</strong> (<em>float</em>) – Diameter of the impeller at the inlet for the tip line.</p></li>
+<li><p><strong>impeller_inlet_hub_diameter</strong> (<em>float</em>) – Diameter of the impeller at the inlet for the hub line.</p></li>
+<li><p><strong>outlet_blade_height</strong> (<em>float</em>) – Blade height at the outlet (<span class="math notranslate nohighlight">\(b_2\)</span> in S. Parisi PhD thesis)</p></li>
+<li><p><strong>blade_length</strong> (<em>float</em>) – Length of a blade (equation 2.34 of S. Parisi PhD thesis)</p></li>
+<li><p><strong>impeller_outlet_tangential_speed</strong> (<em>float</em>) – Speed of the impeller (U)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coefficient of diffusion from Whitfield model. Equation 2.87 of S. Parisi PhD thesis.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.BladeloadingLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eulerian_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_efficient_blades</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_tip_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_tangential_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_inlet_hub_diameter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.BladeloadingLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the blade loading loss</p>
+<p>Equation 2.85 of S. Parisi PhD thesis.</p>
+<dl class="simple">
+<dt>impeller_outlet_speed<span class="classifier">float</span></dt><dd><p>Tangential relative speed (norm ; W2) at the outlet of the impeller.</p>
+</dd>
+<dt>impeller_inlet_tip_speed<span class="classifier">float</span></dt><dd><p>Tangential relative speed at the tip line of the impeller.</p>
+</dd>
+<dt>eulerian_work<span class="classifier">float</span></dt><dd><p>Eulerian work of the impeller. Equation 2.12 of S. Parisi PhD thesis.</p>
+</dd>
+<dt>number_efficient_blades<span class="classifier">float</span></dt><dd><p>Number of efficient blades of the impeller. Equation 2.9 of S. Parisi PhD thesis.</p>
+</dd>
+<dt>impeller_outlet_diameter<span class="classifier">float</span></dt><dd><p>Diameter of the outlet of the impeller.</p>
+</dd>
+<dt>impeller_inlet_tip_diameter<span class="classifier">float</span></dt><dd><p>Diameter of the impeller at the inlet for the tip line.</p>
+</dd>
+<dt>impeller_outlet_tangential_speed<span class="classifier">float</span></dt><dd><p>Speed of the impeller (U)</p>
+</dd>
+<dt>impeller_inlet_hub_diameter<span class="classifier">float, optional</span></dt><dd><p>Diameter of the impeller at the inlet for the hub line, by default 0</p>
+</dd>
+<dt>outlet_blade_height<span class="classifier">float, optional</span></dt><dd><p>Blade height at the outlet (<span class="math notranslate nohighlight">\(b_2\)</span> in S. Parisi PhD thesis), by default 0</p>
+</dd>
+<dt>blade_length<span class="classifier">float, optional</span></dt><dd><p>Length of a blade (equation 2.34 of S. Parisi PhD thesis), by default 0</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Blade loading loss according to equation 2.85 of S. Parisi PhD thesis.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – if type is not Coppage or Whitfield, raises the implementation error</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">SkinfrictionLoss</span></span><a class="headerlink" href="#losses.SkinfrictionLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the skin friction loss component</p>
+<p>Equation 2.88 of S. Parisi PhD thesis.</p>
+<p>Colebrook-White equation solved with brentq xtol=1e-10 and rtol=1e-15</p>
+<section id="attribute">
+<h3>Attribute<a class="headerlink" href="#attribute" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>_Ksf<span class="classifier">float</span></dt><dd><p>Fanning friction factor. Default is 4</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#losses.SkinfrictionLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Skin</span> <span class="pre">friction'</span></em><a class="headerlink" href="#losses.SkinfrictionLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.SkinfrictionLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss._Ksf">
+<span class="sig-name descname"><span class="pre">_Ksf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#losses.SkinfrictionLoss._Ksf" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.compute_skinfrictionloss_speed">
+<span class="sig-name descname"><span class="pre">compute_skinfrictionloss_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.compute_skinfrictionloss_speed" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the skin friction speed used for the skin friction loss</p>
+<p>Equation 2.89 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Meridional relative speed Wsf described by equation 2.89 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bladelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hydraulicdiameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">averageroughness</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kinematicvisc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the skin friction loss</p>
+<p>Equation 2.88 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bladelength</strong> (<em>float</em>) – Blade length defined by equation 2.34 of S. Parisi PhD thesis</p></li>
+<li><p><strong>hydraulicdiameter</strong> (<em>float</em>) – Hydraulic diameter defined by equation 2.35 of S. Parisi PhD thesis</p></li>
+<li><p><strong>averageroughness</strong> (<em>float</em>) – Average roughness of the surface after machining and eventual treatments also called Ra. Ra is usually around 3.2 µm for standard machining.</p></li>
+<li><p><strong>kinematicvisc</strong> (<em>array</em><em> of </em><em>floats</em>) – Kinematic viscosities of the inlet and outlet</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loss of enthalpy due to the skin friction component defined by equation 2.88 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.compute_Reynolds">
+<span class="sig-name descname"><span class="pre">compute_Reynolds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kinematicvisc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.compute_Reynolds" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the Reynolds number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speed</strong> (<em>float</em>) – Speed to take into account for the Reynolds number</p></li>
+<li><p><strong>length</strong> (<em>float</em>) – Representative length to take into account for the Reynolds number</p></li>
+<li><p><strong>kinematicvisc</strong> (<em>float</em>) – Kinematic viscosity of the fluid to compute the Reynolds number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reynolds number</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.compute_fanningfactor">
+<span class="sig-name descname"><span class="pre">compute_fanningfactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Reynolds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeroughnesseps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.compute_fanningfactor" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the fanning factor cf</p>
+<p>Equation 2.91 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Reynolds</strong> (<em>float</em>) – Reynolds number</p></li>
+<li><p><strong>relativeroughnesseps</strong> (<em>float</em>) – Relative roughness equals to the average roughness of the surface divided by the hydraulic diameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Fanning factor cf according to equation 2.91 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.solve_Colebrook_White">
+<span class="sig-name descname"><span class="pre">solve_Colebrook_White</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Reynolds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeroughnesseps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.solve_Colebrook_White" title="Link to this definition">¶</a></dt>
+<dd><p>Find the root value of the Colebrook White equation to find the friction factor <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<p>Equation 2.92 of S. Parisi PhD thesis = 0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Reynolds</strong> (<em>float</em>) – Reynolds number of the flow</p></li>
+<li><p><strong>relativeroughnesseps</strong> (<em>float</em>) – Average roughness / hydraulic diameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Friction factor given by the Colebrook-White equation, equation 2.92 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.SkinfrictionLoss.Colebrook_White_equation">
+<span class="sig-name descname"><span class="pre">Colebrook_White_equation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frictionfactorlambda</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relativeroughnesseps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Reynolds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.SkinfrictionLoss.Colebrook_White_equation" title="Link to this definition">¶</a></dt>
+<dd><p>Colebrook White function</p>
+<p>Equation 2.92 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frictionfactorlambda</strong> (<em>float</em>) – Friction factor of the Colebrook-White equation, <span class="math notranslate nohighlight">\(\lambda\)</span></p></li>
+<li><p><strong>relativeroughnesseps</strong> (<em>float</em>) – Relative roughness <span class="math notranslate nohighlight">\(\epsilon\)</span> computed as the ratio of the average roughness of the surface and the hydraulic diameter</p></li>
+<li><p><strong>Reynolds</strong> (<em>float</em>) – Reynolds number of the flow</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Rest of the Colebrook White function re-written to be equal to 0 from equation 2.92 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.ClearanceLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">ClearanceLoss</span></span><a class="headerlink" href="#losses.ClearanceLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the clearance loss due to the clearance in front of the impeller</p>
+<p>Equation 2.93 of S. Parisi PhD thesis</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ClearanceLoss._clearance">
+<span class="sig-name descname"><span class="pre">_clearance</span></span><a class="headerlink" href="#losses.ClearanceLoss._clearance" title="Link to this definition">¶</a></dt>
+<dd><p>clearance in front of the impeller, main parameter of the model</p>
+<p>usually between 0.1 mm and 1 mm</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ClearanceLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'internal'</span></em><a class="headerlink" href="#losses.ClearanceLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ClearanceLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Clearance'</span></em><a class="headerlink" href="#losses.ClearanceLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.ClearanceLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.ClearanceLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id52">
+<span class="sig-name descname"><span class="pre">_clearance</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.0002</span></em><a class="headerlink" href="#id52" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.ClearanceLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_mid_absolute_speed_radial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_tip_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_hub_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effective_number_blade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.ClearanceLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the clearance loss of the impeller</p>
+<p>Equation 2.93 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>inlet_mid_absolute_speed_radial</strong> (<em>float</em>) – Radial component of the absolute speed at the inlet of the impeller for the mid line Vm1mid</p></li>
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Diameter of the impeller at the outlet</p></li>
+<li><p><strong>inlet_tip_diameter</strong> (<em>float</em>) – Diameter of the impeller at the inlet for the tip line</p></li>
+<li><p><strong>inlet_hub_diameter</strong> (<em>float</em>) – Diameter of the impeller at the inlet for the hub line</p></li>
+<li><p><strong>outlet_density</strong> (<em>float</em>) – Density of the fluid at the outlet of the impeller</p></li>
+<li><p><strong>inlet_density</strong> (<em>float</em>) – Density of the fluid at the inlet of the impeller</p></li>
+<li><p><strong>effective_number_blade</strong> (<em>float</em>) – Effective number of blades for the impeller for instance equation 2.9 of S. Parisi PhD thesis</p></li>
+<li><p><strong>outlet_blade_height</strong> (<em>float</em>) – Blade height at the outlet of the impeller</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>clearance loss component according to 2.93 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.RecirculationLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">RecirculationLoss</span></span><a class="headerlink" href="#losses.RecirculationLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the recirculation loss that models the backflow from the vaneless diffuser to the impeller</p>
+<p>Equation 2.94 of S. Parisi PhD thesis</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.RecirculationLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'parasitic'</span></em><a class="headerlink" href="#losses.RecirculationLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.RecirculationLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Recirculation'</span></em><a class="headerlink" href="#losses.RecirculationLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.RecirculationLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.RecirculationLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.RecirculationLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tanflow_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diffusion_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_linearspeed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.RecirculationLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the recirculation loss (back flow from the diffuser to the impeller)</p>
+<p>Equation 2.94 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> (<em>string</em>) – Equation applied. Should be Coppage or Oh</p></li>
+<li><p><strong>tanflow_angle</strong> (<em>float</em>) – tan of exit absolute flow angle</p></li>
+<li><p><strong>diffusion_factor</strong> (<em>float</em>) – Diffusion factor, see BladeloadingLoss class</p></li>
+<li><p><strong>impeller_linearspeed</strong> (<em>float</em>) – Speed of the impeller (U2)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recirculation loss according to Equation 2.94 of S. Parisi PhD thesis for Coppage type or equation 9 of <a class="reference external" href="https://doi.org/10.1016/j.cja.2017.08.002">https://doi.org/10.1016/j.cja.2017.08.002</a> for Oh</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – Raised if type is not Coppage or Oh</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.LeakageLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">LeakageLoss</span></span><a class="headerlink" href="#losses.LeakageLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the leakage loss for open or closed impellers</p>
+<p>For open impeller equation 2.98 of S. Parisi PhD thesis. Leakage from pressure side to suction side of the blade.</p>
+<p>For closed impeller equation 2.100 of S. Parisi PhD thesis. Leakage from high pressure to low pressure</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._cd">
+<span class="sig-name descname"><span class="pre">_cd</span></span><a class="headerlink" href="#losses.LeakageLoss._cd" title="Link to this definition">¶</a></dt>
+<dd><p>Experimental correction factor used for shrouded impellers, default is 0.9</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'parasitic'</span></em><a class="headerlink" href="#losses.LeakageLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Leakage'</span></em><a class="headerlink" href="#losses.LeakageLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.LeakageLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id53">
+<span class="sig-name descname"><span class="pre">_cd</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.9</span></em><a class="headerlink" href="#id53" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._equation">
+<span class="sig-name descname"><span class="pre">_equation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#losses.LeakageLoss._equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.LeakageLoss._clearancemassflow">
+<span class="sig-name descname"><span class="pre">_clearancemassflow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.LeakageLoss._clearancemassflow" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.LeakageLoss.compute_DP_open">
+<span class="sig-name descname"><span class="pre">compute_DP_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">massflow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_diameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numbereffectiveblade</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.LeakageLoss.compute_DP_open" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the pressure difference between suction and pressure side</p>
+<p>Equation 2.95 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>massflow</strong> (<em>float</em>) – massflow of the compressor</p></li>
+<li><p><strong>inlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>inlet_diameters</strong> (<em>array</em><em> of </em><em>float</em>) – Array of [hub mid tip] line diameters</p></li>
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Outlet diameter of the impeller</p></li>
+<li><p><strong>outlet_blade_height</strong> (<em>float</em>) – Height of the blade at the outlet of the impeller</p></li>
+<li><p><strong>blade_length</strong> (<em>float</em>) – Blade length defined by equation 2.34 of S. Parisi PhD thesis</p></li>
+<li><p><strong>numbereffectiveblade</strong> (<em>float</em>) – Number of effective blade defined by equation 2.9 of S. Parisi PhD thesis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pressure difference between the pressure side and suction side according to equation 2.95 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.LeakageLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'open'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.LeakageLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Wrapper to compute the Leakage loss</p>
+<dl class="simple">
+<dt>type<span class="classifier">string</span></dt><dd><p>open or closed depending on impeller’s geometry</p>
+</dd>
+<dt>array_input_open<span class="classifier">array</span></dt><dd><p>array with the inputs for LeakageLoss.compute_leakageloss_open</p>
+</dd>
+<dt>array_input_closed<span class="classifier">array</span></dt><dd><p>array with the inputs for LeakageLoss.compute_leakageloss_closed</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Leakage loss depending on the type used.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – if type is not open or closed, raises the implementation error</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.LeakageLoss.compute_leakageloss_open">
+<span class="sig-name descname"><span class="pre">compute_leakageloss_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">massflow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_diameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blade_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numbereffectiveblade</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_outlet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bladerunningclearance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.LeakageLoss.compute_leakageloss_open" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the leakage loss of an open impeller</p>
+<p>Equation 2.98 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>massflow</strong> (<em>float</em>) – massflow of the compressor</p></li>
+<li><p><strong>inlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>inlet_diameters</strong> (<em>array</em><em> of </em><em>float</em>) – Array of [hub mid tip] line diameters</p></li>
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Outlet diameter of the impeller</p></li>
+<li><p><strong>outlet_blade_height</strong> (<em>float</em>) – Height of the blade at the outlet of the impeller</p></li>
+<li><p><strong>blade_length</strong> (<em>float</em>) – Blade length defined by equation 2.34 of S. Parisi PhD thesis</p></li>
+<li><p><strong>numbereffectiveblade</strong> (<em>float</em>) – Number of effective blade defined by equation 2.9 of S. Parisi PhD thesis</p></li>
+<li><p><strong>density_outlet</strong> (<em>float</em>) – density of the fluid at the outlet of the impeller</p></li>
+<li><p><strong>bladerunningclearance</strong> (<em>float</em>) – blade running clearance of the impeller</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>enthalpy lost from the leakage between pressure and suction side of the impeller blade according to equation 2.98 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.LeakageLoss.compute_leakageloss_closed">
+<span class="sig-name descname"><span class="pre">compute_leakageloss_closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">massflow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_diameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density_outlet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bladerunningclearance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numberofteethlaby</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltah_isentropic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Leulerian</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.LeakageLoss.compute_leakageloss_closed" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the leakage loss for a closed impeller</p>
+<p>Equation 2.100 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>massflow</strong> (<em>float</em>) – massflow of the compressor</p></li>
+<li><p><strong>inlet_diameters</strong> (<em>array</em><em> of </em><em>float</em>) – Array of [hub mid tip] line diameters</p></li>
+<li><p><strong>density_outlet</strong> (<em>float</em>) – Density of the fluid at the outlet of the impeller</p></li>
+<li><p><strong>bladerunningclearance</strong> (<em>float</em>) – Blade running clearance of the impeller</p></li>
+<li><p><strong>numberofteethlaby</strong> (<em>integer</em>) – Number of teeth in the labyrinth seal in front of the closed impeller</p></li>
+<li><p><strong>deltah_isentropic</strong> (<em>float</em>) – Isentropic enthalpy of the transformation done by the impeller</p></li>
+<li><p><strong>Leulerian</strong> (<em>float</em>) – Eulerian work done by the enthalpy, equation 2.12 of S. Parisi PhD thesis</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>enthalpy lost from the high pressure side to the low pressure side of the impeller according to equation 2.100 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">DiscfrictionLoss</span></span><a class="headerlink" href="#losses.DiscfrictionLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the disc friction loss that models the friction at the back-face of the impeller</p>
+<p>Equations 2.101 to 2.103 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Loss</strong> (<em>_type_</em>) – _description_</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'parasitic'</span></em><a class="headerlink" href="#losses.DiscfrictionLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Disc</span> <span class="pre">friction'</span></em><a class="headerlink" href="#losses.DiscfrictionLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.DiscfrictionLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss._Re">
+<span class="sig-name descname"><span class="pre">_Re</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.DiscfrictionLoss._Re" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss._frictionfactor">
+<span class="sig-name descname"><span class="pre">_frictionfactor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.DiscfrictionLoss._frictionfactor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss.compute_friction_factor">
+<span class="sig-name descname"><span class="pre">compute_friction_factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#losses.DiscfrictionLoss.compute_friction_factor" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the friction factor</p>
+<p>Equation 2.102 of S. Parisi PhD thesis. Laminar to turbulent boundary layer transition is done at Re = 3e5</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Reynolds</strong> (<em>float</em>) – Reynolds number of the flow at the outlet of the impeller</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Friction factor according to equation 2.102 of S. Parisi PhD thesis to be used to compute the disc friction loss</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.DiscfrictionLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outlet_velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">massflow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_kinematic_viscosity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.DiscfrictionLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the disc friction loss of the impeller (back of the impeller)</p>
+<p>Equation 2.103 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line.</p></li>
+<li><p><strong>outlet_diameter</strong> (<em>float</em>) – Outlet diameter of the impeller</p></li>
+<li><p><strong>outlet_density</strong> (<em>float</em>) – Density of the fluid at the outlet of the impeller</p></li>
+<li><p><strong>massflow</strong> (<em>float</em>) – Massflow of the impeller</p></li>
+<li><p><strong>outlet_kinematic_viscosity</strong> (<em>float</em>) – Kinematic viscosity at the outlet of the impeller</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.MixingLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">MixingLoss</span></span><a class="headerlink" href="#losses.MixingLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the mixing loss when the flow in the impeller separates</p>
+<p>Equations 2.104 to 2.108 of S. Parisi PhD thesis</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.MixingLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outside'</span></em><a class="headerlink" href="#losses.MixingLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.MixingLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Mixing'</span></em><a class="headerlink" href="#losses.MixingLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.MixingLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.MixingLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.MixingLoss.compute_separation_velocity">
+<span class="sig-name descname"><span class="pre">compute_separation_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_relative_velocity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.MixingLoss.compute_separation_velocity" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the separation velocity</p>
+<p>Equation 2.105 of S. Parisi PhD thesis. Separation velocity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_speed</strong> (<em>float</em>) – Maximum speed obtained from Supercriticalloss.compute_max_velocity</p></li>
+<li><p><strong>outlet_relative_velocity</strong> (<em>float</em>) – Outlet relative velocity (norm, W2)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Separation velocity according to equation 2.105 of S. Parisi PhD thesis to be used to compute the mixing loss</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.MixingLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_velocities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.MixingLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the mixing loss</p>
+<p>Equation 2.108 of S. Parisi PhD thesis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_speed</strong> (<em>float</em>) – Maximum speed obtained from Supercriticalloss.compute_max_velocity</p></li>
+<li><p><strong>outlet_velocities</strong> (<em>array</em><em> of </em><em>float</em>) – 3x3x2 array of floats
+velocities V, W, U for hub, mid and tip line of the impeller</p></li>
+<li><p><strong>impeller_outlet_area</strong> (<em>float</em>) – impeller outlet area A2 eq. 2.43</p></li>
+<li><p><strong>impeller_outlet_diameter</strong> (<em>float</em>) – impeller outlet diameter D2</p></li>
+<li><p><strong>outlet_blade_height</strong> (<em>float</em>) – impeller outlet blade height b2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mixing loss 2.108 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">VanelessdiffuserLoss</span></span><a class="headerlink" href="#losses.VanelessdiffuserLoss" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outside'</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vaneless</span> <span class="pre">diffuser'</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._kcfvld">
+<span class="sig-name descname"><span class="pre">_kcfvld</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.01</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._kcfvld" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._cf">
+<span class="sig-name descname"><span class="pre">_cf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._cf" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._Re">
+<span class="sig-name descname"><span class="pre">_Re</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._Re" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss._equation">
+<span class="sig-name descname"><span class="pre">_equation</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#losses.VanelessdiffuserLoss._equation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss.compute_friction_factor">
+<span class="sig-name descname"><span class="pre">compute_friction_factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#losses.VanelessdiffuserLoss.compute_friction_factor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss.compute_velocitydifftang">
+<span class="sig-name descname"><span class="pre">compute_velocitydifftang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.VanelessdiffuserLoss.compute_velocitydifftang" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>args is:</dt><dd><p>0 impeller_outlet_velocity V2 [V2mid meridional ; V2mid tangential]
+1 diffuser_outlet_velocity 2 coordinates
+2 blade_height
+3 diffuser_outlet_height
+4 kinematicvisc: average kinematic viscosity used to compute the Reynolds number
+5 impeller_outlet_diameter
+6 diffuser_outlet_diameter
+7 massflow</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss.compute_loss_Coppage">
+<span class="sig-name descname"><span class="pre">compute_loss_Coppage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args_minimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_outlet_flow_angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.VanelessdiffuserLoss.compute_loss_Coppage" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>args_minimal must have, in every case:</dt><dd><p>0 impeller_outlet_velocity V2 [V2mid meridional ; V2mid tangential]
+1 diffuser_outlet_velocity 2 coordinates
+2 blade_height
+3 diffuser_outlet_height
+4 kinematicvisc: average kinematic viscosity used to compute the Reynolds number
+5 impeller_outlet_diameter
+6 diffuser_outlet_diameter
+7 massflow</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss.compute_loss_Stanitz">
+<span class="sig-name descname"><span class="pre">compute_loss_Stanitz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args_minimal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mach</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">densities</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx_impeller_outlet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx_diffuser_outlet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.VanelessdiffuserLoss.compute_loss_Stanitz" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>args_minimal must have, in every case:</dt><dd><p>0 impeller_outlet_velocity V2 [V2mid meridional ; V2mid tangential]
+1 diffuser_outlet_velocity 2 coordinates
+2 blade_height
+3 diffuser_outlet_height
+4 kinematicvisc: average kinematic viscosity used to compute the Reynolds number
+5 impeller_outlet_diameter
+6 diffuser_outlet_diameter
+7 massflow</p>
+</dd>
+</dl>
+<p>kpv: Isentropic expansion coefficient
+mach: Mach number at impeller’s outlet
+cp: caloric capacity at constant pressure at impeller’s outlet
+temperature: temperature array _T from Compressor class in compressor.py
+pressure: pressure array from _P Compressor class in compressor.py
+densities: densities array _densities from Compressor class in compressor.py
+idx_impeller_outlet: index to find impeller outlet properties in temperture, pressure or densities
+idx_diffuser_outlet: index to find diffuser’s outlet properties in temperture, pressure or densities</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VanelessdiffuserLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Stanitz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args_minimal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.VanelessdiffuserLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>args_minimal must have, in every case:</dt><dd><p>0 impeller_outlet_velocity V2 [V2mid meridional ; V2mid tangential]
+1 diffuser_outlet_velocity 2 coordinates
+2 blade_height
+3 diffuser_outlet_height
+4 kinematicvisc: average kinematic viscosity used to compute the Reynolds number
+5 impeller_outlet_diameter
+6 diffuser_outlet_diameter
+7 massflow</p>
+</dd>
+<dt>args for Coppage are</dt><dd><p>impeller_outlet_flow_angle</p>
+</dd>
+<dt>args for Stanitz are</dt><dd><p>kpv: Isentropic expansion coefficient
+mach: Mach number at impeller’s outlet
+cp: caloric capacity at constant pressure at impeller’s outlet
+temperature: temperature array _T from Compressor class in compressor.py
+pressure: pressure array from _P Compressor class in compressor.py
+densities: densities array _densities from Compressor class in compressor.py
+idx_impeller_outlet: index to find impeller outlet properties in temperture, pressure or densities
+idx_diffuser_outlet: index to find diffuser’s outlet properties in temperture, pressure or densities</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.VaneddiffuserLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">VaneddiffuserLoss</span></span><a class="headerlink" href="#losses.VaneddiffuserLoss" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VaneddiffuserLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outside'</span></em><a class="headerlink" href="#losses.VaneddiffuserLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VaneddiffuserLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vaned</span> <span class="pre">diffuser'</span></em><a class="headerlink" href="#losses.VaneddiffuserLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VaneddiffuserLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.VaneddiffuserLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="losses.VoluteLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">VoluteLoss</span></span><a class="headerlink" href="#losses.VoluteLoss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the mixing loss when the flow in the impeller separates</p>
+<p>Equations 2.143 of S. Parisi PhD thesis</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VoluteLoss._type">
+<span class="sig-name descname"><span class="pre">_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'outside'</span></em><a class="headerlink" href="#losses.VoluteLoss._type" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VoluteLoss._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Volute'</span></em><a class="headerlink" href="#losses.VoluteLoss._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="losses.VoluteLoss._value">
+<span class="sig-name descname"><span class="pre">_value</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#losses.VoluteLoss._value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="losses.VoluteLoss.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diffuser_meridional_velocity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#losses.VoluteLoss.compute_loss" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the separation velocity</p>
+<p>Equation 2.105 of S. Parisi PhD thesis. Separation velocity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>diffuser_meridional_velocity</strong> (<em>float</em>) – Diffuser’s outlet meridional velocity V4m</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Volute loss according to equation 2.143 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="losses.sf">
+<span class="sig-prename descclassname"><span class="pre">losses.</span></span><span class="sig-name descname"><span class="pre">sf</span></span><a class="headerlink" href="#losses.sf" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">losses</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#losses.IGVLoss"><code class="docutils literal notranslate"><span class="pre">IGVLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.IGVLoss._type"><code class="docutils literal notranslate"><span class="pre">IGVLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.IGVLoss._name"><code class="docutils literal notranslate"><span class="pre">IGVLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">IGVLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">IGVLoss._name</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.IncidenceLoss"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.IncidenceLoss._type"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.IncidenceLoss._name"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.IncidenceLoss._value"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.IncidenceLoss._finc"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._finc</span></code></a></li>
+<li><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._finc</span></code></a></li>
+<li><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.IncidenceLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">IncidenceLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.ShockLoss"><code class="docutils literal notranslate"><span class="pre">ShockLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.ShockLoss._type"><code class="docutils literal notranslate"><span class="pre">ShockLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.ShockLoss._name"><code class="docutils literal notranslate"><span class="pre">ShockLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.ShockLoss._value"><code class="docutils literal notranslate"><span class="pre">ShockLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">ShockLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">ShockLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">ShockLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.ShockLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">ShockLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.DiffusionLoss"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.DiffusionLoss._type"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss._name"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss._value"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss._difforstall"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._difforstall</span></code></a></li>
+<li><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss._difforstall</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss.compute_diffusion_loss_component"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss.compute_diffusion_loss_component()</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss.compute_stall_loss_component"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss.compute_stall_loss_component()</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiffusionLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">DiffusionLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.ChokingLoss"><code class="docutils literal notranslate"><span class="pre">ChokingLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.ChokingLoss._type"><code class="docutils literal notranslate"><span class="pre">ChokingLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.ChokingLoss._name"><code class="docutils literal notranslate"><span class="pre">ChokingLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.ChokingLoss._value"><code class="docutils literal notranslate"><span class="pre">ChokingLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.ChokingLoss.compute_ratioarea"><code class="docutils literal notranslate"><span class="pre">ChokingLoss.compute_ratioarea()</span></code></a></li>
+<li><a class="reference internal" href="#losses.ChokingLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">ChokingLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._type"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._name"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._value"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._fsup"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._fsup</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._wmax"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._wmax</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._Mcr"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._Mcr</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss._mach"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._mach</span></code></a></li>
+<li><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#id40"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#id41"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#id42"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._fsup</span></code></a></li>
+<li><a class="reference internal" href="#id43"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._wmax</span></code></a></li>
+<li><a class="reference internal" href="#id44"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._Mcr</span></code></a></li>
+<li><a class="reference internal" href="#id45"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss._mach</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss.compute_max_velocity"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss.compute_max_velocity()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SupercriticalLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">SupercriticalLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.BladeloadingLoss._type"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss._name"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss._value"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss._d"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss._d</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss._equation"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss._equation</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss.compute_diffusion_Coppage"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss.compute_diffusion_Coppage()</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss.compute_diffusion_Whitfield"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss.compute_diffusion_Whitfield()</span></code></a></li>
+<li><a class="reference internal" href="#losses.BladeloadingLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">BladeloadingLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss._type"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss._name"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss._value"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss._Ksf"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss._Ksf</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.compute_skinfrictionloss_speed"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.compute_skinfrictionloss_speed()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.compute_loss()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.compute_Reynolds"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.compute_Reynolds()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.compute_fanningfactor"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.compute_fanningfactor()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.solve_Colebrook_White"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.solve_Colebrook_White()</span></code></a></li>
+<li><a class="reference internal" href="#losses.SkinfrictionLoss.Colebrook_White_equation"><code class="docutils literal notranslate"><span class="pre">SkinfrictionLoss.Colebrook_White_equation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.ClearanceLoss"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.ClearanceLoss._clearance"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss._clearance</span></code></a></li>
+<li><a class="reference internal" href="#losses.ClearanceLoss._type"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.ClearanceLoss._name"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.ClearanceLoss._value"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#id52"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss._clearance</span></code></a></li>
+<li><a class="reference internal" href="#losses.ClearanceLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">ClearanceLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.RecirculationLoss"><code class="docutils literal notranslate"><span class="pre">RecirculationLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.RecirculationLoss._type"><code class="docutils literal notranslate"><span class="pre">RecirculationLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.RecirculationLoss._name"><code class="docutils literal notranslate"><span class="pre">RecirculationLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.RecirculationLoss._value"><code class="docutils literal notranslate"><span class="pre">RecirculationLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.RecirculationLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">RecirculationLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.LeakageLoss"><code class="docutils literal notranslate"><span class="pre">LeakageLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.LeakageLoss._cd"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._cd</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss._type"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss._name"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss._value"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#id53"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._cd</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss._equation"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._equation</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss._clearancemassflow"><code class="docutils literal notranslate"><span class="pre">LeakageLoss._clearancemassflow</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss.compute_DP_open"><code class="docutils literal notranslate"><span class="pre">LeakageLoss.compute_DP_open()</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">LeakageLoss.compute_loss()</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss.compute_leakageloss_open"><code class="docutils literal notranslate"><span class="pre">LeakageLoss.compute_leakageloss_open()</span></code></a></li>
+<li><a class="reference internal" href="#losses.LeakageLoss.compute_leakageloss_closed"><code class="docutils literal notranslate"><span class="pre">LeakageLoss.compute_leakageloss_closed()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss._type"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss._name"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss._value"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss._Re"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss._Re</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss._frictionfactor"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss._frictionfactor</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss.compute_friction_factor"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss.compute_friction_factor()</span></code></a></li>
+<li><a class="reference internal" href="#losses.DiscfrictionLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">DiscfrictionLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.MixingLoss"><code class="docutils literal notranslate"><span class="pre">MixingLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.MixingLoss._type"><code class="docutils literal notranslate"><span class="pre">MixingLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.MixingLoss._name"><code class="docutils literal notranslate"><span class="pre">MixingLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.MixingLoss._value"><code class="docutils literal notranslate"><span class="pre">MixingLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.MixingLoss.compute_separation_velocity"><code class="docutils literal notranslate"><span class="pre">MixingLoss.compute_separation_velocity()</span></code></a></li>
+<li><a class="reference internal" href="#losses.MixingLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">MixingLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._type"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._name"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._value"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._kcfvld"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._kcfvld</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._cf"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._cf</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._Re"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._Re</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss._equation"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss._equation</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss.compute_friction_factor"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss.compute_friction_factor()</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss.compute_velocitydifftang"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss.compute_velocitydifftang()</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss.compute_loss_Coppage"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss.compute_loss_Coppage()</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss.compute_loss_Stanitz"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss.compute_loss_Stanitz()</span></code></a></li>
+<li><a class="reference internal" href="#losses.VanelessdiffuserLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">VanelessdiffuserLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.VaneddiffuserLoss"><code class="docutils literal notranslate"><span class="pre">VaneddiffuserLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.VaneddiffuserLoss._type"><code class="docutils literal notranslate"><span class="pre">VaneddiffuserLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.VaneddiffuserLoss._name"><code class="docutils literal notranslate"><span class="pre">VaneddiffuserLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.VaneddiffuserLoss._value"><code class="docutils literal notranslate"><span class="pre">VaneddiffuserLoss._value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.VoluteLoss"><code class="docutils literal notranslate"><span class="pre">VoluteLoss</span></code></a><ul>
+<li><a class="reference internal" href="#losses.VoluteLoss._type"><code class="docutils literal notranslate"><span class="pre">VoluteLoss._type</span></code></a></li>
+<li><a class="reference internal" href="#losses.VoluteLoss._name"><code class="docutils literal notranslate"><span class="pre">VoluteLoss._name</span></code></a></li>
+<li><a class="reference internal" href="#losses.VoluteLoss._value"><code class="docutils literal notranslate"><span class="pre">VoluteLoss._value</span></code></a></li>
+<li><a class="reference internal" href="#losses.VoluteLoss.compute_loss"><code class="docutils literal notranslate"><span class="pre">VoluteLoss.compute_loss()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#losses.sf"><code class="docutils literal notranslate"><span class="pre">sf</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../Tests/index.html"
+                          title="previous chapter">Tests</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../physics/index.html"
+                          title="next chapter">physics</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/losses/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../physics/index.html" title="physics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../Tests/index.html" title="Tests"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">losses</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, R. Fleurisson.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+mechanics
+=========
+
+.. py:module:: mechanics
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   mechanics.r
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   mechanics.DiscStress
+   mechanics.BladeStress
+   mechanics.Materials
+
+
+Module Contents
+---------------
+
+.. py:class:: DiscStress
+
+   Computes disc stress
+
+   .. attribute:: _ksigma
+
+      experimental coefficient increasing the stress
+
+      usually between 0.75 and 1. > 1 to be conservative.
+
+      Default is 1.2
+
+      :type: float
+
+
+   .. py:attribute:: _ksigma
+      :value: 1.2
+
+
+
+   .. py:method:: compute_stress(density, impeller_speed, poisson_ratio)
+
+      Computes the disc stress
+
+      Osbourne disc stress
+
+      :param density: Impeller's materials' density
+      :type density: float
+      :param impeller_speed: Impeller's peripheral tangential velocity U2
+      :type impeller_speed: float
+      :param poisson_ratio: Impeller's materials' poisson ratio
+      :type poisson_ratio: float
+
+      :returns: Maximal disc stress according to Osborn
+      :rtype: float
+
+
+
+.. py:class:: BladeStress
+
+   Computes blade stress according to Osborne et al.
+
+
+   .. py:method:: compute_f(x, taper_ratio, type_taper='parabolic')
+
+      Compute the normalized stress factor
+
+      C. Osborne, P. Runstadler Jr, and W. D. Stacy, “Aerodynamic and mechanical design of an 8: 1 pressure ratio centrifugal compressor,” Creare Incorporated, 1974.
+
+      x : float
+          Normalized distance along the blade from tip to root (0 to 1).
+      taper_ratio : float
+          Blade thickness at hub divided by blade thickness at tip t_hub/t_tip.
+      type_taper : string
+          Taper interpolation type.
+
+          linear or parabolic
+
+      :returns: Normalized stress factor
+      :rtype: float
+
+      :raises NotImplementedError: if type is not linear or parabolic, raises the implementation error
+
+
+
+   .. py:method:: compute_stress(blade_height, density, outlet_diameter, rot_speed, outlet_blade_angle, ttip, taper_ratio, type_taper='parabolic')
+
+      Compute the stress
+
+      C. Osborne, P. Runstadler Jr, and W. D. Stacy, “Aerodynamic and mechanical design of an 8: 1 pressure ratio centrifugal compressor,” Creare Incorporated, 1974.
+
+      blade_height : float
+          Impeller's outlet blade height.
+      density : float
+          Impeller's materials' density.
+      outlet_diameter : float
+          Impeller's outlet_diameter.
+      rot_speed : float
+          Impeller's rotation speed in rad/s.
+      outlet_blade_angle : float
+          Impeller's blades' outlet angle in radians.
+      ttip : float
+          Impeller's blades' thickness at the tip (opposed to the hub)
+      taper_ratio : float
+          Blade thickness at hub divided by blade thickness at tip t_hub/t_tip.
+      type_taper : string
+          Taper interpolation type.
+
+          linear or parabolic
+
+      :returns: Stress at the root of the blades
+      :rtype: float
+
+
+
+.. py:class:: Materials(name='316L', Youngmodulus=200000000.0, poisson=0.33, yieldstress=179000000.0, density=7916)
+
+   
+
+
+   .. py:attribute:: _name
+
+
+   .. py:attribute:: _youngmodulus
+
+
+   .. py:attribute:: _poisson
+
+
+   .. py:attribute:: _yieldstress
+
+
+   .. py:attribute:: _density
+
+
+   .. py:method:: get_MOS(stress=1)
+
+      If we are at the yieldstress = 0
+      If we are lower than the yieldstress > 0
+      If we are bigger than the yieldstress < 0
+
+
+
+.. py:data:: r
+   :value: 0.07976
+
+

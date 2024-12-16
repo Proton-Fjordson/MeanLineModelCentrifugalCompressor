@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>mechanics &#8212; Mean line model for centrifugal compressors or pumps 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    
+    <script src="../../_static/documentation_options.js?v=8dde47fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="compressor" href="../compressor/index.html" />
+    <link rel="prev" title="geometry" href="../geometry/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../compressor/index.html" title="compressor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../geometry/index.html" title="geometry"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mechanics</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-mechanics">
+<span id="mechanics"></span><h1>mechanics<a class="headerlink" href="#module-mechanics" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mechanics.r" title="mechanics.r"><code class="xref py py-obj docutils literal notranslate"><span class="pre">r</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mechanics.DiscStress" title="mechanics.DiscStress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiscStress</span></code></a></p></td>
+<td><p>Computes disc stress</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#mechanics.BladeStress" title="mechanics.BladeStress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BladeStress</span></code></a></p></td>
+<td><p>Computes blade stress according to Osborne et al.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#mechanics.Materials" title="mechanics.Materials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Materials</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mechanics.DiscStress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mechanics.</span></span><span class="sig-name descname"><span class="pre">DiscStress</span></span><a class="headerlink" href="#mechanics.DiscStress" title="Link to this definition">¶</a></dt>
+<dd><p>Computes disc stress</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.DiscStress._ksigma">
+<span class="sig-name descname"><span class="pre">_ksigma</span></span><a class="headerlink" href="#mechanics.DiscStress._ksigma" title="Link to this definition">¶</a></dt>
+<dd><p>experimental coefficient increasing the stress</p>
+<p>usually between 0.75 and 1. &gt; 1 to be conservative.</p>
+<p>Default is 1.2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">_ksigma</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.2</span></em><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mechanics.DiscStress.compute_stress">
+<span class="sig-name descname"><span class="pre">compute_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impeller_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poisson_ratio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mechanics.DiscStress.compute_stress" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the disc stress</p>
+<p>Osbourne disc stress</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>density</strong> (<em>float</em>) – Impeller’s materials’ density</p></li>
+<li><p><strong>impeller_speed</strong> (<em>float</em>) – Impeller’s peripheral tangential velocity U2</p></li>
+<li><p><strong>poisson_ratio</strong> (<em>float</em>) – Impeller’s materials’ poisson ratio</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximal disc stress according to Osborn</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mechanics.BladeStress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mechanics.</span></span><span class="sig-name descname"><span class="pre">BladeStress</span></span><a class="headerlink" href="#mechanics.BladeStress" title="Link to this definition">¶</a></dt>
+<dd><p>Computes blade stress according to Osborne et al.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mechanics.BladeStress.compute_f">
+<span class="sig-name descname"><span class="pre">compute_f</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taper_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_taper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'parabolic'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mechanics.BladeStress.compute_f" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the normalized stress factor</p>
+<ol class="upperalpha simple" start="3">
+<li><p>Osborne, P. Runstadler Jr, and W. D. Stacy, “Aerodynamic and mechanical design of an 8: 1 pressure ratio centrifugal compressor,” Creare Incorporated, 1974.</p></li>
+</ol>
+<dl>
+<dt>x<span class="classifier">float</span></dt><dd><p>Normalized distance along the blade from tip to root (0 to 1).</p>
+</dd>
+<dt>taper_ratio<span class="classifier">float</span></dt><dd><p>Blade thickness at hub divided by blade thickness at tip t_hub/t_tip.</p>
+</dd>
+<dt>type_taper<span class="classifier">string</span></dt><dd><p>Taper interpolation type.</p>
+<p>linear or parabolic</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalized stress factor</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – if type is not linear or parabolic, raises the implementation error</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mechanics.BladeStress.compute_stress">
+<span class="sig-name descname"><span class="pre">compute_stress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blade_height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_diameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot_speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlet_blade_angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttip</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taper_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_taper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'parabolic'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mechanics.BladeStress.compute_stress" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the stress</p>
+<ol class="upperalpha simple" start="3">
+<li><p>Osborne, P. Runstadler Jr, and W. D. Stacy, “Aerodynamic and mechanical design of an 8: 1 pressure ratio centrifugal compressor,” Creare Incorporated, 1974.</p></li>
+</ol>
+<dl>
+<dt>blade_height<span class="classifier">float</span></dt><dd><p>Impeller’s outlet blade height.</p>
+</dd>
+<dt>density<span class="classifier">float</span></dt><dd><p>Impeller’s materials’ density.</p>
+</dd>
+<dt>outlet_diameter<span class="classifier">float</span></dt><dd><p>Impeller’s outlet_diameter.</p>
+</dd>
+<dt>rot_speed<span class="classifier">float</span></dt><dd><p>Impeller’s rotation speed in rad/s.</p>
+</dd>
+<dt>outlet_blade_angle<span class="classifier">float</span></dt><dd><p>Impeller’s blades’ outlet angle in radians.</p>
+</dd>
+<dt>ttip<span class="classifier">float</span></dt><dd><p>Impeller’s blades’ thickness at the tip (opposed to the hub)</p>
+</dd>
+<dt>taper_ratio<span class="classifier">float</span></dt><dd><p>Blade thickness at hub divided by blade thickness at tip t_hub/t_tip.</p>
+</dd>
+<dt>type_taper<span class="classifier">string</span></dt><dd><p>Taper interpolation type.</p>
+<p>linear or parabolic</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Stress at the root of the blades</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mechanics.Materials">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mechanics.</span></span><span class="sig-name descname"><span class="pre">Materials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'316L'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Youngmodulus</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poisson</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yieldstress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">179000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7916</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mechanics.Materials" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.Materials._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><a class="headerlink" href="#mechanics.Materials._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.Materials._youngmodulus">
+<span class="sig-name descname"><span class="pre">_youngmodulus</span></span><a class="headerlink" href="#mechanics.Materials._youngmodulus" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.Materials._poisson">
+<span class="sig-name descname"><span class="pre">_poisson</span></span><a class="headerlink" href="#mechanics.Materials._poisson" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.Materials._yieldstress">
+<span class="sig-name descname"><span class="pre">_yieldstress</span></span><a class="headerlink" href="#mechanics.Materials._yieldstress" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mechanics.Materials._density">
+<span class="sig-name descname"><span class="pre">_density</span></span><a class="headerlink" href="#mechanics.Materials._density" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mechanics.Materials.get_MOS">
+<span class="sig-name descname"><span class="pre">get_MOS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mechanics.Materials.get_MOS" title="Link to this definition">¶</a></dt>
+<dd><p>If we are at the yieldstress = 0
+If we are lower than the yieldstress &gt; 0
+If we are bigger than the yieldstress &lt; 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mechanics.r">
+<span class="sig-prename descclassname"><span class="pre">mechanics.</span></span><span class="sig-name descname"><span class="pre">r</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.07976</span></em><a class="headerlink" href="#mechanics.r" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mechanics</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#mechanics.DiscStress"><code class="docutils literal notranslate"><span class="pre">DiscStress</span></code></a><ul>
+<li><a class="reference internal" href="#mechanics.DiscStress._ksigma"><code class="docutils literal notranslate"><span class="pre">DiscStress._ksigma</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">DiscStress._ksigma</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.DiscStress.compute_stress"><code class="docutils literal notranslate"><span class="pre">DiscStress.compute_stress()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mechanics.BladeStress"><code class="docutils literal notranslate"><span class="pre">BladeStress</span></code></a><ul>
+<li><a class="reference internal" href="#mechanics.BladeStress.compute_f"><code class="docutils literal notranslate"><span class="pre">BladeStress.compute_f()</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.BladeStress.compute_stress"><code class="docutils literal notranslate"><span class="pre">BladeStress.compute_stress()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mechanics.Materials"><code class="docutils literal notranslate"><span class="pre">Materials</span></code></a><ul>
+<li><a class="reference internal" href="#mechanics.Materials._name"><code class="docutils literal notranslate"><span class="pre">Materials._name</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.Materials._youngmodulus"><code class="docutils literal notranslate"><span class="pre">Materials._youngmodulus</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.Materials._poisson"><code class="docutils literal notranslate"><span class="pre">Materials._poisson</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.Materials._yieldstress"><code class="docutils literal notranslate"><span class="pre">Materials._yieldstress</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.Materials._density"><code class="docutils literal notranslate"><span class="pre">Materials._density</span></code></a></li>
+<li><a class="reference internal" href="#mechanics.Materials.get_MOS"><code class="docutils literal notranslate"><span class="pre">Materials.get_MOS()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mechanics.r"><code class="docutils literal notranslate"><span class="pre">r</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../geometry/index.html"
+                          title="previous chapter">geometry</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../compressor/index.html"
+                          title="next chapter">compressor</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/mechanics/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../compressor/index.html" title="compressor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../geometry/index.html" title="geometry"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mechanics</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, R. Fleurisson.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

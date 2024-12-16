@@ -1,0 +1,22 @@
+test
+====
+
+.. py:module:: test
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   test.Parent
+
+
+Module Contents
+---------------
+
+.. py:class:: Parent
+
+   .. py:method:: func()
+
+

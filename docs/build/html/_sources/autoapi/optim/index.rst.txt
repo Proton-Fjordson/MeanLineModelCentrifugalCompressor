@@ -1,0 +1,31 @@
+optim
+=====
+
+.. py:module:: optim
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   optim.opti
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   optim.find_optimal_compressor
+
+
+Module Contents
+---------------
+
+.. py:function:: find_optimal_compressor(arguments, *additional_args)
+
+.. py:data:: opti
+   :value: False
+
+

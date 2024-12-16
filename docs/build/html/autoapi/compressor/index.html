@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>compressor &#8212; Mean line model for centrifugal compressors or pumps 0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+    
+    <script src="../../_static/documentation_options.js?v=8dde47fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="mechanics" href="../mechanics/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../mechanics/index.html" title="mechanics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">compressor</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-compressor">
+<span id="compressor"></span><h1>compressor<a class="headerlink" href="#module-compressor" title="Link to this heading">¶</a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#compressor.N" title="compressor.N"><code class="xref py py-obj docutils literal notranslate"><span class="pre">N</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#compressor.Compressor" title="compressor.Compressor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressor</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#compressor.Volute" title="compressor.Volute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Volute</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#compressor.VanelessDiffuser" title="compressor.VanelessDiffuser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VanelessDiffuser</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#compressor.IGV" title="compressor.IGV"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IGV</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#compressor.VanedDiffuser" title="compressor.VanedDiffuser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VanedDiffuser</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#compressor.Impeller" title="compressor.Impeller"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Impeller</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.Compressor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">Compressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">massflow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tinit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Pinit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._g">
+<span class="sig-name descname"><span class="pre">_g</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9.80665</span></em><a class="headerlink" href="#compressor.Compressor._g" title="Link to this definition">¶</a></dt>
+<dd><p>Class representing the compressor.</p>
+<p>Class representing the compressor (speed, mass flow) and parts (inlet, inlet guide vane, impeller etc.)</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._parts">
+<span class="sig-name descname"><span class="pre">_parts</span></span><a class="headerlink" href="#compressor.Compressor._parts" title="Link to this definition">¶</a></dt>
+<dd><p>self explanatory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart">Compressorpart</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._massflow">
+<span class="sig-name descname"><span class="pre">_massflow</span></span><a class="headerlink" href="#compressor.Compressor._massflow" title="Link to this definition">¶</a></dt>
+<dd><p>mass flow in kg/s</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._speed">
+<span class="sig-name descname"><span class="pre">_speed</span></span><a class="headerlink" href="#compressor.Compressor._speed" title="Link to this definition">¶</a></dt>
+<dd><p>rotation speed in rad/s</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">massflow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a compressor with parts, massflow and speed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.return_speed_Hz">
+<span class="sig-name descname"><span class="pre">return_speed_Hz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.return_speed_Hz" title="Link to this definition">¶</a></dt>
+<dd><p>Return the rotation speed of the compressor in Hz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.return_speed_rpm">
+<span class="sig-name descname"><span class="pre">return_speed_rpm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.return_speed_rpm" title="Link to this definition">¶</a></dt>
+<dd><p>Return the rotation speed of the compressor in rpm (rotation per second)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">_parts</span></span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">_massflow</span></span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">_speed</span></span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._gas">
+<span class="sig-name descname"><span class="pre">_gas</span></span><a class="headerlink" href="#compressor.Compressor._gas" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor.len">
+<span class="sig-name descname"><span class="pre">len</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#compressor.Compressor.len" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._T">
+<span class="sig-name descname"><span class="pre">_T</span></span><a class="headerlink" href="#compressor.Compressor._T" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._P">
+<span class="sig-name descname"><span class="pre">_P</span></span><a class="headerlink" href="#compressor.Compressor._P" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._Tisentropic">
+<span class="sig-name descname"><span class="pre">_Tisentropic</span></span><a class="headerlink" href="#compressor.Compressor._Tisentropic" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._densities">
+<span class="sig-name descname"><span class="pre">_densities</span></span><a class="headerlink" href="#compressor.Compressor._densities" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._enthalpy">
+<span class="sig-name descname"><span class="pre">_enthalpy</span></span><a class="headerlink" href="#compressor.Compressor._enthalpy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._enthalpy_isentropic">
+<span class="sig-name descname"><span class="pre">_enthalpy_isentropic</span></span><a class="headerlink" href="#compressor.Compressor._enthalpy_isentropic" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._entropy">
+<span class="sig-name descname"><span class="pre">_entropy</span></span><a class="headerlink" href="#compressor.Compressor._entropy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._max_iteration">
+<span class="sig-name descname"><span class="pre">_max_iteration</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">50</span></em><a class="headerlink" href="#compressor.Compressor._max_iteration" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._criterion_convergence">
+<span class="sig-name descname"><span class="pre">_criterion_convergence</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-10</span></em><a class="headerlink" href="#compressor.Compressor._criterion_convergence" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._compression_ratio">
+<span class="sig-name descname"><span class="pre">_compression_ratio</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._compression_ratio" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._compression_ratio_total">
+<span class="sig-name descname"><span class="pre">_compression_ratio_total</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._compression_ratio_total" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._dh_isentropic_impeller">
+<span class="sig-name descname"><span class="pre">_dh_isentropic_impeller</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._dh_isentropic_impeller" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._dh_isentropic">
+<span class="sig-name descname"><span class="pre">_dh_isentropic</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._dh_isentropic" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._dh_total">
+<span class="sig-name descname"><span class="pre">_dh_total</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._dh_total" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._efficiency_impeller">
+<span class="sig-name descname"><span class="pre">_efficiency_impeller</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._efficiency_impeller" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._efficiency_compressor">
+<span class="sig-name descname"><span class="pre">_efficiency_compressor</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._efficiency_compressor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._power">
+<span class="sig-name descname"><span class="pre">_power</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._power" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._torque">
+<span class="sig-name descname"><span class="pre">_torque</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._torque" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._Ns">
+<span class="sig-name descname"><span class="pre">_Ns</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._Ns" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._Ds">
+<span class="sig-name descname"><span class="pre">_Ds</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Compressor._Ds" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressor._save_txt_blade">
+<span class="sig-name descname"><span class="pre">_save_txt_blade</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#compressor.Compressor._save_txt_blade" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">return_speed_Hz</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p>Simple conversion of the rotation speed of the compressor _speed from rad/s to Hz</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">return_speed_rpm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p>Simple conversion of the rotation speed of the compressor _speed from rad/s to rpm (rotation per minute)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.compute_NsDs">
+<span class="sig-name descname"><span class="pre">compute_NsDs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.compute_NsDs" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.compute_efficiencies">
+<span class="sig-name descname"><span class="pre">compute_efficiencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">withoutvolute</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.compute_efficiencies" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.initialize_thermodynamics">
+<span class="sig-name descname"><span class="pre">initialize_thermodynamics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.initialize_thermodynamics" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.save_compressor">
+<span class="sig-name descname"><span class="pre">save_compressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./DUMP</span> <span class="pre">save/'</span> <span class="pre">+</span> <span class="pre">'DUMP</span> <span class="pre">compressor'</span> <span class="pre">+</span> <span class="pre">str(time.time())</span> <span class="pre">+</span> <span class="pre">'.txt'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.save_compressor" title="Link to this definition">¶</a></dt>
+<dd><p>Method to save all data allowing to re-do the computation and save the results</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.plot_meridionalview">
+<span class="sig-name descname"><span class="pre">plot_meridionalview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_additional_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidedetails</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.plot_meridionalview" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressor.plot_3Dimpeller_convergence">
+<span class="sig-name descname"><span class="pre">plot_3Dimpeller_convergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_additional_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignoretext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjustthickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressor.plot_3Dimpeller_convergence" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.Compressorpart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">Compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">losses_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geometry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressorpart" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressorpart._varmax">
+<span class="sig-name descname"><span class="pre">_varmax</span></span><a class="headerlink" href="#compressor.Compressorpart._varmax" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressorpart._compressor">
+<span class="sig-name descname"><span class="pre">_compressor</span></span><a class="headerlink" href="#compressor.Compressorpart._compressor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressorpart._losses_models">
+<span class="sig-name descname"><span class="pre">_losses_models</span></span><a class="headerlink" href="#compressor.Compressorpart._losses_models" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Compressorpart._geometry">
+<span class="sig-name descname"><span class="pre">_geometry</span></span><a class="headerlink" href="#compressor.Compressorpart._geometry" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Compressorpart.update_thermodynamics">
+<span class="sig-name descname"><span class="pre">update_thermodynamics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Compressorpart.update_thermodynamics" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.Volute">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">Volute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Volute" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Volute._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Volute'</span></em><a class="headerlink" href="#compressor.Volute._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Volute._outlet_velocity">
+<span class="sig-name descname"><span class="pre">_outlet_velocity</span></span><a class="headerlink" href="#compressor.Volute._outlet_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Volute._h_convergence_volute">
+<span class="sig-name descname"><span class="pre">_h_convergence_volute</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#compressor.Volute._h_convergence_volute" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Volute._partindex">
+<span class="sig-name descname"><span class="pre">_partindex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#compressor.Volute._partindex" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Volute._isconverged">
+<span class="sig-name descname"><span class="pre">_isconverged</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[False,</span> <span class="pre">False]</span></em><a class="headerlink" href="#compressor.Volute._isconverged" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Volute.compute_outlet_velocity">
+<span class="sig-name descname"><span class="pre">compute_outlet_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">V4u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Volute.compute_outlet_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Volute.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Volute.solve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Volute.save_compressorpart">
+<span class="sig-name descname"><span class="pre">save_compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Volute.save_compressorpart" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">VanelessDiffuser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanelessDiffuser" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vaneless</span> <span class="pre">Diffuser'</span></em><a class="headerlink" href="#compressor.VanelessDiffuser._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser._outlet_velocity">
+<span class="sig-name descname"><span class="pre">_outlet_velocity</span></span><a class="headerlink" href="#compressor.VanelessDiffuser._outlet_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser._h_convergence_vanelessdiffuser">
+<span class="sig-name descname"><span class="pre">_h_convergence_vanelessdiffuser</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#compressor.VanelessDiffuser._h_convergence_vanelessdiffuser" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser._partindex">
+<span class="sig-name descname"><span class="pre">_partindex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#compressor.VanelessDiffuser._partindex" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser._isconverged">
+<span class="sig-name descname"><span class="pre">_isconverged</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[False,</span> <span class="pre">False]</span></em><a class="headerlink" href="#compressor.VanelessDiffuser._isconverged" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser.compute_outlet_velocity_meridional">
+<span class="sig-name descname"><span class="pre">compute_outlet_velocity_meridional</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanelessDiffuser.compute_outlet_velocity_meridional" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanelessDiffuser.solve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.VanelessDiffuser.save_compressorpart">
+<span class="sig-name descname"><span class="pre">save_compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanelessDiffuser.save_compressorpart" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.IGV">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">IGV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.IGV" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.IGV._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'IGV'</span></em><a class="headerlink" href="#compressor.IGV._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.IGV._partindex">
+<span class="sig-name descname"><span class="pre">_partindex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#compressor.IGV._partindex" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.IGV.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.IGV.solve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.IGV.save_compressorpart">
+<span class="sig-name descname"><span class="pre">save_compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.IGV.save_compressorpart" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.VanedDiffuser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">VanedDiffuser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanedDiffuser" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanedDiffuser._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'VanedDiffuser'</span></em><a class="headerlink" href="#compressor.VanedDiffuser._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.VanedDiffuser._partindex">
+<span class="sig-name descname"><span class="pre">_partindex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[5,</span> <span class="pre">6]</span></em><a class="headerlink" href="#compressor.VanedDiffuser._partindex" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.VanedDiffuser.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanedDiffuser.solve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.VanedDiffuser.save_compressorpart">
+<span class="sig-name descname"><span class="pre">save_compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.VanedDiffuser.save_compressorpart" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="compressor.Impeller">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">Impeller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compressor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Compressor()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">materials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">mechanics.Materials()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#compressor.Compressorpart" title="compressor.Compressorpart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Compressorpart</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._name">
+<span class="sig-name descname"><span class="pre">_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Impeller'</span></em><a class="headerlink" href="#compressor.Impeller._name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._inlet_velocity">
+<span class="sig-name descname"><span class="pre">_inlet_velocity</span></span><a class="headerlink" href="#compressor.Impeller._inlet_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._outlet_velocity">
+<span class="sig-name descname"><span class="pre">_outlet_velocity</span></span><a class="headerlink" href="#compressor.Impeller._outlet_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._throat_velocity">
+<span class="sig-name descname"><span class="pre">_throat_velocity</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._throat_velocity" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._Leul">
+<span class="sig-name descname"><span class="pre">_Leul</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._Leul" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._R">
+<span class="sig-name descname"><span class="pre">_R</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._R" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._tanalpha2">
+<span class="sig-name descname"><span class="pre">_tanalpha2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._tanalpha2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._h_convergence_throat">
+<span class="sig-name descname"><span class="pre">_h_convergence_throat</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#compressor.Impeller._h_convergence_throat" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._h_convergence_impeller">
+<span class="sig-name descname"><span class="pre">_h_convergence_impeller</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#compressor.Impeller._h_convergence_impeller" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._isconverged_throat">
+<span class="sig-name descname"><span class="pre">_isconverged_throat</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#compressor.Impeller._isconverged_throat" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._isconverged_impeller">
+<span class="sig-name descname"><span class="pre">_isconverged_impeller</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[False,</span> <span class="pre">False]</span></em><a class="headerlink" href="#compressor.Impeller._isconverged_impeller" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._partindex">
+<span class="sig-name descname"><span class="pre">_partindex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[2,</span> <span class="pre">3]</span></em><a class="headerlink" href="#compressor.Impeller._partindex" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._materials">
+<span class="sig-name descname"><span class="pre">_materials</span></span><a class="headerlink" href="#compressor.Impeller._materials" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._MOSdisc">
+<span class="sig-name descname"><span class="pre">_MOSdisc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._MOSdisc" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="compressor.Impeller._MOSblade">
+<span class="sig-name descname"><span class="pre">_MOSblade</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#compressor.Impeller._MOSblade" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_outlet_velocity_impeller">
+<span class="sig-name descname"><span class="pre">compute_outlet_velocity_impeller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_outlet_velocity_impeller" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the velocities of the impeller</p>
+<p>Compute the velocities of the impeller at inlet, outlet and throat using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_inlet_velocity_impeller">
+<span class="sig-name descname"><span class="pre">compute_inlet_velocity_impeller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_inlet_velocity_impeller" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the velocities of the impeller at inlet</p>
+<p>Compute the velocities of the impeller at inlet using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)
+No induced swirl considered</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_throat_velocity_impeller">
+<span class="sig-name descname"><span class="pre">compute_throat_velocity_impeller</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_throat_velocity_impeller" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the velocities of the impeller at inlet</p>
+<p>Compute the velocities of the impeller at inlet using the velocity triangle and equations from S. Parisi PhD thesis (see methods called)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_velocity_massflow">
+<span class="sig-name descname"><span class="pre">compute_velocity_massflow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'inlet'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_velocity_massflow" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the radial component of the absolute velocity</p>
+<p>Equation 2.2 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>massflow</strong> (<em>float</em>) – mass flow of the impeller</p></li>
+<li><p><strong>density</strong> (<em>float</em>) – density of the mixture or gas</p></li>
+<li><p><strong>zone</strong> (<em>str</em><em>, </em><em>optional</em>) – “inlet” or “outlet”, zone where the velocity is computed, by default “inlet”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – When using with a not valid zone, will raise the exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_slip_factor">
+<span class="sig-name descname"><span class="pre">compute_slip_factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_slip_factor" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the slip factor of the impeller</p>
+<p>Equation 2.6 to 2.8 of S. Parisi PhD thesis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Slip factor according to equation 2.6 to 2.8 of S. Parisi PhD thesis</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_relative_velocity_outlet">
+<span class="sig-name descname"><span class="pre">compute_relative_velocity_outlet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_relative_velocity_outlet" title="Link to this definition">¶</a></dt>
+<dd><p>Compute the relative speed at the outlet of the impeller</p>
+<p>Equations 2.4 to 2.9 of S. Parisi PhD thesis</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.compute_eulerianwork">
+<span class="sig-name descname"><span class="pre">compute_eulerianwork</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.compute_eulerianwork" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.update_losses">
+<span class="sig-name descname"><span class="pre">update_losses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.update_losses" title="Link to this definition">¶</a></dt>
+<dd><p>losses.IncidenceLoss(), #0
+losses.ShockLoss(), #1
+losses.DiffusionLoss(), #2
+losses.ChokingLoss(), #3
+losses.SupercriticalLoss(), #4
+losses.BladeloadingLoss(), #5
+losses.SkinfrictionLoss(), #6
+losses.ClearanceLoss(), #7
+losses.RecirculationLoss(), #8
+losses.LeakageLoss(), #9
+losses.DiscfrictionLoss() #10</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.solve" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.solve_throat">
+<span class="sig-name descname"><span class="pre">solve_throat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.solve_throat" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.solve_outlet">
+<span class="sig-name descname"><span class="pre">solve_outlet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.solve_outlet" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.get_discstress">
+<span class="sig-name descname"><span class="pre">get_discstress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.get_discstress" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the disc stress</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>float</em> – Disc stress</p></li>
+<li><p><em>float</em> – Margin of safety for the materials in comparison with the tensile yield stress</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.get_bladestress">
+<span class="sig-name descname"><span class="pre">get_bladestress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.get_bladestress" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.save_compressorpart">
+<span class="sig-name descname"><span class="pre">save_compressorpart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.save_compressorpart" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="compressor.Impeller.save_impeller_geometry">
+<span class="sig-name descname"><span class="pre">save_impeller_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_additional_lines</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./DUMP</span> <span class="pre">save/'</span> <span class="pre">+</span> <span class="pre">'Impeller</span> <span class="pre">geometry'</span> <span class="pre">+</span> <span class="pre">str(time.time())</span> <span class="pre">+</span> <span class="pre">'.txt'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjustthickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#compressor.Impeller.save_impeller_geometry" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="compressor.N">
+<span class="sig-prename descclassname"><span class="pre">compressor.</span></span><span class="sig-name descname"><span class="pre">N</span></span><a class="headerlink" href="#compressor.N" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">compressor</a><ul>
+<li><a class="reference internal" href="#attributes">Attributes</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+<li><a class="reference internal" href="#module-contents">Module Contents</a><ul>
+<li><a class="reference internal" href="#compressor.Compressor"><code class="docutils literal notranslate"><span class="pre">Compressor</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.Compressor._g"><code class="docutils literal notranslate"><span class="pre">Compressor._g</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.Compressor._parts"><code class="docutils literal notranslate"><span class="pre">Compressor._parts</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._massflow"><code class="docutils literal notranslate"><span class="pre">Compressor._massflow</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._speed"><code class="docutils literal notranslate"><span class="pre">Compressor._speed</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.__init__"><code class="docutils literal notranslate"><span class="pre">Compressor.__init__()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.return_speed_Hz"><code class="docutils literal notranslate"><span class="pre">Compressor.return_speed_Hz()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.return_speed_rpm"><code class="docutils literal notranslate"><span class="pre">Compressor.return_speed_rpm()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Compressor._parts</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Compressor._massflow</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Compressor._speed</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._gas"><code class="docutils literal notranslate"><span class="pre">Compressor._gas</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.len"><code class="docutils literal notranslate"><span class="pre">Compressor.len</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._T"><code class="docutils literal notranslate"><span class="pre">Compressor._T</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._P"><code class="docutils literal notranslate"><span class="pre">Compressor._P</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._Tisentropic"><code class="docutils literal notranslate"><span class="pre">Compressor._Tisentropic</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._densities"><code class="docutils literal notranslate"><span class="pre">Compressor._densities</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._enthalpy"><code class="docutils literal notranslate"><span class="pre">Compressor._enthalpy</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._enthalpy_isentropic"><code class="docutils literal notranslate"><span class="pre">Compressor._enthalpy_isentropic</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._entropy"><code class="docutils literal notranslate"><span class="pre">Compressor._entropy</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._max_iteration"><code class="docutils literal notranslate"><span class="pre">Compressor._max_iteration</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._criterion_convergence"><code class="docutils literal notranslate"><span class="pre">Compressor._criterion_convergence</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._compression_ratio"><code class="docutils literal notranslate"><span class="pre">Compressor._compression_ratio</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._compression_ratio_total"><code class="docutils literal notranslate"><span class="pre">Compressor._compression_ratio_total</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._dh_isentropic_impeller"><code class="docutils literal notranslate"><span class="pre">Compressor._dh_isentropic_impeller</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._dh_isentropic"><code class="docutils literal notranslate"><span class="pre">Compressor._dh_isentropic</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._dh_total"><code class="docutils literal notranslate"><span class="pre">Compressor._dh_total</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._efficiency_impeller"><code class="docutils literal notranslate"><span class="pre">Compressor._efficiency_impeller</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._efficiency_compressor"><code class="docutils literal notranslate"><span class="pre">Compressor._efficiency_compressor</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._power"><code class="docutils literal notranslate"><span class="pre">Compressor._power</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._torque"><code class="docutils literal notranslate"><span class="pre">Compressor._torque</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._Ns"><code class="docutils literal notranslate"><span class="pre">Compressor._Ns</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._Ds"><code class="docutils literal notranslate"><span class="pre">Compressor._Ds</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor._save_txt_blade"><code class="docutils literal notranslate"><span class="pre">Compressor._save_txt_blade</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Compressor.return_speed_Hz()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Compressor.return_speed_rpm()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.compute_NsDs"><code class="docutils literal notranslate"><span class="pre">Compressor.compute_NsDs()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.compute_efficiencies"><code class="docutils literal notranslate"><span class="pre">Compressor.compute_efficiencies()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.initialize_thermodynamics"><code class="docutils literal notranslate"><span class="pre">Compressor.initialize_thermodynamics()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.save_compressor"><code class="docutils literal notranslate"><span class="pre">Compressor.save_compressor()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.plot_meridionalview"><code class="docutils literal notranslate"><span class="pre">Compressor.plot_meridionalview()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressor.plot_3Dimpeller_convergence"><code class="docutils literal notranslate"><span class="pre">Compressor.plot_3Dimpeller_convergence()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.Compressorpart"><code class="docutils literal notranslate"><span class="pre">Compressorpart</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.Compressorpart._varmax"><code class="docutils literal notranslate"><span class="pre">Compressorpart._varmax</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressorpart._compressor"><code class="docutils literal notranslate"><span class="pre">Compressorpart._compressor</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressorpart._losses_models"><code class="docutils literal notranslate"><span class="pre">Compressorpart._losses_models</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressorpart._geometry"><code class="docutils literal notranslate"><span class="pre">Compressorpart._geometry</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Compressorpart.update_thermodynamics"><code class="docutils literal notranslate"><span class="pre">Compressorpart.update_thermodynamics()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.Volute"><code class="docutils literal notranslate"><span class="pre">Volute</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.Volute._name"><code class="docutils literal notranslate"><span class="pre">Volute._name</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute._outlet_velocity"><code class="docutils literal notranslate"><span class="pre">Volute._outlet_velocity</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute._h_convergence_volute"><code class="docutils literal notranslate"><span class="pre">Volute._h_convergence_volute</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute._partindex"><code class="docutils literal notranslate"><span class="pre">Volute._partindex</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute._isconverged"><code class="docutils literal notranslate"><span class="pre">Volute._isconverged</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute.compute_outlet_velocity"><code class="docutils literal notranslate"><span class="pre">Volute.compute_outlet_velocity()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute.solve"><code class="docutils literal notranslate"><span class="pre">Volute.solve()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Volute.save_compressorpart"><code class="docutils literal notranslate"><span class="pre">Volute.save_compressorpart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser._name"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._name</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser._outlet_velocity"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._outlet_velocity</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser._h_convergence_vanelessdiffuser"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._h_convergence_vanelessdiffuser</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser._partindex"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._partindex</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser._isconverged"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser._isconverged</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser.compute_outlet_velocity_meridional"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser.compute_outlet_velocity_meridional()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser.solve"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser.solve()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanelessDiffuser.save_compressorpart"><code class="docutils literal notranslate"><span class="pre">VanelessDiffuser.save_compressorpart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.IGV"><code class="docutils literal notranslate"><span class="pre">IGV</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.IGV._name"><code class="docutils literal notranslate"><span class="pre">IGV._name</span></code></a></li>
+<li><a class="reference internal" href="#compressor.IGV._partindex"><code class="docutils literal notranslate"><span class="pre">IGV._partindex</span></code></a></li>
+<li><a class="reference internal" href="#compressor.IGV.solve"><code class="docutils literal notranslate"><span class="pre">IGV.solve()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.IGV.save_compressorpart"><code class="docutils literal notranslate"><span class="pre">IGV.save_compressorpart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.VanedDiffuser"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.VanedDiffuser._name"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._name</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanedDiffuser._partindex"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser._partindex</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanedDiffuser.solve"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.solve()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.VanedDiffuser.save_compressorpart"><code class="docutils literal notranslate"><span class="pre">VanedDiffuser.save_compressorpart()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.Impeller"><code class="docutils literal notranslate"><span class="pre">Impeller</span></code></a><ul>
+<li><a class="reference internal" href="#compressor.Impeller._name"><code class="docutils literal notranslate"><span class="pre">Impeller._name</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._inlet_velocity"><code class="docutils literal notranslate"><span class="pre">Impeller._inlet_velocity</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._outlet_velocity"><code class="docutils literal notranslate"><span class="pre">Impeller._outlet_velocity</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._throat_velocity"><code class="docutils literal notranslate"><span class="pre">Impeller._throat_velocity</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._Leul"><code class="docutils literal notranslate"><span class="pre">Impeller._Leul</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._R"><code class="docutils literal notranslate"><span class="pre">Impeller._R</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._tanalpha2"><code class="docutils literal notranslate"><span class="pre">Impeller._tanalpha2</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._h_convergence_throat"><code class="docutils literal notranslate"><span class="pre">Impeller._h_convergence_throat</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._h_convergence_impeller"><code class="docutils literal notranslate"><span class="pre">Impeller._h_convergence_impeller</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._isconverged_throat"><code class="docutils literal notranslate"><span class="pre">Impeller._isconverged_throat</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._isconverged_impeller"><code class="docutils literal notranslate"><span class="pre">Impeller._isconverged_impeller</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._partindex"><code class="docutils literal notranslate"><span class="pre">Impeller._partindex</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._materials"><code class="docutils literal notranslate"><span class="pre">Impeller._materials</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._MOSdisc"><code class="docutils literal notranslate"><span class="pre">Impeller._MOSdisc</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller._MOSblade"><code class="docutils literal notranslate"><span class="pre">Impeller._MOSblade</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_outlet_velocity_impeller"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_outlet_velocity_impeller()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_inlet_velocity_impeller"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_inlet_velocity_impeller()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_throat_velocity_impeller"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_throat_velocity_impeller()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_velocity_massflow"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_velocity_massflow()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_slip_factor"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_slip_factor()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_relative_velocity_outlet"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_relative_velocity_outlet()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.compute_eulerianwork"><code class="docutils literal notranslate"><span class="pre">Impeller.compute_eulerianwork()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.update_losses"><code class="docutils literal notranslate"><span class="pre">Impeller.update_losses()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.solve"><code class="docutils literal notranslate"><span class="pre">Impeller.solve()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.solve_throat"><code class="docutils literal notranslate"><span class="pre">Impeller.solve_throat()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.solve_outlet"><code class="docutils literal notranslate"><span class="pre">Impeller.solve_outlet()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.get_discstress"><code class="docutils literal notranslate"><span class="pre">Impeller.get_discstress()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.get_bladestress"><code class="docutils literal notranslate"><span class="pre">Impeller.get_bladestress()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.save_compressorpart"><code class="docutils literal notranslate"><span class="pre">Impeller.save_compressorpart()</span></code></a></li>
+<li><a class="reference internal" href="#compressor.Impeller.save_impeller_geometry"><code class="docutils literal notranslate"><span class="pre">Impeller.save_impeller_geometry()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#compressor.N"><code class="docutils literal notranslate"><span class="pre">N</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../mechanics/index.html"
+                          title="previous chapter">mechanics</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/autoapi/compressor/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../mechanics/index.html" title="mechanics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Mean line model for centrifugal compressors or pumps 0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >API Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">compressor</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, R. Fleurisson.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>
